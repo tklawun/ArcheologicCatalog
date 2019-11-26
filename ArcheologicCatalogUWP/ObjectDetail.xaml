@@ -10,21 +10,22 @@
 
     <Grid>
         <SplitView>
-            
-            <RelativePanel Margin="56,80,820,80">
-            <TextBox x:Name="DetailTextTitle" Width="550" Header="Title" PlaceholderText="The Title" AcceptsReturn="True" Visibility="Visible" FontSize="20"/>
-            <TextBox x:Name="DetailTextBoxCode" Header="Code" PlaceholderText="The Code" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextTitle" RelativePanel.Below="DetailTextTitle" Margin="0,20,0,0" Width="200" FontSize="20"/>
-            <TextBox x:Name="DetailTextBoxTypeOfBuild" PlaceholderText="Type of build"  Header="Typ of build" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxCode" RelativePanel.Below="DetailTextBoxCode" Margin="0,20,0,0" Width="200" FontSize="20"/>
-            <TextBox x:Name="DetailTextBoxHeigth" PlaceholderText="Height" Header="Height" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxTypeOfBuild" RelativePanel.Below="DetailTextBoxTypeOfBuild" Margin="0,20,0,0" Width="200" FontSize="20"/>
-            <TextBox x:Name="DetailTextBoxWidth" PlaceholderText="Width" Header="Width" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxHeigth" RelativePanel.Below="DetailTextBoxHeigth" Margin="0,20,0,0" Width="200" FontSize="20"/>
-            <TextBox x:Name="DetailTextBoxCoordinateTyp" PlaceholderText="Typ of coordinate" Header="Typ of coordinate" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxWidth" RelativePanel.Below="DetailTextBoxWidth" Margin="0,20,0,0"  Width="200" FontSize="20" TextChanged="DetailTextBoxCoordinateTyp_TextChanged"/>
-            <TextBox x:Name="DetailTextBoxCoordinate" PlaceholderText="Coordinate" Header="Coordinate" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxCoordinateTyp" RelativePanel.Below="DetailTextBoxCoordinateTyp" Margin="0,20,0,0" Width="200" FontSize="20"/>
-            <Image x:Name="ImageSmall" 
-                   Height="100" Width="100"/>
+
+            <RelativePanel Margin="80,80,80,80">
+                <TextBox x:Name="DetailTextTitle" Margin="0,0,0,10" Header="Title" PlaceholderText="The Title" AcceptsReturn="True" Visibility="Visible" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxCode" Header="Code" PlaceholderText="The Code" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextTitle" RelativePanel.Below="DetailTextTitle" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxTypeOfBuild" PlaceholderText="Type of build"  Header="Typ of build" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxCode" RelativePanel.Below="DetailTextBoxCode" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxHeigth" PlaceholderText="Height" Header="Height" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxTypeOfBuild" RelativePanel.Below="DetailTextBoxTypeOfBuild" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxWidth" PlaceholderText="Width" Header="Width" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxHeigth" RelativePanel.Below="DetailTextBoxHeigth" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxCoordinateTyp" PlaceholderText="Typ of coordinate" Header="Typ of coordinate" AcceptsReturn="True" Visibility="Visible" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxWidth" RelativePanel.Below="DetailTextBoxWidth" Margin="0,20,0,0"  Width="200" FontSize="20" TextChanged="DetailTextBoxCoordinateTyp_TextChanged"/>
+                <TextBox x:Name="DetailTextBoxCoordinate" PlaceholderText="Coordinate" Header="Coordinate" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxCoordinateTyp" RelativePanel.Below="DetailTextBoxCoordinateTyp" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <TextBox x:Name="DetailTextBoxDescription" PlaceholderText="Coordinate" Header="Coordinate" TextAlignment="Left" RelativePanel.AlignLeftWith="DetailTextBoxCoordinate" RelativePanel.Below="DetailTextBoxCoordinate" Margin="0,20,0,0" Width="200" FontSize="20"/>
+                <Border BorderBrush="Black" BorderThickness="1" Canvas.ZIndex="1" Margin="20,20,20,20" Width="500" Height="500"  RelativePanel.Below="DetailTextTitle" RelativePanel.RightOf="DetailTextBoxCode" >
+                    <Image x:Name="ImageSmall" />
+                </Border>
 
 
-
-        </RelativePanel>
+            </RelativePanel>
         </SplitView>
 
     </Grid>
