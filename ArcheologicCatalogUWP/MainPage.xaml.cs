@@ -31,5 +31,10 @@ namespace ArcheologicCatalogUWP
         {
             this.Frame.Navigate(typeof(ObjectDetail));
         }
+
+        private void GetToListView_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ObjectList));
+        }
     }
 }

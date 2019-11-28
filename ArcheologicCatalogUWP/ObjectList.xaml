@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="ArcheologicCatalogUWP.MainPage"
+    x:Class="ArcheologicCatalogUWP.ObjectList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ArcheologicCatalogUWP"
@@ -9,9 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <GridView Margin="120,120,120,120">
-            <Button x:Name="GetToDetailView" Content="Go to Detail View" Click="GetToDetailView_Click" />
-            <Button x:Name="GetToListView" Content="Go to List View"  Click="GetToListView_Click" />
-        </GridView>
+
     </Grid>
 </Page>

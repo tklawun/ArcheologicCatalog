@@ -20,21 +20,11 @@ namespace ArcheologicCatalogUWP
     /// <summary>
     /// Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
     /// </summary>
-    public sealed partial class ObjectDetail : Page
+    public sealed partial class ObjectList : Page
     {
-        public ObjectDetail()
+        public ObjectList()
         {
             this.InitializeComponent();
-        }
-
-        private void DetailTextBoxCoordinateTyp_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //TODO: Implement missig
-        }
-
-        private void DetailTextBoxDescription_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
