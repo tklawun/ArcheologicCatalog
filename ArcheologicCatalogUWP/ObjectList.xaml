@@ -9,6 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <ListView x:Name="ListOfObjects" >
+            
 
+        </ListView>
     </Grid>
 </Page>
