@@ -10,7 +10,11 @@
 
     <Grid>
         <ListView x:Name="ListOfObjects" >
-            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/> 
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
         </ListView>
     </Grid>

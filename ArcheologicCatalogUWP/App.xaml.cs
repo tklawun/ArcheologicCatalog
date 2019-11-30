@@ -30,7 +30,10 @@ namespace ArcheologicCatalogUWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            DataPrg.InitializeDatabase();
         }
+     
 
         /// <summary>
         /// Wird aufgerufen, wenn die Anwendung durch den Endbenutzer normal gestartet wird. Weitere Einstiegspunkte
