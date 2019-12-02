@@ -14,6 +14,7 @@ namespace ArcheologicCatalogUWP
         private int height;
         private int width;
         private string typOfCoordinate;
+        private string coordinate;
         private string description;
         private string imagelink;
 
@@ -25,5 +26,6 @@ namespace ArcheologicCatalogUWP
         public string TypOfCoordinate { get => typOfCoordinate; set => typOfCoordinate = value; }
         public string Description { get => description; set => description = value; }
         public string Imagelink { get => imagelink; set => imagelink = value; }
+        public string Coordinate { get => coordinate; set => coordinate = value; }
     }
 }
