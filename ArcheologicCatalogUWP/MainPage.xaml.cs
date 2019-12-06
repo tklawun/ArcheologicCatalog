@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Data.Sqlite;
 using Microsoft.Data;
+using Windows.Storage;
 
 
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x407 dokumentiert.
@@ -28,6 +29,7 @@ namespace ArcheologicCatalogUWP
         public MainPage()
         {
             this.InitializeComponent();
+            this.FillTextblockWithAppDir();
             
         }
 
@@ -39,6 +41,15 @@ namespace ArcheologicCatalogUWP
         private void GetToListView_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ObjectList));
+        }
+
+        private void FillTextblockWithAppDir()
+        {
+            startDir.Width = ApplicationData.Current.LocalFolder.Path.Length;
+            startDir.Text = ApplicationData.Current.LocalFolder.Path;
+            startDirToolTip.Content = ApplicationData.Current.LocalFolder.Path;
+
+
         }
     }
 }

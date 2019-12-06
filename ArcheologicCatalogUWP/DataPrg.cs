@@ -93,10 +93,10 @@ namespace ArcheologicCatalogUWP
                     tableColumnsname[8] + " NVARCHAR(2048) NULL" + ")";
                     
                 SqliteCommand createTable = new SqliteCommand(tableCommand, db);
-                SqliteCommand createTable01 = new SqliteCommand(tableCommandArcheoObjectEntry);
+                //SqliteCommand createTable01 = new SqliteCommand(tableCommandArcheoObjectEntry, db);
 
                 createTable.ExecuteReader();
-                createTable01.ExecuteReader();
+                //createTable01.ExecuteReader();
             }
         }
 

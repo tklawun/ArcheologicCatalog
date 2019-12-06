@@ -12,6 +12,11 @@
         <GridView Margin="120,120,120,120">
             <Button x:Name="GetToDetailView" Content="Go to Detail View" Click="GetToDetailView_Click" />
             <Button x:Name="GetToListView" Content="Go to List View"  Click="GetToListView_Click" />
+            <TextBlock Text="TextBlock" TextWrapping="Wrap" Width="186" x:Name="startDir" ScrollViewer.HorizontalScrollMode="Enabled" Height="36">
+                  <ToolTipService.ToolTip>
+                        <ToolTip Content="Offset ToolTip." VerticalOffset="-80" x:Name="startDirToolTip"/>
+                   </ToolTipService.ToolTip>
+            </TextBlock>
         </GridView>
     </Grid>
 </Page>
