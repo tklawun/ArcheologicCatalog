@@ -12,15 +12,15 @@ class XmlData
     /// gibt XmlDocument zurück
     /// </summary>
     /// <returns>XmlDocument</returns>
-    public XmlDocument GetXmlData()
+    public XmlDocument GetXmlDocument()
     {
         XmlDocument xmlDoc = new XmlDocument();
-                       return xmlDoc;
+        return xmlDoc;
     }
     /// <summary>
     /// Setzt ein XMLDocument
     /// </summary>
-    /// <param name="xmlDocument"></param>
+    /// <param name="xmlDocument">XMLDocument</param>
     /// <returns>Setzt XmlDocument</returns>
     public Boolean  SetXmlData(XmlDocument xmlDocument)
     {
@@ -43,12 +43,11 @@ class XmlData
     public XmlDocument generateXMLDocumentFromArcheoObjectList(ArcheologicCatalogClassic.ArcheoObject[] archObj)
     {
         //todo: archObj XML Elements --> XMLDocument
+        XmlDocument xmlDoc = new XmlDocument();
+        XmlNode rootNode = xmlDoc.CreateElement("ArcheoObjectsList");
         
 
 
-        XmlDocument xmlDoc = new XmlDocument();
-
         return xmlDoc;
-
     }
  }
