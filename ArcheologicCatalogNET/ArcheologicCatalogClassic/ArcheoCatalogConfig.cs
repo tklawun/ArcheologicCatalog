@@ -16,5 +16,20 @@ namespace ArcheologicCatalogClassic
         {
             InitializeComponent();
         }
+
+        private void TextBoxCoisedDirectory_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test");
+                    }
+
+        private void TextBoxCoisedDirectory_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Test2");
+        }
+
+        private void FolderBrowserDialogImageDirectory_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
     }
 }
