@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using System.Threading.Tasks;
 using System.IO;
+using ArcheologicCatalogClassic;
 
 class XmlData
 {
@@ -40,14 +41,27 @@ class XmlData
     /// </summary>
     /// <param name="archObj"></param>
     /// <returns>gibt das XmlDocument zurück</returns>
-    public XmlDocument generateXMLDocumentFromArcheoObjectList(ArcheologicCatalogClassic.ArcheoObject[] archObj)
+    public XmlDocument generateXMLDocumentFromArcheoObjectList(ArcheologicCatalogClassic.ArcheoObject[] archObjCol)
     {
-        //todo: archObj XML Elements --> XMLDocument
+        //todo: archObjCol XML Elements --> XMLDocument
         XmlDocument xmlDoc = new XmlDocument();
         XmlNode rootNode = xmlDoc.CreateElement("ArcheoObjectsList");
+        xmlDoc.AppendChild(rootNode);
         
+        foreach (ArcheoObject archeoObject in archObjCol)
+        {
+            XmlNode archeoNode = xmlDoc.CreateElement("ArcheoObject");
+            XmlAttribute codeAttribute = xmlDoc.CreateAttribute("code");
+            
+            codeAttribute.InnerText = archeoObject.GetCode();
+            archeoNode.Attributes.Append(codeAttribute);
+            XmlNode title = xmlDoc.CreateElement("titel");
+            title.InnerText = archeoObject.GetTitle();
+            rootNode.AppendChild(archeoNode);
 
+        }
 
+        
         return xmlDoc;
     }
  }

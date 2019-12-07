@@ -19,15 +19,146 @@ namespace ArcheologicCatalogClassic
         private string description;
         private string imagelink;
 
-        public string Title { get => title; set => title = value; }
-        public string Code { get => code; set => code = value; }
-        public string TypOfBuild { get => typOfBuild; set => typOfBuild = value; }
-        public int Height { get => height; set => height = value; }
-        public int Width { get => width; set => width = value; }
-        public string TypOfCoordinate { get => typOfCoordinate; set => typOfCoordinate = value; }
-        public string Description { get => description; set => description = value; }
-        public string Imagelink { get => imagelink; set => imagelink = value; }
-        public string Coordinate { get => coordinate; set => coordinate = value; }
-        public int Depth { get => depth; set => depth = value; }
+        public string GetTitle()
+        {
+             return title;
+        }
+
+        public void SetTitle(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                title = "null";
+            }
+            { 
+                title = value;
+            }
+        }
+
+        public string GetCode()
+        {
+            return code;
+        }
+
+        public void SetCode(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { code = "null"; }
+            {
+                code = value;
+            }
+        }
+
+        public string GetTypOfBuild()
+        {
+            return typOfBuild;
+        }
+
+        public void SetTypOfBuild(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { typOfBuild = "null"; }
+            {
+                typOfBuild = value;
+            }
+        }
+
+        public int GetHeight()
+        {
+            return height;
+        }
+
+        public void SetHeight(int value)
+        {
+            if (string.IsNullOrEmpty(value.ToString()))
+            { height = 0; }
+            {
+                height = value;
+            }
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
+
+        public void SetWidth(int value)
+        {
+            if (string.IsNullOrEmpty(value.ToString()))
+            { width = 0; }
+            {
+                width = value;
+            }
+        }
+
+        public string GetTypOfCoordinate()
+        {
+            return typOfCoordinate;
+        }
+
+        public void SetTypOfCoordinate(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { typOfCoordinate = "null"; }
+            {
+                typOfCoordinate = value;
+            }
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
+
+        public void SetDescription(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { description = "null"; }
+            {
+                description = value;
+            }
+        }
+
+        public string GetImagelink()
+        {
+            return imagelink;
+        }
+
+        public void SetImagelink(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { imagelink = "null"; }
+            {
+                imagelink = value;
+            }
+        }
+
+        public string GetCoordinate()
+        {
+            return coordinate;
+        }
+
+        public void SetCoordinate(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            { coordinate = "null"; }
+            {
+                coordinate = value;
+            }
+        }
+
+        public int GetDepth()
+        {
+            return depth;
+        }
+
+        public void SetDepth(int value)
+        {
+            if (string.IsNullOrEmpty(value.ToString()))
+            { depth = 0; }
+            {
+                depth = value;
+            }
+        }
     }
 }
