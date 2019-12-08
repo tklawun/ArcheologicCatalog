@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Collections;
 
 namespace ArcheologicCatalogClassic
 {
@@ -28,7 +30,8 @@ namespace ArcheologicCatalogClassic
         {
             ArcheoCatalogDetail detail = new ArcheoCatalogDetail();
             XmlData xmld = new XmlData();
-            ArcheoObject[] archeObjCol = new ArcheoObject[2];
+            ArrayList archeObjCol = new ArrayList();
+            
             ArcheoObject archObj = new ArcheoObject();
             archObj.SetCode("Test1");
             archObj.SetTitle("Test1Titel");
@@ -37,14 +40,19 @@ namespace ArcheologicCatalogClassic
             archObj.SetDepth(100);
             archObj.SetDescription("Teste das erste Object");
 
-            archeObjCol.Append(archObj);
-            xmld.generateXMLDocumentFromArcheoObjectList(archeObjCol);
+            archeObjCol.Add(archObj);
+            XmlDocument xmldoc = xmld.GenerateXMLDocumentFromArcheoObjectList(archeObjCol);
+            string eigeneFiles = Environment.GetEnvironmentVariable("UserProfile");
+            eigeneFiles += "\\Documents\\Test.xml";
+            xmld.SaveXMLDocumentAsFile(xmldoc, eigeneFiles);
+            
             detail.setTitle(archObj.GetTitle());
             detail.setCode(archObj.GetCode());
             detail.setHeight(archObj.GetHeight().ToString());
             detail.setWidth(archObj.GetWidth().ToString());
             detail.setDescription(archObj.GetDescription());
             detail.Show();
+            
         }
     }
 }

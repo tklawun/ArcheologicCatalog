@@ -18,6 +18,23 @@ namespace ArcheologicCatalogClassic
         private string coordinate;
         private string description;
         private string imagelink;
+        private string particularities;
+
+        public string GetParticularities()
+        {
+            return particularities;
+        }
+
+        public void SetParticularities(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                particularities = "null";
+            }
+            { 
+                particularities = value;
+            }
+        }
 
         public string GetTitle()
         {
@@ -49,7 +66,7 @@ namespace ArcheologicCatalogClassic
             }
         }
 
-        public string GetTypOfBuild()
+        public string GetTypeOfBuild()
         {
             return typOfBuild;
         }
@@ -91,7 +108,7 @@ namespace ArcheologicCatalogClassic
             }
         }
 
-        public string GetTypOfCoordinate()
+        public string GetTypeOfCoordinate()
         {
             return typOfCoordinate;
         }
@@ -160,5 +177,7 @@ namespace ArcheologicCatalogClassic
                 depth = value;
             }
         }
+
+        
     }
 }
