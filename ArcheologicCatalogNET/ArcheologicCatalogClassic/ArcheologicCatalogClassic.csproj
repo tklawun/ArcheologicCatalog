@@ -65,6 +65,8 @@
       <DependentUpon>ArcheoCatalogList.cs</DependentUpon>
     </Compile>
     <Compile Include="ArcheoObject.cs" />
+    <Compile Include="ProgramStartAndEnd.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="XmlData.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -94,6 +96,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

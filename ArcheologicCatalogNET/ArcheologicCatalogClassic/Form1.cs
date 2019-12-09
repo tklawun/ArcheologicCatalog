@@ -14,9 +14,34 @@ namespace ArcheologicCatalogClassic
 {
     public partial class Form1 : Form
     {
+        private string AppDataPfad;
+        private string DataXMLFile;
+
+
         public Form1()
         {
+            ProgramStartAndEnd prgStartAndEnd = new ProgramStartAndEnd();
             InitializeComponent();
+        }
+
+        public string GetAppDataPfad()
+        {
+            return AppDataPfad;
+        }
+
+        public void SetAppDataPfad(string value)
+        {
+            AppDataPfad = value;
+        }
+
+        public string GetDataXMLFile()
+        {
+            return DataXMLFile;
+        }
+
+        public void SetDataXMLFile(string value)
+        {
+            DataXMLFile = value;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,6 +53,7 @@ namespace ArcheologicCatalogClassic
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             ArcheoCatalogDetail detail = new ArcheoCatalogDetail();
             XmlData xmld = new XmlData();
             ArrayList archeObjCol = new ArrayList();

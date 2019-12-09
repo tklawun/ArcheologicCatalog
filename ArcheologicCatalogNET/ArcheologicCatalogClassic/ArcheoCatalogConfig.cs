@@ -31,5 +31,17 @@ namespace ArcheologicCatalogClassic
         {
 
         }
+
+        private void buttonChoisPicDir_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialogImageDirectory.ShowDialog() == DialogResult.OK)
+            {
+                textBoxChoisedDirectory.Text = folderBrowserDialogImageDirectory.SelectedPath;
+                //Write to Registry
+                string wiesolldasgehen = textBoxChoisedDirectory.Text;
+
+                
+            }
+        }
     }
 }

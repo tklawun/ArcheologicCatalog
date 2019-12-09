@@ -46,6 +46,23 @@ class XmlData
         }
        
     }
+
+    public XmlDocument ReadXMLDocumentFromFile (string xmlFilePath)
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+
+        try
+        {
+            xmlDoc.Load(xmlFilePath);
+        }
+        catch (Exception)
+        {
+            //Todo: Ausnahme behandeln
+            throw;
+        }
+
+        return xmlDoc;
+    }
     /// <summary>
     /// Baut aus der Liste von ArcheoObjecten ein XmlDocument
     /// </summary>
