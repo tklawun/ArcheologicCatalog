@@ -14,34 +14,14 @@ namespace ArcheologicCatalogClassic
 {
     public partial class Form1 : Form
     {
-        private string AppDataPfad;
-        private string DataXMLFile;
-
+        private ArrayList ArcheoObjCol;
 
         public Form1()
         {
-            ProgramStartAndEnd prgStartAndEnd = new ProgramStartAndEnd();
+            ProgramCtl prgCtl = new ProgramCtl();
+            prgCtl.Start();
+            ArcheoObjCol = prgCtl.SetArcheoObjCol();
             InitializeComponent();
-        }
-
-        public string GetAppDataPfad()
-        {
-            return AppDataPfad;
-        }
-
-        public void SetAppDataPfad(string value)
-        {
-            AppDataPfad = value;
-        }
-
-        public string GetDataXMLFile()
-        {
-            return DataXMLFile;
-        }
-
-        public void SetDataXMLFile(string value)
-        {
-            DataXMLFile = value;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,6 +59,13 @@ namespace ArcheologicCatalogClassic
             detail.setDescription(archObj.GetDescription());
             detail.Show();
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProgramCtl prgCtl = new ProgramCtl();
+
+            prgCtl.SetArcheoObjCol();
         }
     }
 }

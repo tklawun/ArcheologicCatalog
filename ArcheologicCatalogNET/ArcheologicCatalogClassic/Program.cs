@@ -16,20 +16,8 @@ namespace ArcheologicCatalogClassic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+     
             Application.Run(new Form1());
         }
-
-        public void ReadSettings()
-        {
-
-        }
-
-        public void WriteSettings()
-        {
-
-        }
-
-        public void 
-
     }
 }

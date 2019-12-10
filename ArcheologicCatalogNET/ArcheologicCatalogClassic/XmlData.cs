@@ -10,24 +10,23 @@ using System.Collections;
 
 class XmlData
 {
-    /// <summary>
-    /// gibt XmlDocument zurück
-    /// </summary>
-    /// <returns>XmlDocument</returns>
-    public XmlDocument GetXmlDocument()
+    public void InitializeXMLFile(string xmlFilePath)
     {
         XmlDocument xmlDoc = new XmlDocument();
-        return xmlDoc;
+        XmlNode rootNode = xmlDoc.CreateElement("ArcheoObjectsList");
+        xmlDoc.AppendChild(rootNode);
+        try
+        {
+            xmlDoc.Save(xmlFilePath);
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Failure: Application Datafile doesnt saved!");
+            throw;
+        }
+        
     }
-    /// <summary>
-    /// Setzt ein XMLDocument
-    /// </summary>
-    /// <param name="xmlDocument">XMLDocument</param>
-    /// <returns>Setzt XmlDocument</returns>
-    public Boolean  SetXmlData(XmlDocument xmlDocument)
-    {
-        return false;
-    }
+ 
     /// <summary>
     /// Speichert das XmlDocument als File in das angebene Datei
     /// </summary>
@@ -57,7 +56,7 @@ class XmlData
         }
         catch (Exception)
         {
-            //Todo: Ausnahme behandeln
+            Console.WriteLine("Failure: File not exists!");
             throw;
         }
 
@@ -128,5 +127,19 @@ class XmlData
         }
         xmlDoc.AppendChild(rootNode);
         return xmlDoc;
+    }
+
+    public ArrayList GetArcheoObjColFromXMLDoc(XmlDocument xmlDoc)
+    {
+        ArrayList archeoObjCol = new ArrayList();
+        
+        XmlNodeList elemList = xmlDoc.GetElementsByTagName("ArcheoObject");
+        for (int i = 0; i < elemList.Count; i++)
+        {
+            
+            Console.WriteLine(elemList[i].InnerXml);
+        }
+
+        return archeoObjCol;
     }
  }

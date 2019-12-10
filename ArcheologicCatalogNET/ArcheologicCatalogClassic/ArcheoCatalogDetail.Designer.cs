@@ -49,6 +49,7 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxParticularities = new System.Windows.Forms.TextBox();
             this.pictureBoxObject = new System.Windows.Forms.PictureBox();
+            this.buttonSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxObject)).BeginInit();
             this.SuspendLayout();
             // 
@@ -253,11 +254,22 @@
             this.pictureBoxObject.TabIndex = 20;
             this.pictureBoxObject.TabStop = false;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(537, 804);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 21;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // ArcheoCatalogDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 883);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.pictureBoxObject);
             this.Controls.Add(this.textBoxParticularities);
             this.Controls.Add(this.textBoxDescription);
@@ -312,5 +324,6 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.TextBox textBoxParticularities;
         private System.Windows.Forms.PictureBox pictureBoxObject;
+        private System.Windows.Forms.Button buttonSave;
     }
 }
