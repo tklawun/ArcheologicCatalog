@@ -39,13 +39,16 @@ namespace ArcheologicCatalogClassic
             // 
             // listViewArcheoObjects
             // 
+            this.listViewArcheoObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewArcheoObjects.HideSelection = false;
-            this.listViewArcheoObjects.Location = new System.Drawing.Point(32, 97);
+            this.listViewArcheoObjects.Location = new System.Drawing.Point(32, 67);
             this.listViewArcheoObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listViewArcheoObjects.MultiSelect = false;
             this.listViewArcheoObjects.Name = "listViewArcheoObjects";
             this.listViewArcheoObjects.ShowItemToolTips = true;
-            this.listViewArcheoObjects.Size = new System.Drawing.Size(1132, 542);
+            this.listViewArcheoObjects.Size = new System.Drawing.Size(1132, 572);
             this.listViewArcheoObjects.TabIndex = 0;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
             this.listViewArcheoObjects.View = System.Windows.Forms.View.List;
@@ -54,6 +57,7 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonChangeListView
             // 
+            this.buttonChangeListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonChangeListView.Location = new System.Drawing.Point(42, 648);
             this.buttonChangeListView.Name = "buttonChangeListView";
             this.buttonChangeListView.Size = new System.Drawing.Size(75, 32);
@@ -64,6 +68,7 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonListViewDetails
             // 
+            this.buttonListViewDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonListViewDetails.Location = new System.Drawing.Point(123, 648);
             this.buttonListViewDetails.Name = "buttonListViewDetails";
             this.buttonListViewDetails.Size = new System.Drawing.Size(75, 32);
@@ -74,9 +79,10 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonChangeSmallIcon
             // 
+            this.buttonChangeSmallIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonChangeSmallIcon.Location = new System.Drawing.Point(204, 648);
             this.buttonChangeSmallIcon.Name = "buttonChangeSmallIcon";
-            this.buttonChangeSmallIcon.Size = new System.Drawing.Size(113, 32);
+            this.buttonChangeSmallIcon.Size = new System.Drawing.Size(97, 32);
             this.buttonChangeSmallIcon.TabIndex = 3;
             this.buttonChangeSmallIcon.Text = "Small-Icon";
             this.buttonChangeSmallIcon.UseVisualStyleBackColor = true;
@@ -84,7 +90,8 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonChangeLargeIcon
             // 
-            this.buttonChangeLargeIcon.Location = new System.Drawing.Point(323, 647);
+            this.buttonChangeLargeIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonChangeLargeIcon.Location = new System.Drawing.Point(307, 648);
             this.buttonChangeLargeIcon.Name = "buttonChangeLargeIcon";
             this.buttonChangeLargeIcon.Size = new System.Drawing.Size(113, 32);
             this.buttonChangeLargeIcon.TabIndex = 4;
@@ -96,7 +103,7 @@ namespace ArcheologicCatalogClassic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1200, 697);
             this.Controls.Add(this.buttonChangeLargeIcon);
             this.Controls.Add(this.buttonChangeSmallIcon);
             this.Controls.Add(this.buttonListViewDetails);

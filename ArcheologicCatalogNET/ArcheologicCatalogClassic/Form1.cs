@@ -12,13 +12,13 @@ using System.Collections;
 
 namespace ArcheologicCatalogClassic
 {
-    public partial class Form1 : Form
+    public partial class ArcheoObjectStart : Form
     {
         private ArrayList ArcheoObjCol;
-
-        public Form1()
+        private ProgramCtl prgCtl;
+        public ArcheoObjectStart()
         {
-            ProgramCtl prgCtl = new ProgramCtl();
+            prgCtl = new ProgramCtl();
             prgCtl.Start();
             ArcheoObjCol = prgCtl.SetArcheoObjCol();
             InitializeComponent();
@@ -26,8 +26,11 @@ namespace ArcheologicCatalogClassic
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ArcheoCatalogList list = new ArcheoCatalogList();
 
+            //Todo: Sample Entries..... 
+            ArcheoCatalogList list = new ArcheoCatalogList(ArcheoObjCol);
+
+            list.setListView(ArcheoObjCol);
             list.AddListWithEntries("test", "testImage");
             list.AddListWithEntries("test", "testImage");
             list.AddListWithEntries("test", "testImage");

@@ -35,6 +35,19 @@ namespace ArcheologicCatalogClassic
             listViewArcheoObjects.Items.Add(code);
         }
 
+        internal void setListView(ArrayList archeoObjCol)
+        {
+            int ListLenght = archeoObjCol.Count;
+            //todo: Generiere die ListView mit Images..... 
+            int i = 0;
+            foreach(ArcheoObject archObj in archeoObjCol)
+            {
+                listViewArcheoObjects.Items.Add(archObj.GetCode(),i);
+                i++;
+            }
+            //throw new NotImplementedException();
+        }
+
         private void buttonChangeListView_Click(object sender, EventArgs e)
         {
             listViewArcheoObjects.View = View.List;
