@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +14,53 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogList : Form
     {
+        ArrayList archeoObjColl = new ArrayList();
         public ArcheoCatalogList()
         {
             InitializeComponent();
+        }
+
+        public ArcheoCatalogList(ArrayList archeoObjCol)
+        {
+            archeoObjColl = archeoObjCol;
+            InitializeComponent();
+        }
+
+        public void AddListWithEntries(string code, string imagePath)
+        {
+            //ImageList imageList1 = new ImageList();
+            DirectoryInfo dir = new DirectoryInfo(imagePath);
+
+  //listViewArcheoObjects.
+            listViewArcheoObjects.Items.Add(code);
+        }
+
+        private void buttonChangeListView_Click(object sender, EventArgs e)
+        {
+            listViewArcheoObjects.View = View.List;
+        }
+
+        private void buttonListViewDetails_Click(object sender, EventArgs e)
+        {
+            listViewArcheoObjects.View = View.Details;
+        }
+
+        private void buttonChangeSmallIcon_Click(object sender, EventArgs e)
+        {
+            listViewArcheoObjects.View = View.SmallIcon;
+        }
+
+        private void buttonChangeLargeIcon_Click(object sender, EventArgs e)
+        {
+            listViewArcheoObjects.View = View.LargeIcon;
+        }
+
+        private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
+            string code = selectedItem.Text;
+            ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(archeoObjColl, code);
+            archeoDetail.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,23 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogDetail : Form
     {
+        ArrayList archeoObjColl = new ArrayList();
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
         }
+        public ArcheoCatalogDetail(ArrayList archeoObjCol)
+        {
+            archeoObjColl = archeoObjCol;
+            InitializeComponent();
+        }
 
+        public ArcheoCatalogDetail(ArrayList archeoObjCol, string code)
+        {
+            archeoObjColl = archeoObjCol;
+            //Todo: Select das Element mit dem Code
+            InitializeComponent();
+        }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {
 
@@ -72,11 +85,11 @@ namespace ArcheologicCatalogClassic
 
         }
 
-public void setTitle (string title)
+        public void setTitle(string title)
         {
             textBoxTitle.Text = title;
-          }
-  public  string getTitle()
+        }
+        public string getTitle()
         {
             return textBoxTitle.Text;
         }

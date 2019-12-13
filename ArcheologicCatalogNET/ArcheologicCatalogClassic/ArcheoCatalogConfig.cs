@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace ArcheologicCatalogClassic
 {
@@ -15,21 +16,13 @@ namespace ArcheologicCatalogClassic
         public ArcheoCatalogConfig()
         {
             InitializeComponent();
+            RegCtl regctl = new RegCtl();
+            textBoxChoisedDirectory.Text = regctl.GetPathForPictureFolderIntoRegistry();
         }
-
-        private void TextBoxCoisedDirectory_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Test");
-                    }
 
         private void TextBoxCoisedDirectory_DoubleClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Test2");
-        }
-
-        private void FolderBrowserDialogImageDirectory_HelpRequest(object sender, EventArgs e)
-        {
-
+            buttonChoisPicDir_Click(null, null);
         }
 
         private void buttonChoisPicDir_Click(object sender, EventArgs e)
@@ -37,10 +30,9 @@ namespace ArcheologicCatalogClassic
             if (folderBrowserDialogImageDirectory.ShowDialog() == DialogResult.OK)
             {
                 textBoxChoisedDirectory.Text = folderBrowserDialogImageDirectory.SelectedPath;
-                //Write to Registry
-                string wiesolldasgehen = textBoxChoisedDirectory.Text;
-
-                
+                //Todo: Write to Registry
+                RegCtl regctl = new RegCtl();
+                regctl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
             }
         }
     }

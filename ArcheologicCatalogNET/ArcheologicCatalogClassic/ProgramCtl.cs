@@ -29,6 +29,9 @@ namespace ArcheologicCatalogClassic
                 Console.WriteLine("Alert: Failure by Application Path handling");
                 throw;
             }
+            
+            ArrayList archeoObj = SetArcheoObjCol();
+
         }
         /// <summary>
         /// gibt als String den Pfad des XML File zurück
