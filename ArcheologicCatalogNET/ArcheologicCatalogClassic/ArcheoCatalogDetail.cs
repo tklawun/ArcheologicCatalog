@@ -189,6 +189,7 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetTypOfCoordinate(getTypeOfCoordinate());
             archeoObj.SetWidth(int.Parse(getWidth()));
             archeoObj.SetParticularities(getParticularities());
+            prgCtlObj.AddArcheoObjectToCol(archeoObj);
         }
 
         private string getImageLink()
