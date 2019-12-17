@@ -30,7 +30,7 @@ namespace ArcheologicCatalogClassic
             //Todo: Sample Entries..... 
             ArcheoCatalogList list = new ArcheoCatalogList(ArcheoObjCol);
 
-            list.setListView(ArcheoObjCol);
+            list.SetListView(ArcheoObjCol);
             list.AddListWithEntries("test", "testImage");
             list.AddListWithEntries("test", "testImage");
             list.AddListWithEntries("test", "testImage");

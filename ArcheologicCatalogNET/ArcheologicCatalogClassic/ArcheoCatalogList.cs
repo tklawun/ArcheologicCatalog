@@ -31,11 +31,11 @@ namespace ArcheologicCatalogClassic
             //ImageList imageList1 = new ImageList();
             DirectoryInfo dir = new DirectoryInfo(imagePath);
 
-  //listViewArcheoObjects.
             listViewArcheoObjects.Items.Add(code);
+
         }
 
-        internal void setListView(ArrayList archeoObjCol)
+        internal void SetListView(ArrayList archeoObjCol)
         {
             int ListLenght = archeoObjCol.Count;
             //todo: Generiere die ListView mit Images..... 

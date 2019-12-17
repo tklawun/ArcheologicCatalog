@@ -258,7 +258,7 @@
             // 
             this.buttonSave.Location = new System.Drawing.Point(537, 804);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.Size = new System.Drawing.Size(75, 37);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;

@@ -12,7 +12,7 @@ namespace ArcheologicCatalogClassic
     {
         private string applicationPath;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
-
+        private ArrayList archeoObjectCol;
         public void Start()
         {
             applicationPath = Environment.GetEnvironmentVariable("OneDriveConsumer") + "\\ArcheoCatalog";
@@ -56,8 +56,14 @@ namespace ArcheologicCatalogClassic
         {
             XmlData xmlData = new XmlData();
 
-            ArrayList archeoObjCol = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
-            return archeoObjCol;
+            archeoObjectCol = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
+            return archeoObjectCol;
         }
+        public void AddArcheoObjectToCol(ArcheoObject archeoObj)
+        {
+            archeoObjectCol.Add(archeoObj);
+
+        }
+
     }
 }

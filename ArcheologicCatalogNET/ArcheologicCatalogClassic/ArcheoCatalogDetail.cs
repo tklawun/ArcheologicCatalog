@@ -13,13 +13,21 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogDetail : Form
     {
-        ArrayList archeoObjColl = new ArrayList();
+        private ArrayList archeoObjColl = new ArrayList();
+        private ProgramCtl prgCtlObj;
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
         }
         public ArcheoCatalogDetail(ArrayList archeoObjCol)
         {
+            archeoObjColl = archeoObjCol;
+            InitializeComponent();
+        }
+        public ArcheoCatalogDetail(
+            ProgramCtl prgCtl, ArrayList archeoObjCol)
+        {
+            prgCtlObj = prgCtl;
             archeoObjColl = archeoObjCol;
             InitializeComponent();
         }
@@ -169,7 +177,25 @@ namespace ArcheologicCatalogClassic
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj.SetCode(getCode());
+            archeoObj.SetCoordinate(getCoordinate());
+            archeoObj.SetDepth(int.Parse(getDepth()));
+            archeoObj.SetDescription(getDescription());
+            archeoObj.SetHeight(int.Parse(getHeight()));
+            archeoObj.SetImagelink(getImageLink());
+            archeoObj.SetTitle(getTitle());
+            archeoObj.SetTypOfBuild(getTypeOfBuild());
+            archeoObj.SetTypOfCoordinate(getTypeOfCoordinate());
+            archeoObj.SetWidth(int.Parse(getWidth()));
+            archeoObj.SetParticularities(getParticularities());
+        }
 
+        private string getImageLink()
+        {
+            //Todo: Link irgendwie reinbringen
+            return "Dies ist irgendwie noch ein Test.";
+            //throw new NotImplementedException();
         }
     }
 }
