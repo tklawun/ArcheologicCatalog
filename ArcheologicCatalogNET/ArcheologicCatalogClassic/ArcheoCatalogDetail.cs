@@ -13,29 +13,30 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogDetail : Form
     {
-        private ArrayList archeoObjColl = new ArrayList();
+
         private ProgramCtl prgCtlObj;
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
         }
-        public ArcheoCatalogDetail(ArrayList archeoObjCol)
-        {
-            archeoObjColl = archeoObjCol;
-            InitializeComponent();
-        }
-        public ArcheoCatalogDetail(
-            ProgramCtl prgCtl, ArrayList archeoObjCol)
-        {
-            prgCtlObj = prgCtl;
-            archeoObjColl = archeoObjCol;
-            InitializeComponent();
-        }
 
-        public ArcheoCatalogDetail(ArrayList archeoObjCol, string code)
+        public ArcheoCatalogDetail(ProgramCtl programControl, string code)
         {
-            archeoObjColl = archeoObjCol;
+            prgCtlObj = programControl;
+
+            ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj = prgCtlObj.GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code
+            setTitle(archeoObj.GetTitle());
+            setCode(archeoObj.GetCode());
+            setWidth(archeoObj.GetWidth().ToString());
+            setHeight(archeoObj.GetHeight().ToString());
+            setDepth(archeoObj.GetDepth().ToString());
+            setDescription(archeoObj.GetDescription());
+            setCoordinate(archeoObj.GetCoordinate());
+            setParticularities(archeoObj.GetParticularities());
+            setTypeOfBuild(archeoObj.GetTypeOfBuild());
+            setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
             InitializeComponent();
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
@@ -174,29 +175,18 @@ namespace ArcheologicCatalogClassic
         {
             return textBoxParticularities.Text;
         }
-
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            ArcheoObject archeoObj = new ArcheoObject();
-            archeoObj.SetCode(getCode());
-            archeoObj.SetCoordinate(getCoordinate());
-            archeoObj.SetDepth(int.Parse(getDepth()));
-            archeoObj.SetDescription(getDescription());
-            archeoObj.SetHeight(int.Parse(getHeight()));
-            archeoObj.SetImagelink(getImageLink());
-            archeoObj.SetTitle(getTitle());
-            archeoObj.SetTypOfBuild(getTypeOfBuild());
-            archeoObj.SetTypOfCoordinate(getTypeOfCoordinate());
-            archeoObj.SetWidth(int.Parse(getWidth()));
-            archeoObj.SetParticularities(getParticularities());
-            prgCtlObj.AddArcheoObjectToCol(archeoObj);
-        }
-
         private string getImageLink()
         {
             //Todo: Link irgendwie reinbringen
             return "Dies ist irgendwie noch ein Test.";
             //throw new NotImplementedException();
         }
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            
+           prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getParticularities());
+        }
+
+
     }
 }

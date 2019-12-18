@@ -15,6 +15,9 @@ namespace ArcheologicCatalogClassic
     public partial class ArcheoCatalogList : Form
     {
         ArrayList archeoObjColl = new ArrayList();
+
+        internal ProgramCtl prgCtl { get; private set; }
+
         public ArcheoCatalogList()
         {
             InitializeComponent();
@@ -23,6 +26,11 @@ namespace ArcheologicCatalogClassic
         public ArcheoCatalogList(ArrayList archeoObjCol)
         {
             archeoObjColl = archeoObjCol;
+            InitializeComponent();
+        }
+        public ArcheoCatalogList(ProgramCtl programControl)
+        {
+            prgCtl = programControl;
             InitializeComponent();
         }
 
@@ -72,7 +80,9 @@ namespace ArcheologicCatalogClassic
         {
             ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
             string code = selectedItem.Text;
-            ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(archeoObjColl, code);
+            
+            ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this.prgCtl, code);
+          
             archeoDetail.Show();
         }
     }

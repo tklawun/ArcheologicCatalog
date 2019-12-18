@@ -8,11 +8,15 @@ using System.Windows.Forms;
 using System.Xml;
 namespace ArcheologicCatalogClassic
 {
-    class ProgramCtl
+    public class ProgramCtl
     {
         private string applicationPath;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
+        public ProgramCtl()
+        {
+            Start();
+        }
         public void Start()
         {
             applicationPath = Environment.GetEnvironmentVariable("OneDriveConsumer") + "\\ArcheoCatalog";
@@ -27,10 +31,11 @@ namespace ArcheologicCatalogClassic
             catch (Exception)
             {
                 Console.WriteLine("Alert: Failure by Application Path handling");
+
                 throw;
             }
-            
-            ArrayList archeoObj = SetArcheoObjCol();
+
+            archeoObjectCol = SetArcheoObjCol();
 
         }
         /// <summary>
@@ -49,15 +54,17 @@ namespace ArcheologicCatalogClassic
         }
 
         /// <summary>
-        /// liest das XML Data File aus und gibt ein ArrayList mit diesem zurück.
+        /// liest das XML Data File aus und gibt ein ArrayList mit den Einträgen zurück.
         /// </summary>
         /// <returns></returns>
         public ArrayList SetArcheoObjCol()
         {
             XmlData xmlData = new XmlData();
 
-            archeoObjectCol = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
+            ArrayList archeoObjectCol = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
             return archeoObjectCol;
+
+
         }
         public void AddArcheoObjectToCol(ArcheoObject archeoObj)
         {
@@ -65,5 +72,50 @@ namespace ArcheologicCatalogClassic
 
         }
 
+        public void AddArcheoObjectToCol(string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string particularities)
+        {
+            ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj.SetTitle(title);
+            archeoObj.SetCode(code);
+            archeoObj.SetTypOfBuild(typOfBuild);
+            archeoObj.SetHeight(int.Parse(height));
+            archeoObj.SetWidth(int.Parse(width));
+            archeoObj.SetDepth(int.Parse(depth));
+            archeoObj.SetTypOfCoordinate(typOfCoordinate);
+            archeoObj.SetCoordinate(coordinate);
+            archeoObj.SetDescription(description);
+            archeoObj.SetImagelink(imagelink);
+            archeoObj.SetParticularities(particularities);
+            archeoObjectCol.Add(archeoObj);
+
+        }
+
+        public ArcheoObject GetArcheoObjFromCol(string code)
+        {
+            foreach (ArcheoObject item in archeoObjectCol)
+            {
+                if (item.GetCode().Equals(code))
+                {
+                    return item;
+
+                }
+            }
+            return null;
+        }
+
+        public ArcheoObject GetArcheoObjFirstFromCol()
+        {
+
+            //Todo Das erste Element aus dem ArrayList zurückgeben
+            int anzahl = archeoObjectCol.Count;
+            if (anzahl < 1)
+            {
+                return null;
+            }
+            {
+             //   return archeoObjectCol[1];
+            }
+            //throw new NotImplementedException();
+        }
     }
 }

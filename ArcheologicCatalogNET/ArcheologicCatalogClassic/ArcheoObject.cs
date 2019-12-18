@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArcheologicCatalogClassic
 {
-    class ArcheoObject
+    public class ArcheoObject
     {
         private string title;
         private string code;
