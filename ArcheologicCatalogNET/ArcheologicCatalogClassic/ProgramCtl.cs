@@ -113,7 +113,8 @@ namespace ArcheologicCatalogClassic
                 return null;
             }
             {
-                ArcheoObject v = archeoObjectCol[0];
+                Object v = archeoObjectCol[0];
+                ArcheoObject archObj = < ArcheoObject > v;
                 return v;
             }
             //throw new NotImplementedException();
