@@ -90,6 +90,25 @@ namespace ArcheologicCatalogClassic
 
         }
 
+        internal void showArcheoCatalogDetail(string code)
+        {
+            ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this, code);
+            ArcheoObject archeoObj = GetArcheoObjFromCol(code);
+            //Todo: Select das Element mit dem Code
+            archeoDetail.setTitle(archeoObj.GetTitle());
+            archeoDetail.setCode(archeoObj.GetCode());
+            archeoDetail.setWidth(archeoObj.GetWidth().ToString());
+            archeoDetail.setHeight(archeoObj.GetHeight().ToString());
+            archeoDetail.setDepth(archeoObj.GetDepth().ToString());
+            archeoDetail.setDescription(archeoObj.GetDescription());
+            archeoDetail.setCoordinate(archeoObj.GetCoordinate());
+            archeoDetail.setParticularities(archeoObj.GetParticularities());
+            archeoDetail.setTypeOfBuild(archeoObj.GetTypeOfBuild());
+            archeoDetail.setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
+            archeoDetail.Show();
+            //throw new NotImplementedException();
+        }
+
         public ArcheoObject GetArcheoObjFromCol(string code)
         {
             foreach (ArcheoObject item in archeoObjectCol)
@@ -97,7 +116,6 @@ namespace ArcheologicCatalogClassic
                 if (item.GetCode().Equals(code))
                 {
                     return item;
-
                 }
             }
             return null;
@@ -112,11 +130,11 @@ namespace ArcheologicCatalogClassic
             {
                 return null;
             }
-            {
-                Object v = archeoObjectCol[0];
-                ArcheoObject archObj = < ArcheoObject > v;
-                return v;
-            }
+
+            //gibt das erste Element zurück
+            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
+            return archeoObj;
+      
             //throw new NotImplementedException();
         }
     }

@@ -48,9 +48,9 @@ namespace ArcheologicCatalogClassic
             int ListLenght = archeoObjCol.Count;
             //todo: Generiere die ListView mit Images..... 
             int i = 0;
-            foreach(ArcheoObject archObj in archeoObjCol)
+            foreach (ArcheoObject archObj in archeoObjCol)
             {
-                listViewArcheoObjects.Items.Add(archObj.GetCode(),i);
+                listViewArcheoObjects.Items.Add(archObj.GetCode(), i);
                 i++;
             }
             //throw new NotImplementedException();
@@ -79,11 +79,7 @@ namespace ArcheologicCatalogClassic
         private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
-            string code = selectedItem.Text;
-            
-            ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this.prgCtl, code);
-          
-            archeoDetail.Show();
+            prgCtl.showArcheoCatalogDetail(selectedItem.Text);
         }
     }
 }
