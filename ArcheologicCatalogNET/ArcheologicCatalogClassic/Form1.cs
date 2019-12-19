@@ -102,6 +102,7 @@ namespace ArcheologicCatalogClassic
                 detail.setTypeOfCoordinate("type of coordinate");
                 detail.setWidth("object width");
             }
+            else
             {
                 detail.setCode(archeoObj.GetCode());
                 detail.setCoordinate(archeoObj.GetCoordinate());
