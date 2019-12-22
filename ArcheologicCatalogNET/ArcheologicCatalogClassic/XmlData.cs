@@ -144,7 +144,10 @@ class XmlData
             try { archeoObj.SetWidth(int.Parse(node.SelectSingleNode("width").InnerText)); }
             catch (Exception) { Console.WriteLine("Value width: Error by parse to int"); throw; }
             try { archeoObj.SetHeight(int.Parse(node.SelectSingleNode("height").InnerText)); }
-            catch (Exception) { Console.WriteLine("Value width: Error by parse to int"); throw; }
+            catch (Exception) { Console.WriteLine("Value height: Error by parse to int"); throw; }
+            archeoObj.SetTypOfCoordinate(node.SelectSingleNode("typofcoordinate").InnerText);
+            archeoObj.SetTypOfBuild(node.SelectSingleNode("typofbuild").InnerText);
+            archeoObj.SetTypOfCoordinate(node.SelectSingleNode("coordinate").InnerText);
             //todo: Parsen fertigschreiben.
 
 
