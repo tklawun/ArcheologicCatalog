@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace ArcheologicCatalogClassic
     public class ProgramCtl
     {
         private string applicationPath;
+        private string pathOfPictures;
+private string[] listOfPics;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
         XmlData xmlDataObj = new XmlData();
@@ -35,7 +38,10 @@ namespace ArcheologicCatalogClassic
 
                 throw;
             }
-
+            RegCtl reg = new RegCtl();
+            pathOfPictures = reg.GetPathForPictureFolderIntoRegistry();
+            listOfPics = ReadPathOfPicture(pathOfPictures);
+      
             archeoObjectCol = SetArcheoObjCol();
 
         }
@@ -134,6 +140,14 @@ namespace ArcheologicCatalogClassic
             return archeoObj;
 
             //throw new NotImplementedException();
+
         }
+        public string[] ReadPathOfPicture(string path)
+        {
+            RegCtl reg = new RegCtl();
+            string[] list = Directory.GetFiles(reg.GetPathForPictureFolderIntoRegistry(), "*,jpg,*.png");
+            return list;
+        }
+
     }
 }
