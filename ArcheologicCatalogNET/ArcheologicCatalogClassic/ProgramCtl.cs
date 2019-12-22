@@ -13,6 +13,7 @@ namespace ArcheologicCatalogClassic
         private string applicationPath;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
+        XmlData xmlDataObj = new XmlData();
         public ProgramCtl()
         {
             Start();
@@ -47,7 +48,6 @@ namespace ArcheologicCatalogClassic
             string appDataXMLFile = applicationPath + "\\" + applicationDataXMLFile;
             if (!System.IO.File.Exists(appDataXMLFile))
             {
-                XmlData xmlDataObj = new XmlData();
                 xmlDataObj.InitializeXMLFile(appDataXMLFile);
             }
             return appDataXMLFile;
@@ -59,9 +59,7 @@ namespace ArcheologicCatalogClassic
         /// <returns></returns>
         public ArrayList SetArcheoObjCol()
         {
-            XmlData xmlData = new XmlData();
-
-            ArrayList archeoObjectCol = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
+            ArrayList archeoObjectCol = xmlDataObj.GetArcheoObjColFromXMLDoc(xmlDataObj.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
             return archeoObjectCol;
 
 
@@ -87,10 +85,10 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetImagelink(imagelink);
             archeoObj.SetParticularities(particularities);
             archeoObjectCol.Add(archeoObj);
-
+            
         }
 
-        internal void showArcheoCatalogDetail(string code)
+        internal void ShowArcheoCatalogDetail(string code)
         {
             ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this, code);
             ArcheoObject archeoObj = GetArcheoObjFromCol(code);
@@ -134,7 +132,7 @@ namespace ArcheologicCatalogClassic
             //gibt das erste Element zurück
             ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
             return archeoObj;
-      
+
             //throw new NotImplementedException();
         }
     }

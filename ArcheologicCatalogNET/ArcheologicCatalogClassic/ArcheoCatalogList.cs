@@ -79,7 +79,7 @@ namespace ArcheologicCatalogClassic
         private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
-            prgCtl.showArcheoCatalogDetail(selectedItem.Text);
+            prgCtl.ShowArcheoCatalogDetail(selectedItem.Text);
         }
     }
 }

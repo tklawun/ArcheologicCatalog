@@ -133,9 +133,28 @@ class XmlData
     {
         ArrayList archeoObjCol = new ArrayList();
         
-        XmlNodeList elemList = xmlDoc.GetElementsByTagName("ArcheoObject");
+        XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("ArcheoObjectsList/ArcheoObject");
+        foreach (XmlNode node in elemList)
+        {
+            ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj.SetCode(node.SelectSingleNode("code").InnerText);
+            archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
+            try { archeoObj.SetDepth(int.Parse(node.SelectSingleNode("depth").InnerText)); }
+            catch (Exception) { Console.WriteLine("Value depth: Error by parse to int"); throw; }
+            try { archeoObj.SetWidth(int.Parse(node.SelectSingleNode("width").InnerText)); }
+            catch (Exception) { Console.WriteLine("Value width: Error by parse to int"); throw; }
+            try { archeoObj.SetHeight(int.Parse(node.SelectSingleNode("height").InnerText)); }
+            catch (Exception) { Console.WriteLine("Value width: Error by parse to int"); throw; }
+            //todo: Parsen fertigschreiben.
+
+
+
+
+        }
         for (int i = 0; i < elemList.Count; i++)
         {
+            ArcheoObject archeoObj = new ArcheoObject();
+            
             
             Console.WriteLine(elemList[i].InnerXml);
         }
