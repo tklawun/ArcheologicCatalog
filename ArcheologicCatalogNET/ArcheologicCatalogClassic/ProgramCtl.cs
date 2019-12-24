@@ -13,10 +13,11 @@ namespace ArcheologicCatalogClassic
     {
         private string applicationPath;
         private string pathOfPictures;
-private string[] listOfPics;
+        private string[] listOfPics;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
-        XmlData xmlDataObj = new XmlData();
+        XmlData xmlDataObj;
+        private RegCtl reg;
         public ProgramCtl()
         {
             Start();
@@ -35,20 +36,16 @@ private string[] listOfPics;
             catch (Exception)
             {
                 Console.WriteLine("Alert: Failure by Application Path handling");
-
                 throw;
             }
-            RegCtl reg = new RegCtl();
             pathOfPictures = reg.GetPathForPictureFolderIntoRegistry();
-            listOfPics = ReadPathOfPicture(pathOfPictures);
-      
+            listOfPics = GetAllPicturesPathInDirectory();
             archeoObjectCol = SetArcheoObjCol();
-
+            xmlDataObj = new XmlData();
+            reg = new RegCtl();
+            //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
         }
-        /// <summary>
-        /// gibt als String den Pfad des XML File zurück
-        /// </summary>
-        /// <returns>Pfad, wenn XML File existiert, ansonsten "Null"</returns>
+
         public string GetApplicationDataXMLFile()
         {
             string appDataXMLFile = applicationPath + "\\" + applicationDataXMLFile;
@@ -59,21 +56,14 @@ private string[] listOfPics;
             return appDataXMLFile;
         }
 
-        /// <summary>
-        /// liest das XML Data File aus und gibt ein ArrayList mit den Einträgen zurück.
-        /// </summary>
-        /// <returns></returns>
         public ArrayList SetArcheoObjCol()
         {
-            ArrayList archeoObjectCol = xmlDataObj.GetArcheoObjColFromXMLDoc(xmlDataObj.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
+            archeoObjectCol = xmlDataObj.GetArcheoObjColFromXMLDoc(xmlDataObj.ReadXMLDocumentFromFile(GetApplicationDataXMLFile()));
             return archeoObjectCol;
-
-
         }
         public void AddArcheoObjectToCol(ArcheoObject archeoObj)
         {
             archeoObjectCol.Add(archeoObj);
-
         }
 
         public void AddArcheoObjectToCol(string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string particularities)
@@ -91,7 +81,6 @@ private string[] listOfPics;
             archeoObj.SetImagelink(imagelink);
             archeoObj.SetParticularities(particularities);
             archeoObjectCol.Add(archeoObj);
-            
         }
 
         internal void ShowArcheoCatalogDetail(string code)
@@ -127,27 +116,28 @@ private string[] listOfPics;
 
         public ArcheoObject GetArcheoObjFirstFromCol()
         {
-
             //Todo Das erste Element aus dem ArrayList zurückgeben
             int anzahl = archeoObjectCol.Count;
             if (anzahl < 1)
             {
                 return null;
             }
-
             //gibt das erste Element zurück
             ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
             return archeoObj;
-
             //throw new NotImplementedException();
-
         }
-        public string[] ReadPathOfPicture(string path)
+
+        public string[] GetAllPicturesPathInDirectory()
         {
-            RegCtl reg = new RegCtl();
-            string[] list = Directory.GetFiles(reg.GetPathForPictureFolderIntoRegistry(), "*,jpg,*.png");
-            return list;
+            string pathToPictures = pathOfPictures;
+            string[] picturesPath;
+            picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+            if (picturesPath.Length < 1 )
+            {
+                picturesPath[0] = "no pictures found in " + pathToPictures;
+            }
+            return picturesPath;
         }
-
     }
 }

@@ -35,6 +35,7 @@ namespace ArcheologicCatalogClassic
             this.buttonListViewDetails = new System.Windows.Forms.Button();
             this.buttonChangeSmallIcon = new System.Windows.Forms.Button();
             this.buttonChangeLargeIcon = new System.Windows.Forms.Button();
+            this.buttonRefreshPic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewArcheoObjects
@@ -99,11 +100,22 @@ namespace ArcheologicCatalogClassic
             this.buttonChangeLargeIcon.UseVisualStyleBackColor = true;
             this.buttonChangeLargeIcon.Click += new System.EventHandler(this.buttonChangeLargeIcon_Click);
             // 
+            // buttonRefreshPic
+            // 
+            this.buttonRefreshPic.Location = new System.Drawing.Point(980, 652);
+            this.buttonRefreshPic.Name = "buttonRefreshPic";
+            this.buttonRefreshPic.Size = new System.Drawing.Size(123, 33);
+            this.buttonRefreshPic.TabIndex = 5;
+            this.buttonRefreshPic.Text = "Refresh Images";
+            this.buttonRefreshPic.UseVisualStyleBackColor = true;
+            this.buttonRefreshPic.Click += new System.EventHandler(this.buttonRefreshPic_Click);
+            // 
             // ArcheoCatalogList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 697);
+            this.Controls.Add(this.buttonRefreshPic);
             this.Controls.Add(this.buttonChangeLargeIcon);
             this.Controls.Add(this.buttonChangeSmallIcon);
             this.Controls.Add(this.buttonListViewDetails);
@@ -132,5 +144,6 @@ namespace ArcheologicCatalogClassic
         private System.Windows.Forms.Button buttonListViewDetails;
         private System.Windows.Forms.Button buttonChangeSmallIcon;
         private System.Windows.Forms.Button buttonChangeLargeIcon;
+        private System.Windows.Forms.Button buttonRefreshPic;
     }
 }

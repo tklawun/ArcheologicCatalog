@@ -81,5 +81,10 @@ namespace ArcheologicCatalogClassic
             ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
             prgCtl.ShowArcheoCatalogDetail(selectedItem.Text);
         }
+
+        private void buttonRefreshPic_Click(object sender, EventArgs e)
+        {
+            prgCtl.GetAllPicturesPathInDirectory();
+        }
     }
 }

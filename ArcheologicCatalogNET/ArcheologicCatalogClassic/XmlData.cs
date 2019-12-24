@@ -132,7 +132,7 @@ class XmlData
     public ArrayList GetArcheoObjColFromXMLDoc(XmlDocument xmlDoc)
     {
         ArrayList archeoObjCol = new ArrayList();
-        
+
         XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("ArcheoObjectsList/ArcheoObject");
         foreach (XmlNode node in elemList)
         {
@@ -140,28 +140,18 @@ class XmlData
             archeoObj.SetCode(node.SelectSingleNode("code").InnerText);
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             try { archeoObj.SetDepth(int.Parse(node.SelectSingleNode("depth").InnerText)); }
-            catch (Exception) { Console.WriteLine("Value depth: Error by parse to int"); throw; }
+            catch (Exception) {Console.WriteLine("Value depth: Error by parse to int"); throw; }
             try { archeoObj.SetWidth(int.Parse(node.SelectSingleNode("width").InnerText)); }
-            catch (Exception) { Console.WriteLine("Value width: Error by parse to int"); throw; }
+            catch (Exception) {Console.WriteLine("Value width: Error by parse to int"); throw; }
             try { archeoObj.SetHeight(int.Parse(node.SelectSingleNode("height").InnerText)); }
-            catch (Exception) { Console.WriteLine("Value height: Error by parse to int"); throw; }
+            catch (Exception) {Console.WriteLine("Value height: Error by parse to int"); throw; }
             archeoObj.SetTypOfCoordinate(node.SelectSingleNode("typofcoordinate").InnerText);
             archeoObj.SetTypOfBuild(node.SelectSingleNode("typofbuild").InnerText);
-            archeoObj.SetTypOfCoordinate(node.SelectSingleNode("coordinate").InnerText);
-            //todo: Parsen fertigschreiben.
-
-
-
-
+            archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
+            archeoObj.SetDescription(node.SelectSingleNode("description").InnerText);
+            archeoObj.SetImagelink(node.SelectSingleNode("imagelink").InnerText);
+            archeoObj.SetParticularities(node.SelectSingleNode("particularities").InnerText);
         }
-        for (int i = 0; i < elemList.Count; i++)
-        {
-            ArcheoObject archeoObj = new ArcheoObject();
-            
-            
-            Console.WriteLine(elemList[i].InnerXml);
-        }
-
         return archeoObjCol;
     }
  }
