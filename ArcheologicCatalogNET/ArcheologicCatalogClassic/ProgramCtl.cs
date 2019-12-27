@@ -18,9 +18,21 @@ namespace ArcheologicCatalogClassic
         private ArrayList archeoObjectCol;
         XmlData XmlDataObj;
         private RegCtl reg;
-        public ProgramCtl()
+
+        //Singleton Pattern
+        private ProgramCtl() { }
+        private static volatile ProgramCtl instance;
+        public ProgramCtl Instance
         {
-            Start();
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ProgramCtl();
+                    instance.Start();
+                }
+                return instance;
+            }
         }
         public void Start()
         {
@@ -37,22 +49,30 @@ namespace ArcheologicCatalogClassic
             {
                 Console.WriteLine("Alert: Failure by Application Path handling");
                 throw;
+                
             }
             reg = new RegCtl();
             XmlDataObj = new XmlData();
             pathOfPictures = reg.GetPathForPictureFolderIntoRegistry();
             listOfPics = GetAllPicturesPathInDirectory();
+            archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
             //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
             MatchImageListWithArcheoObjectList();
+            
         }
-
+        public void ViewArcheObjectList()
+        {
+            ArcheoCatalogList archeoListView = new ArcheoCatalogList(this);
+            archeoListView.SetListView();
+            archeoListView.Show();
+        }
         private void MatchImageListWithArcheoObjectList()
         {
 
             foreach (string imageLink in listOfPics)
             {
-                foreach(ArcheoObject archeoObj in archeoObjectCol)
+                foreach (ArcheoObject archeoObj in archeoObjectCol)
                 {
                     if (imageLink == archeoObj.GetImagelink())
                     {
@@ -60,7 +80,7 @@ namespace ArcheologicCatalogClassic
                     }
                 }
 
-                AddArcheoObjectToCol("New", "type new code", "Typ of build", "Height of object", "Width of object", "Depth of object", "Typ of coordinate", "Coordinate", "Description", imageLink, "Particularities");
+                AddArcheoObjectToCol("New", "type new code", "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, "Particularities");
             }
 
             //throw new NotImplementedException();
@@ -73,7 +93,7 @@ namespace ArcheologicCatalogClassic
             {
                 XmlDataObj.InitializeXMLFile(appDataXMLFile);
             }
-            
+
             return appDataXMLFile;
         }
 
@@ -108,9 +128,31 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetCode(code);
             archeoObj.SetTypOfBuild(typOfBuild);
             //todo Wenn nicht umwandelbarer String, dann 0!
-            archeoObj.SetHeight(int.Parse(height));
-            archeoObj.SetWidth(int.Parse(width));
-            archeoObj.SetDepth(int.Parse(depth));
+            try
+            {
+                archeoObj.SetHeight(int.Parse(height));
+            }
+            catch (Exception)
+            {
+                archeoObj.SetHeight(0);
+            }
+            try
+            {
+                archeoObj.SetWidth(int.Parse(width));
+            }
+            catch (Exception)
+            {
+                archeoObj.SetWidth(0);
+            }
+            try
+            {
+                archeoObj.SetDepth(int.Parse(depth));
+            }
+            catch (Exception)
+            {
+
+                archeoObj.SetDepth(0);
+            }
             archeoObj.SetTypOfCoordinate(typOfCoordinate);
             archeoObj.SetCoordinate(coordinate);
             archeoObj.SetDescription(description);
@@ -169,13 +211,17 @@ namespace ArcheologicCatalogClassic
             string pathToPictures = pathOfPictures;
             string[] picturesPath;
             picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
-            if (picturesPath.Length < 1 )
+            if (picturesPath.Length < 1)
             {
                 picturesPath[0] = "no pictures found in " + pathToPictures;
             }
             return picturesPath;
         }
 
-       
+        public ArrayList getArcheoObjectCollection()
+        {
+            return archeoObjectCol;
+        }
+
     }
 }

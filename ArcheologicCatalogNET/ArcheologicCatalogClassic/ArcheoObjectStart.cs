@@ -18,7 +18,7 @@ namespace ArcheologicCatalogClassic
         private ProgramCtl prgCtl;
         public ArcheoObjectStart()
         {
-            prgCtl = new ProgramCtl();
+            prgCtl = new ProgramCtl.Instance();
             prgCtl.Start();
             ArcheoObjCol = prgCtl.SetArcheoObjCol();
             InitializeComponent();
@@ -27,34 +27,8 @@ namespace ArcheologicCatalogClassic
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //Todo: Sample Entries..... 
-            ArcheoCatalogList list = new ArcheoCatalogList(ArcheoObjCol);
-            //TODO Damit überhaupt etwas in der Liste steht. 
-            list.SetListView(ArcheoObjCol);
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage"); 
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-            //list.AddListWithEntries("test", "testImage");
-
-            list.Show();
+            //Show List as form
+            prgCtl.ViewArcheObjectList();
 
         }
 
@@ -120,7 +94,7 @@ namespace ArcheologicCatalogClassic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ProgramCtl prgCtl = new ProgramCtl();
+            ProgramCtl prgCtl = ProgramCtl.Instance;
 
             prgCtl.SetArcheoObjCol();
         }

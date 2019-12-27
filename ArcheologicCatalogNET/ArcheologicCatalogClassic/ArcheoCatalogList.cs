@@ -14,41 +14,30 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogList : Form
     {
-        ArrayList archeoObjColl = new ArrayList();
+        private ArrayList archeoObjColl;
 
-        internal ProgramCtl prgCtl { get; private set; }
+        private ProgramCtl prgCtl;
 
         public ArcheoCatalogList()
         {
             InitializeComponent();
         }
 
-        public ArcheoCatalogList(ArrayList archeoObjCol)
-        {
-            archeoObjColl = archeoObjCol;
-            InitializeComponent();
-        }
-        public ArcheoCatalogList(ProgramCtl programControl)
+         public ArcheoCatalogList(ProgramCtl programControl)
         {
             prgCtl = programControl;
+            archeoObjColl = prgCtl.getArcheoObjectCollection();
+            SetListView();
             InitializeComponent();
         }
 
-        public void AddListWithEntries(string code, string imagePath)
+
+        internal void SetListView()
         {
-            //ImageList imageList1 = new ImageList();
-            DirectoryInfo dir = new DirectoryInfo(imagePath);
-
-            listViewArcheoObjects.Items.Add(code);
-
-        }
-
-        internal void SetListView(ArrayList archeoObjCol)
-        {
-            int ListLenght = archeoObjCol.Count;
+            int ListLenght = archeoObjColl.Count;
             //todo: Generiere die ListView mit Images..... 
             int i = 0;
-            foreach (ArcheoObject archObj in archeoObjCol)
+            foreach (ArcheoObject archObj in archeoObjColl)
             {
                 listViewArcheoObjects.Items.Add(archObj.GetCode(), i);
                 i++;

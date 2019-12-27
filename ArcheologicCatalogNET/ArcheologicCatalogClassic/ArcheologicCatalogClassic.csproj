@@ -75,11 +75,11 @@
     <Compile Include="RegCtl.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="XmlData.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="ArcheoObjectStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ArcheoObjectStart.Designer.cs">
+      <DependentUpon>ArcheoObjectStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,8 +92,8 @@
     <EmbeddedResource Include="ArcheoCatalogList.resx">
       <DependentUpon>ArcheoCatalogList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ArcheoObjectStart.resx">
+      <DependentUpon>ArcheoObjectStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
