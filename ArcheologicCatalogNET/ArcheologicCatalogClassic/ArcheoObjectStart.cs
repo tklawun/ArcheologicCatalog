@@ -18,7 +18,7 @@ namespace ArcheologicCatalogClassic
         private ProgramCtl prgCtl;
         public ArcheoObjectStart()
         {
-            prgCtl = new ProgramCtl.Instance();
+            prgCtl = new ProgramCtl();
             prgCtl.Start();
             ArcheoObjCol = prgCtl.SetArcheoObjCol();
             InitializeComponent();
@@ -34,34 +34,17 @@ namespace ArcheologicCatalogClassic
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             ArcheoCatalogDetail detail = new ArcheoCatalogDetail();
             XmlData xmld = new XmlData();
             try
             {
                 XmlDocument xmlDoc = new XmlDocument();
-
             }
             catch (Exception)
             {
-
                 throw;
             }
 
-            //TODO: Das unten sind Einträge für Tests
-            //ArcheoObject archObj = new ArcheoObject();
-            //archObj.SetCode("Test1");
-            //archObj.SetTitle("Test1Titel");
-            //archObj.SetHeight(100);
-            //archObj.SetWidth(100);
-            //archObj.SetDepth(100);
-            //archObj.SetDescription("Teste das erste Object");
-
-            //ArcheoObjCol.Add(archObj);
-            //XmlDocument xmldoc = xmld.GenerateXMLDocumentFromArcheoObjectList(ArcheoObjCol);
-            //string eigeneFiles = Environment.GetEnvironmentVariable("UserProfile");
-            //eigeneFiles += "\\Documents\\Test.xml";
-            //xmld.SaveXMLDocumentAsFile(xmldoc, eigeneFiles);
             ArcheoObject archeoObj = prgCtl.GetArcheoObjFirstFromCol();
             if (archeoObj == null)
             {
@@ -94,8 +77,6 @@ namespace ArcheologicCatalogClassic
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ProgramCtl prgCtl = ProgramCtl.Instance;
-
             prgCtl.SetArcheoObjCol();
         }
 
@@ -103,6 +84,13 @@ namespace ArcheologicCatalogClassic
         {
             ArcheoCatalogConfig config = new ArcheoCatalogConfig();
             config.Show();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            //Todo: Exit Implementation
+            //
+            Application.Exit();
         }
     }
 }

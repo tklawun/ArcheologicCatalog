@@ -19,21 +19,8 @@ namespace ArcheologicCatalogClassic
         XmlData XmlDataObj;
         private RegCtl reg;
 
-        //Singleton Pattern
-        private ProgramCtl() { }
-        private static volatile ProgramCtl instance;
-        public ProgramCtl Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ProgramCtl();
-                    instance.Start();
-                }
-                return instance;
-            }
-        }
+        //TODO: Singleton Pattern
+       
         public void Start()
         {
             applicationPath = Environment.GetEnvironmentVariable("OneDriveConsumer") + "\\ArcheoCatalog";
