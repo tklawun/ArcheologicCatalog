@@ -121,7 +121,7 @@ namespace ArcheologicCatalogClassic
         /// <param name="description">Description</param>
         /// <param name="imagelink">image in filesystem</param>
         /// <param name="particularities">particularities</param>
-        public void AddArcheoObjectToCol(string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string particularities)
+        public void AddArcheoObjectToCol(string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string shortPath, string particularities)
         {
             ArcheoObject archeoObj = new ArcheoObject();
             archeoObj.SetTitle(title);
@@ -157,6 +157,7 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetCoordinate(coordinate);
             archeoObj.SetDescription(description);
             archeoObj.SetImagelink(imagelink);
+            archeoObj.SetShortPath(shortPath);
             archeoObj.SetParticularities(particularities);
             archeoObjectCol.Add(archeoObj);
         }

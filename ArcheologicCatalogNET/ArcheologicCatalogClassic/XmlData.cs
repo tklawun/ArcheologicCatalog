@@ -111,6 +111,10 @@ class XmlData
             imageLink.InnerText = archObject.GetImagelink();
             archeoNode.AppendChild(imageLink);
 
+            XmlNode shortPath = xmlDoc.CreateElement("shortPath");
+            imageLink.InnerText = archObject.getShortPath();
+            archeoNode.AppendChild(shortPath);
+
             XmlNode typeOfBuild = xmlDoc.CreateElement("typeOfBuild");
             typeOfBuild.InnerText = archObject.GetTypeOfBuild();
             archeoNode.AppendChild(typeOfBuild);
@@ -150,6 +154,7 @@ class XmlData
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             archeoObj.SetDescription(node.SelectSingleNode("description").InnerText);
             archeoObj.SetImagelink(node.SelectSingleNode("imagelink").InnerText);
+            archeoObj.SetImagelink(node.SelectSingleNode("shortPath").InnerText);
             archeoObj.SetParticularities(node.SelectSingleNode("particularities").InnerText);
         }
         return archeoObjCol;
