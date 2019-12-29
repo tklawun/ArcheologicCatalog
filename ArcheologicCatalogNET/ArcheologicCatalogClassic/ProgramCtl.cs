@@ -19,8 +19,13 @@ namespace ArcheologicCatalogClassic
         XmlData XmlDataObj;
         private RegCtl reg;
 
+        internal ArrayList GetArcheoObjCol()
+        {
+            return archeoObjectCol;
+        }
+
         //TODO: Singleton Pattern
-       
+
         public void Start()
         {
             applicationPath = Environment.GetEnvironmentVariable("OneDriveConsumer") + "\\ArcheoCatalog";
@@ -90,6 +95,14 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol = XmlDataObj.GetArcheoObjColFromXMLDoc(XmlDataObj.ReadXMLDocumentFromFile(xmlFile));
             return archeoObjectCol;
         }
+
+        internal void ExitApplication()
+        {
+            //Todo: Application Exist Handling
+            Application.Exit();
+            //throw new NotImplementedException();
+        }
+
         public void AddArcheoObjectToCol(ArcheoObject archeoObj)
         {
             archeoObjectCol.Add(archeoObj);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace ArcheologicCatalogClassic
 {
@@ -131,7 +132,11 @@ namespace ArcheologicCatalogClassic
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Todo: Mit Click auf List Eintrag, Dialog Detail öffnen....oder? 
-             
+            foreach (ListViewItem item in listViewArcheoObjects.SelectedItems)
+            {
+                prgCtl.ShowArcheoCatalogDetail(item.Text);
+            }
+            
 
 
             //throw new NotImplementedException();

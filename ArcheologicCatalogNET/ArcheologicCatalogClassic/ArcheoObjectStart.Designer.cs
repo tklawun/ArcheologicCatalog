@@ -1,4 +1,6 @@
-﻿namespace ArcheologicCatalogClassic
+﻿using System;
+
+namespace ArcheologicCatalogClassic
 {
     partial class ArcheoObjectStart
     {
@@ -88,8 +90,14 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoObjectStart";
             this.Text = "Archeo Object Start";
+            this.Load += new System.EventHandler(this.ArcheoObjectStart_Load);
             this.ResumeLayout(false);
 
+        }
+
+        private void ArcheoObjectStart_Load(object sender, EventArgs e)
+        {
+         //   throw new NotImplementedException();
         }
 
         #endregion

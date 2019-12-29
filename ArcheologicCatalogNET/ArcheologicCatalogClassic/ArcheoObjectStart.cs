@@ -20,7 +20,7 @@ namespace ArcheologicCatalogClassic
         {
             prgCtl = new ProgramCtl();
             prgCtl.Start();
-            ArcheoObjCol = prgCtl.SetArcheoObjCol();
+            ArcheoObjCol = prgCtl.GetArcheoObjCol();
             InitializeComponent();
         }
 
@@ -88,9 +88,22 @@ namespace ArcheologicCatalogClassic
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            //Todo: Exit Implementation
-            //
-            Application.Exit();
+            prgCtl.ExitApplication();
+        }
+
+        //private void minimizeButton_Click(object sender, System.EventArgs e)
+        //{
+        //    WindowState = FormWindowState.Minimized;
+        //}
+
+        //private void maximizeButton_Click(object sender, System.EventArgs e)
+        //{
+        //    WindowState = FormWindowState.Maximized;
+        //}
+
+        private void closeButton_Click(object sender, System.EventArgs e)
+        {
+            prgCtl.ExitApplication();
         }
     }
 }

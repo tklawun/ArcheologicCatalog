@@ -27,19 +27,22 @@ namespace ArcheologicCatalogClassic
         {
             prgCtl = programControl;
             archeoObjColl = prgCtl.getArcheoObjectCollection();
-            SetListView();
             InitializeComponent();
+            SetListView();
         }
 
 
         internal void SetListView()
         {
             int ListLenght = archeoObjColl.Count;
+            //ListView listViewArcheoObjects = new ListView();
             //todo: Generiere die ListView mit Images..... 
             int i = 0;
             foreach (ArcheoObject archObj in archeoObjColl)
             {
-                listViewArcheoObjects.Items.Add(archObj.GetCode(), i);
+                string archeoObjCode = archObj.GetCode();
+                ListViewItem item = new ListViewItem(archeoObjCode, i);
+                listViewArcheoObjects.Items.Add(item);
                 i++;
             }
             //throw new NotImplementedException();

@@ -22,6 +22,7 @@ namespace ArcheologicCatalogClassic
 
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
         {
+            InitializeComponent();
             prgCtlObj = programControl;
 
             ArcheoObject archeoObj = new ArcheoObject();
@@ -37,7 +38,7 @@ namespace ArcheologicCatalogClassic
             setParticularities(archeoObj.GetParticularities());
             setTypeOfBuild(archeoObj.GetTypeOfBuild());
             setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
-            InitializeComponent();
+           
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {
