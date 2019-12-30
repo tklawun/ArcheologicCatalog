@@ -188,6 +188,7 @@ namespace ArcheologicCatalogClassic
             
             archeoDetail.Show();
             archeoDetail.BringToFront();
+            archeoDetail.Focus();
             archeoDetail.Activate();
             //throw new NotImplementedException();
         }
