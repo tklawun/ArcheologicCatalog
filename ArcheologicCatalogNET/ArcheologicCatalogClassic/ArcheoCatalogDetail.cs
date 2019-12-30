@@ -15,9 +15,11 @@ namespace ArcheologicCatalogClassic
     {
 
         private ProgramCtl prgCtlObj;
+        private ArcheoObject archeoObj;
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
+          
         }
 
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
@@ -25,7 +27,6 @@ namespace ArcheologicCatalogClassic
             InitializeComponent();
             prgCtlObj = programControl;
 
-            ArcheoObject archeoObj = new ArcheoObject();
             archeoObj = prgCtlObj.GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code
             setTitle(archeoObj.GetTitle());
@@ -37,8 +38,9 @@ namespace ArcheologicCatalogClassic
             setCoordinate(archeoObj.GetCoordinate());
             setParticularities(archeoObj.GetParticularities());
             setTypeOfBuild(archeoObj.GetTypeOfBuild());
+            SetPictureBox(archeoObj.GetImagelink());
             setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
-           
+
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {
@@ -182,13 +184,64 @@ namespace ArcheologicCatalogClassic
             return "Dies ist irgendwie noch ein Test.";
             //throw new NotImplementedException();
         }
-      
+        private string getShortPath()
+        {
+            //Todo: Link irgendwie reinbringen
+            return "Dies ist irgendwie noch ein Test.";
+            //throw new NotImplementedException();
+        }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-           prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getParticularities());
+            prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
         }
 
+        private void pictureBoxObject_Click(object sender, EventArgs e)
+        {
 
+        }
+        public void SetPictureBox(string ImageLink)
+        {
+            Image image = Image.FromFile(ImageLink);
+            pictureBoxObject.Image = image;
+            pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+        public string GetImageLink()
+        {
+            return archeoObj.GetImagelink();
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        public void setImageLink(string ImageLink)
+        {
+            linkLabelImagePath.Text = archeoObj.GetImagelink();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            prgCtlObj.ExitApplication();
+        }
+
+        private void buttonCloseWindow_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            //TODO: gehe zum vorherigen Bild
+            prgCtlObj.GetBackArcheObjFromCol();
+
+        }
+        
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            //TODO: Gehe zum nächsten Bild-
+            prgCtlObj.GetNextArcheObjFromCol();
+        }
     }
 }

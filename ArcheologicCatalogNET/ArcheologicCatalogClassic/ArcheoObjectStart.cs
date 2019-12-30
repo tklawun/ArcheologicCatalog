@@ -32,49 +32,6 @@ namespace ArcheologicCatalogClassic
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ArcheoCatalogDetail detail = new ArcheoCatalogDetail();
-            XmlData xmld = new XmlData();
-            try
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-            ArcheoObject archeoObj = prgCtl.GetArcheoObjFirstFromCol();
-            if (archeoObj == null)
-            {
-                detail.setCode("Your code");
-                detail.setCoordinate("the coordinate");
-                detail.setDepth("object depth");
-                detail.setDescription("your description");
-                detail.setHeight("object height");
-                detail.setParticularities("your particularities");
-                detail.setTitle("your title");
-                detail.setTypeOfBuild("typ of build");
-                detail.setTypeOfCoordinate("type of coordinate");
-                detail.setWidth("object width");
-            }
-            else
-            {
-                detail.setCode(archeoObj.GetCode());
-                detail.setCoordinate(archeoObj.GetCoordinate());
-                detail.setDepth(archeoObj.GetDepth().ToString());
-                detail.setDescription(archeoObj.GetDescription());
-                detail.setHeight(archeoObj.GetHeight().ToString());
-                detail.setParticularities(archeoObj.GetParticularities());
-                detail.setTitle(archeoObj.GetTitle());
-                detail.setTypeOfBuild(archeoObj.GetTypeOfBuild());
-                detail.setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
-                detail.setWidth(archeoObj.GetWidth().ToString());
-            }
-            detail.Show();
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             prgCtl.SetArcheoObjCol();

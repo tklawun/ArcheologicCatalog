@@ -16,7 +16,8 @@ namespace ArcheologicCatalogClassic
         private string[] listOfPics;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
-        XmlData XmlDataObj;
+        private ArcheoCatalogList archeoListView;
+        private XmlData XmlDataObj;
         private RegCtl reg;
 
         internal ArrayList GetArcheoObjCol()
@@ -41,7 +42,7 @@ namespace ArcheologicCatalogClassic
             {
                 Console.WriteLine("Alert: Failure by Application Path handling");
                 throw;
-                
+
             }
             reg = new RegCtl();
             XmlDataObj = new XmlData();
@@ -51,17 +52,17 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol = SetArcheoObjCol();
             //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
             MatchImageListWithArcheoObjectList();
-            
+
         }
         public void ViewArcheObjectList()
         {
-            ArcheoCatalogList archeoListView = new ArcheoCatalogList(this);
+            archeoListView = new ArcheoCatalogList(this);
             archeoListView.SetListView();
             archeoListView.Show();
         }
         private void MatchImageListWithArcheoObjectList()
         {
-
+            int i = 0;
             foreach (string imageLink in listOfPics)
             {
                 foreach (ArcheoObject archeoObj in archeoObjectCol)
@@ -69,10 +70,15 @@ namespace ArcheologicCatalogClassic
                     if (imageLink == archeoObj.GetImagelink())
                     {
                         break;
+                       
                     }
                 }
-
-                AddArcheoObjectToCol("New", "type new code", "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, "Particularities");
+                string code = i.ToString() + " --> Type new code";
+                string title = i.ToString() + "--> New";
+                //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
+                string shortPath = "Muss noch gebaut werden";
+                AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
+                i++;
             }
 
             //throw new NotImplementedException();
@@ -166,7 +172,7 @@ namespace ArcheologicCatalogClassic
         {
             ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this, code);
             ArcheoObject archeoObj = GetArcheoObjFromCol(code);
-            //Todo: Select das Element mit dem Code
+            //Todo: Select das Element mit dem Code, better 
             archeoDetail.setTitle(archeoObj.GetTitle());
             archeoDetail.setCode(archeoObj.GetCode());
             archeoDetail.setWidth(archeoObj.GetWidth().ToString());
@@ -177,7 +183,26 @@ namespace ArcheologicCatalogClassic
             archeoDetail.setParticularities(archeoObj.GetParticularities());
             archeoDetail.setTypeOfBuild(archeoObj.GetTypeOfBuild());
             archeoDetail.setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
+            archeoDetail.SetPictureBox(archeoObj.GetImagelink());
+            archeoDetail.setImageLink(archeoObj.GetImagelink());
+            
             archeoDetail.Show();
+            archeoDetail.BringToFront();
+            archeoDetail.Activate();
+            //throw new NotImplementedException();
+        }
+
+        internal void GetNextArcheObjFromCol()
+        {
+            //TODO: go next
+            // an welcher Stelle steht das Object derzeit? 
+            // dann springe zu dem nächsten Object in der ArcheoObjCol
+            //throw new NotImplementedException();
+        }
+
+        internal void GetBackArcheObjFromCol()
+        {
+            //TODO go back 
             //throw new NotImplementedException();
         }
 
@@ -219,7 +244,22 @@ namespace ArcheologicCatalogClassic
             return picturesPath;
         }
 
-        public ArrayList getArcheoObjectCollection()
+        public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
+        {
+            string[] longpath = GetAllPicturesPathInDirectory();
+            string[,] Paths = new string[longpath.Length, 2];
+
+            for (int i = 0; i < longpath.Length; i++)
+            {
+                string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
+                               
+                Paths[i, 0] = longpath[i];
+                Paths[i, 1] = shortpath;
+            }
+
+            return Paths;
+        }
+        public ArrayList GetArcheoObjectCollection()
         {
             return archeoObjectCol;
         }

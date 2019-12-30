@@ -26,11 +26,10 @@ namespace ArcheologicCatalogClassic
          public ArcheoCatalogList(ProgramCtl programControl)
         {
             prgCtl = programControl;
-            archeoObjColl = prgCtl.getArcheoObjectCollection();
+            archeoObjColl = prgCtl.GetArcheoObjectCollection();
             InitializeComponent();
             SetListView();
         }
-
 
         internal void SetListView()
         {
