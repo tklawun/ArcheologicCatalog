@@ -19,7 +19,7 @@ namespace ArcheologicCatalogClassic
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
-          
+
         }
 
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
@@ -193,6 +193,7 @@ namespace ArcheologicCatalogClassic
         private void buttonSave_Click(object sender, EventArgs e)
         {
             prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
+            prgCtlObj.SaveArcheoObjToXML();
         }
 
         private void pictureBoxObject_Click(object sender, EventArgs e)
@@ -201,9 +202,19 @@ namespace ArcheologicCatalogClassic
         }
         public void SetPictureBox(string ImageLink)
         {
-            Image image = Image.FromFile(ImageLink);
-            pictureBoxObject.Image = image;
-            pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+            try
+            {
+                Image image = Image.FromFile(ImageLink);
+                pictureBoxObject.Image = image;
+                pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch (Exception)
+            {
+                Image image = Properties.Resources.ImageCantLoad;
+                pictureBoxObject.Image = image;
+                pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+                Console.WriteLine(ImageLink + " cannot load");
+            }
         }
         public string GetImageLink()
         {
@@ -234,14 +245,14 @@ namespace ArcheologicCatalogClassic
         private void buttonBack_Click(object sender, EventArgs e)
         {
             //TODO: gehe zum vorherigen Bild
-            prgCtlObj.GetBackArcheObjFromCol();
+            prgCtlObj.GetBackArcheObjFromCol(this);
 
         }
-        
+
         private void buttonNext_Click(object sender, EventArgs e)
         {
             //TODO: Gehe zum nächsten Bild-
-            prgCtlObj.GetNextArcheObjFromCol();
+            prgCtlObj.GetNextArcheObjFromCol(this);
         }
     }
 }

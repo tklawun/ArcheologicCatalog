@@ -70,7 +70,7 @@ namespace ArcheologicCatalogClassic
                     if (imageLink == archeoObj.GetImagelink())
                     {
                         break;
-                       
+
                     }
                 }
                 string code = i.ToString() + " --> Type new code";
@@ -168,9 +168,26 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol.Add(archeoObj);
         }
 
+        internal void SaveArcheoObjToXML()
+        {
+
+            //Todo: Speichern der ArcheoObjectCollection into xml File.
+            XmlData xmld = new XmlData();
+            XmlDocument xmldoc = xmld.GenerateXMLDocumentFromArcheoObjectList(archeoObjectCol);
+            xmld.SaveXMLDocumentAsFile(xmldoc, GetApplicationDataXMLFile());
+            //throw new NotImplementedException();
+        }
+
         internal void ShowArcheoCatalogDetail(string code)
         {
             ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this, code);
+            
+            SetArcheoDetail(code, archeoDetail);
+            //throw new NotImplementedException();
+        }
+
+        private void SetArcheoDetail(string code, ArcheoCatalogDetail archeoDetail)
+        {
             ArcheoObject archeoObj = GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code, better 
             archeoDetail.setTitle(archeoObj.GetTitle());
@@ -185,26 +202,25 @@ namespace ArcheologicCatalogClassic
             archeoDetail.setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
             archeoDetail.SetPictureBox(archeoObj.GetImagelink());
             archeoDetail.setImageLink(archeoObj.GetImagelink());
-            
+
             archeoDetail.Show();
             archeoDetail.BringToFront();
             archeoDetail.Focus();
             archeoDetail.Activate();
-            //throw new NotImplementedException();
         }
 
-        internal void GetNextArcheObjFromCol()
+        internal void GetNextArcheObjFromCol(ArcheoCatalogDetail archeoDetail)
         {
-            //TODO: go next
-            // an welcher Stelle steht das Object derzeit? 
-            // dann springe zu dem nächsten Object in der ArcheoObjCol
-            //throw new NotImplementedException();
+            int x = archeoObjectCol.LastIndexOf(GetArcheoObjFromCol(archeoDetail.getCode())) + 1;
+            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
+            SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
         }
 
-        internal void GetBackArcheObjFromCol()
+        internal void GetBackArcheObjFromCol(ArcheoCatalogDetail archeoDetail)
         {
-            //TODO go back 
-            //throw new NotImplementedException();
+            int x = archeoObjectCol.LastIndexOf(GetArcheoObjFromCol(archeoDetail.getCode())) - 1;
+            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
+            SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
         }
 
         public ArcheoObject GetArcheoObjFromCol(string code)
@@ -230,7 +246,6 @@ namespace ArcheologicCatalogClassic
             //gibt das erste Element zurück
             ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
             return archeoObj;
-            //throw new NotImplementedException();
         }
 
         public string[] GetAllPicturesPathInDirectory()
@@ -253,7 +268,7 @@ namespace ArcheologicCatalogClassic
             for (int i = 0; i < longpath.Length; i++)
             {
                 string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
-                               
+
                 Paths[i, 0] = longpath[i];
                 Paths[i, 1] = shortpath;
             }

@@ -125,6 +125,10 @@
     <value>ArcheoCatalogData.xml</value>
     <comment>Data Storage as XML</comment>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ImageCantLoad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImageCantLoad.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SettingsXML" xml:space="preserve">
     <value>ArcheoCatalogSettings.xml</value>
     <comment>Application Settings</comment>

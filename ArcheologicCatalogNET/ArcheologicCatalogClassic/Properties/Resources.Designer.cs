@@ -79,6 +79,16 @@ namespace ArcheologicCatalogClassic.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageCantLoad {
+            get {
+                object obj = ResourceManager.GetObject("ImageCantLoad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ArcheoCatalogSettings.xml ähnelt.
         /// </summary>
         internal static string SettingsXML {

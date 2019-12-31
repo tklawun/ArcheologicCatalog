@@ -26,7 +26,6 @@ namespace ArcheologicCatalogClassic
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             //Show List as form
             prgCtl.ViewArcheObjectList();
 
