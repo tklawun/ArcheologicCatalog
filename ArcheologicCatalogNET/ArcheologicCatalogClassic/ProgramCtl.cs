@@ -11,7 +11,6 @@ namespace ArcheologicCatalogClassic
 {
     public class ProgramCtl
     {
-        private string applicationPath;
         private string pathOfPictures;
         private string[] listOfPics;
         private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
@@ -19,6 +18,11 @@ namespace ArcheologicCatalogClassic
         private ArcheoCatalogList archeoListView;
         private XmlData XmlDataObj;
         private RegCtl reg;
+
+        internal string GetPicturesPath()
+        {
+            throw new NotImplementedException();
+        }
 
         internal ArrayList GetArcheoObjCol()
         {
@@ -29,24 +33,10 @@ namespace ArcheologicCatalogClassic
 
         public void Start()
         {
-            applicationPath = Environment.GetEnvironmentVariable("OneDriveConsumer") + "\\ArcheoCatalog";
-            //create Application Pfad, if dosnt exists
-            try
-            {
-                if (!System.IO.Directory.Exists(applicationPath))
-                {
-                    System.IO.Directory.CreateDirectory(applicationPath);
-                }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Alert: Failure by Application Path handling");
-                throw;
-
-            }
             reg = new RegCtl();
             XmlDataObj = new XmlData();
             pathOfPictures = reg.GetPathForPictureFolderIntoRegistry();
+
             listOfPics = GetAllPicturesPathInDirectory();
             archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
@@ -86,7 +76,7 @@ namespace ArcheologicCatalogClassic
 
         public string GetApplicationDataXMLFile()
         {
-            string appDataXMLFile = applicationPath + "\\" + applicationDataXMLFile;
+            string appDataXMLFile = pathOfPictures + "\\" + applicationDataXMLFile;
             if (!System.IO.File.Exists(appDataXMLFile))
             {
                 XmlDataObj.InitializeXMLFile(appDataXMLFile);
@@ -170,7 +160,6 @@ namespace ArcheologicCatalogClassic
 
         internal void SaveArcheoObjToXML()
         {
-
             //Todo: Speichern der ArcheoObjectCollection into xml File.
             XmlData xmld = new XmlData();
             XmlDocument xmldoc = xmld.GenerateXMLDocumentFromArcheoObjectList(archeoObjectCol);

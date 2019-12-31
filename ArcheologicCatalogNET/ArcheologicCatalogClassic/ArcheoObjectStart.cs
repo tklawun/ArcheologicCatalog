@@ -18,10 +18,10 @@ namespace ArcheologicCatalogClassic
         private ProgramCtl prgCtl;
         public ArcheoObjectStart()
         {
+            InitializeComponent();
             prgCtl = new ProgramCtl();
             prgCtl.Start();
             ArcheoObjCol = prgCtl.GetArcheoObjCol();
-            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
