@@ -82,5 +82,10 @@ namespace ArcheologicCatalogClassic
         {
             prgCtl.ExitApplication();
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

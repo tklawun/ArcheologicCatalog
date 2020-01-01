@@ -18,6 +18,7 @@ namespace ArcheologicCatalogClassic
         private ArcheoCatalogList archeoListView;
         private XmlData XmlDataObj;
         private RegCtl reg;
+        private string[] picturesPath;
 
         //TODO: Singleton Pattern
 
@@ -37,7 +38,10 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
             //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
-            MatchImageListWithArcheoObjectList();
+            if (!(listOfPics == null))
+            {
+                MatchImageListWithArcheoObjectList();
+            }
         }
 
         internal void SetPathForPictureFolderIntoRegistry(string text)
@@ -260,12 +264,17 @@ namespace ArcheologicCatalogClassic
         public string[] GetAllPicturesPathInDirectory()
         {
             string pathToPictures = pathOfPictures;
-            
-            string[] picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
-
-            if (picturesPath.Length < 1)
+            if (!(Directory.GetFiles(pathToPictures, "*.jpg") == null) && !(Directory.GetFiles(pathToPictures, "*.jpg").Length < 1))
             {
-                picturesPath.Append( "no pictures found in " + pathToPictures);
+                picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+
+                //if (picturesPath.Length < 1)
+                //{
+                //    picturesPath.Append("no pictures found in " + pathToPictures);
+                //}
+            }
+            {
+                picturesPath = null;
             }
             return picturesPath;
         }
