@@ -13,37 +13,38 @@ namespace ArcheologicCatalogClassic
     {
         private string pathOfPictures;
         private string[] listOfPics;
-        private const string applicationDataXMLFile = "ArcheoCatalogData.xml";
+        private const string constDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
         private ArcheoCatalogList archeoListView;
         private XmlData XmlDataObj;
         private RegCtl reg;
 
-        internal string GetPicturesPath()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal ArrayList GetArcheoObjCol()
-        {
-            return archeoObjectCol;
-        }
-
         //TODO: Singleton Pattern
 
         public void Start()
         {
-            reg = new RegCtl();
             XmlDataObj = new XmlData();
-            pathOfPictures = reg.GetPathForPictureFolderIntoRegistry();
+            reg = new RegCtl();
 
+            LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
+
+        }
+
+        public void LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj()
+        {
+            pathOfPictures = GetPicturesPath();
             listOfPics = GetAllPicturesPathInDirectory();
             archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
             //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
             MatchImageListWithArcheoObjectList();
-
         }
+
+        internal void SetPathForPictureFolderIntoRegistry(string text)
+        {
+            reg.SetPathForPictureFolderIntoRegistry(text);
+        }
+
         public void ViewArcheObjectList()
         {
             archeoListView = new ArcheoCatalogList(this);
@@ -76,7 +77,7 @@ namespace ArcheologicCatalogClassic
 
         public string GetApplicationDataXMLFile()
         {
-            string appDataXMLFile = pathOfPictures + "\\" + applicationDataXMLFile;
+            string appDataXMLFile = pathOfPictures + "\\" + constDataXMLFile;
             if (!System.IO.File.Exists(appDataXMLFile))
             {
                 XmlDataObj.InitializeXMLFile(appDataXMLFile);
@@ -170,7 +171,7 @@ namespace ArcheologicCatalogClassic
         internal void ShowArcheoCatalogDetail(string code)
         {
             ArcheoCatalogDetail archeoDetail = new ArcheoCatalogDetail(this, code);
-            
+
             SetArcheoDetail(code, archeoDetail);
             //throw new NotImplementedException();
         }
@@ -201,15 +202,34 @@ namespace ArcheologicCatalogClassic
         internal void GetNextArcheObjFromCol(ArcheoCatalogDetail archeoDetail)
         {
             int x = archeoObjectCol.LastIndexOf(GetArcheoObjFromCol(archeoDetail.getCode())) + 1;
-            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
-            SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
+            try
+            {
+                ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
+                SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
+            }
+            catch (Exception)
+            {
+                //TODO: Ausnahmefehler OutOIndex Warum erscheinen die Bilder zwei mal in der Liste?
+                Console.WriteLine("Fehler im Index. Element wird nicht gefunden, da die Bilder zwei Mal ");
+                //throw;
+            }
+
         }
 
         internal void GetBackArcheObjFromCol(ArcheoCatalogDetail archeoDetail)
         {
             int x = archeoObjectCol.LastIndexOf(GetArcheoObjFromCol(archeoDetail.getCode())) - 1;
-            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
-            SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
+            try
+            {
+                ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[x];
+                SetArcheoDetail(archeoObj.GetCode(), archeoDetail);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Fehler im Index. Element wird nicht gefunden, da die Bilder zwei Mal ");
+                //throw;
+            }
+
         }
 
         public ArcheoObject GetArcheoObjFromCol(string code)
@@ -240,11 +260,12 @@ namespace ArcheologicCatalogClassic
         public string[] GetAllPicturesPathInDirectory()
         {
             string pathToPictures = pathOfPictures;
-            string[] picturesPath;
-            picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+            
+            string[] picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+
             if (picturesPath.Length < 1)
             {
-                picturesPath[0] = "no pictures found in " + pathToPictures;
+                picturesPath.Append( "no pictures found in " + pathToPictures);
             }
             return picturesPath;
         }
@@ -265,6 +286,15 @@ namespace ArcheologicCatalogClassic
             return Paths;
         }
         public ArrayList GetArcheoObjectCollection()
+        {
+            return archeoObjectCol;
+        }
+        internal string GetPicturesPath()
+        {
+            return reg.GetPathForPictureFolderIntoRegistry();
+        }
+
+        internal ArrayList GetArcheoObjCol()
         {
             return archeoObjectCol;
         }

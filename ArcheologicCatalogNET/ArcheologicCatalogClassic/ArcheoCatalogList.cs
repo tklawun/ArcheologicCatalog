@@ -77,5 +77,10 @@ namespace ArcheologicCatalogClassic
         {
             prgCtl.GetAllPicturesPathInDirectory();
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            prgCtl.ExitApplication();
+        }
     }
 }

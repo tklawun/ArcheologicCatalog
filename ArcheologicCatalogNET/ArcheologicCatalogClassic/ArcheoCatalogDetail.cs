@@ -19,7 +19,6 @@ namespace ArcheologicCatalogClassic
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
-
         }
 
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
@@ -40,7 +39,6 @@ namespace ArcheologicCatalogClassic
             setTypeOfBuild(archeoObj.GetTypeOfBuild());
             SetPictureBox(archeoObj.GetImagelink());
             setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
-
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {

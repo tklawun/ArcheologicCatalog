@@ -37,6 +37,7 @@ namespace ArcheologicCatalogClassic
             this.buttonChangeSmallIcon = new System.Windows.Forms.Button();
             this.buttonChangeLargeIcon = new System.Windows.Forms.Button();
             this.buttonRefreshPic = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewArcheoObjects
@@ -103,7 +104,7 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonRefreshPic
             // 
-            this.buttonRefreshPic.Location = new System.Drawing.Point(980, 652);
+            this.buttonRefreshPic.Location = new System.Drawing.Point(983, 652);
             this.buttonRefreshPic.Name = "buttonRefreshPic";
             this.buttonRefreshPic.Size = new System.Drawing.Size(123, 33);
             this.buttonRefreshPic.TabIndex = 5;
@@ -111,11 +112,22 @@ namespace ArcheologicCatalogClassic
             this.buttonRefreshPic.UseVisualStyleBackColor = true;
             this.buttonRefreshPic.Click += new System.EventHandler(this.buttonRefreshPic_Click);
             // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(1113, 652);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 33);
+            this.buttonExit.TabIndex = 6;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // ArcheoCatalogList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 697);
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonRefreshPic);
             this.Controls.Add(this.buttonChangeLargeIcon);
             this.Controls.Add(this.buttonChangeSmallIcon);
@@ -150,5 +162,6 @@ namespace ArcheologicCatalogClassic
         private System.Windows.Forms.Button buttonChangeSmallIcon;
         private System.Windows.Forms.Button buttonChangeLargeIcon;
         private System.Windows.Forms.Button buttonRefreshPic;
+        private Button buttonExit;
     }
 }

@@ -36,6 +36,7 @@ namespace ArcheologicCatalogClassic
             this.buttonChoisPicDir = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelChoiseImageDir
@@ -73,7 +74,8 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(953, 641);
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Location = new System.Drawing.Point(936, 651);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 29);
             this.buttonSave.TabIndex = 3;
@@ -83,7 +85,8 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(1043, 641);
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.Location = new System.Drawing.Point(1017, 651);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(87, 29);
             this.buttonCancel.TabIndex = 4;
@@ -91,11 +94,23 @@ namespace ArcheologicCatalogClassic
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // buttonExit
+            // 
+            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExit.Location = new System.Drawing.Point(1110, 651);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(75, 29);
+            this.buttonExit.TabIndex = 5;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // ArcheoCatalogConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonChoisPicDir);
@@ -130,5 +145,6 @@ namespace ArcheologicCatalogClassic
         private System.Windows.Forms.Button buttonChoisPicDir;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonExit;
     }
 }

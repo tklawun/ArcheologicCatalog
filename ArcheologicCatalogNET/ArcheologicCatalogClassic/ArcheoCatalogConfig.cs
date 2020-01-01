@@ -13,14 +13,13 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogConfig : Form
     {
+        ProgramCtl prgCtl; 
         public ArcheoCatalogConfig(ProgramCtl prgCtl)
         {
             InitializeComponent();
             //TODO: make this from ProgramCTL
-            
-            RegCtl regctl = new RegCtl();
+            this.prgCtl = prgCtl;
             textBoxChoisedDirectory.Text = prgCtl.GetPicturesPath();
-            textBoxChoisedDirectory.Text = regctl.GetPathForPictureFolderIntoRegistry();
         }
 
         private void TextBoxCoisedDirectory_DoubleClick(object sender, EventArgs e)
@@ -32,16 +31,14 @@ namespace ArcheologicCatalogClassic
         {
             if (folderBrowserDialogImageDirectory.ShowDialog() == DialogResult.OK)
             {
-                textBoxChoisedDirectory.Text = folderBrowserDialogImageDirectory.SelectedPath;
-                //Todo: Write to Registry
-                RegCtl regctl = new RegCtl();
-                regctl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
+                textBoxChoisedDirectory.Text = folderBrowserDialogImageDirectory.SelectedPath;            
+                //prgCtl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
             }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -51,8 +48,14 @@ namespace ArcheologicCatalogClassic
             //load xml Application Data File
             //load PicturesList from folder
             //load ArcheoObjectCollection
-            
+            prgCtl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
+            prgCtl.LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj(); 
 
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            prgCtl.ExitApplication();
         }
     }
 }
