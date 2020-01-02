@@ -151,7 +151,6 @@ namespace ArcheologicCatalogClassic
             }
             catch (Exception)
             {
-
                 archeoObj.SetDepth(0);
             }
             archeoObj.SetTypOfCoordinate(typOfCoordinate);
@@ -248,6 +247,29 @@ namespace ArcheologicCatalogClassic
             return null;
         }
 
+        public void SetArcheoObjInCol(ArcheoObject archeoObj)
+        {
+            //TODO: suche das Object in der Collection. 
+            // am Besten nach dem ImageLink Pfad.
+            ArcheoObject archObj;
+            foreach (ArcheoObject item in archeoObjectCol)
+            {
+                if (item.GetImagelink().Equals(archeoObj.GetImagelink()))
+                {
+                    archObj = item;
+                    break;
+                }
+            }
+            // Speicher das Object neu ab und am Besten gleich in das XML File
+
+            //aktuallisiere die Ansichten
+            
+        }
+
+        public void RefreshViewList(ArcheoCatalogList archeoListView, string code)
+        {
+            //Todo: Erneuern der ListView nach Änderung der Collection durch Save.....
+        }
         public ArcheoObject GetArcheoObjFirstFromCol()
         {
             //Todo Das erste Element aus dem ArrayList zurückgeben
@@ -264,18 +286,18 @@ namespace ArcheologicCatalogClassic
         public string[] GetAllPicturesPathInDirectory()
         {
             string pathToPictures = pathOfPictures;
-            if (!(Directory.GetFiles(pathToPictures, "*.jpg") == null) && !(Directory.GetFiles(pathToPictures, "*.jpg").Length < 1))
-            {
+            //if (!(Directory.GetFiles(pathToPictures, "*.jpg") == null) && !(Directory.GetFiles(pathToPictures, "*.jpg").Length < 1))
+            //{
                 picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
 
                 //if (picturesPath.Length < 1)
                 //{
                 //    picturesPath.Append("no pictures found in " + pathToPictures);
                 //}
-            }
-            {
-                picturesPath = null;
-            }
+            //}
+            //{
+            //    picturesPath = null;
+            //}
             return picturesPath;
         }
 

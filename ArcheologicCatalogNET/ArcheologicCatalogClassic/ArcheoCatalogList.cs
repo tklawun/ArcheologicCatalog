@@ -15,7 +15,6 @@ namespace ArcheologicCatalogClassic
     public partial class ArcheoCatalogList : Form
     {
         private ArrayList archeoObjColl;
-
         private ProgramCtl prgCtl;
 
         public ArcheoCatalogList()
@@ -23,16 +22,15 @@ namespace ArcheologicCatalogClassic
             InitializeComponent();
         }
 
-         public ArcheoCatalogList(ProgramCtl programControl)
+        public ArcheoCatalogList(ProgramCtl programControl)
         {
-            prgCtl = programControl;
-            archeoObjColl = prgCtl.GetArcheoObjectCollection();
             InitializeComponent();
-            SetListView();
+            prgCtl = programControl;
         }
 
         internal void SetListView()
         {
+            archeoObjColl = prgCtl.GetArcheoObjectCollection();
             int ListLenght = archeoObjColl.Count;
             //ListView listViewArcheoObjects = new ListView();
             //todo: Generiere die ListView mit Images..... 
