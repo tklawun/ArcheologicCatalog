@@ -164,7 +164,7 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol.Add(archeoObj);
         }
 
-        internal void SaveArcheoObj()
+        internal void SaveArcheoObjIntoXML()
         {
             //Todo: Speichern der ArcheoObjectCollection into xml File.
             XmlData xmld = new XmlData();
@@ -281,43 +281,20 @@ namespace ArcheologicCatalogClassic
         }
         public void SetArcheoObjInCol(int choiseSearch, string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string shortPath, string particularities)
         {
-            //TODO:  Verschiedene Suchfelder verwenden? Wie nach Code, ImagePfad, Title? 
-            switch (choiseSearch)
-            {
-                //0 nach Code, 1 nach Title, 2 nach Pfad
-                //Suche nach Code: 
-                case 0:
-                    foreach (ArcheoObject item in archeoObjectCol)
-                    {
-                        if (item.GetCode().Equals(code))
-                        {
-                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
-                        }
-                    }
-                    break;
-                //suche nach Title: 
-                case 1:
-                    foreach (ArcheoObject item in archeoObjectCol)
-                    {
-                        if (item.GetTitle().Equals(title))
-                        {
-                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
-                        }
-                    }
-                    break;
-                //Suche nach ImagePfad:
-                case 2:
-                    foreach (ArcheoObject item in archeoObjectCol)
-                    {
-                        if (item.GetImagelink().Equals(imagelink))
-                        {
-                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
+            ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj.SetCode(code);
+            archeoObj.SetCoordinate(coordinate);
+            archeoObj.SetDepth(int.Parse(depth));
+            archeoObj.SetDescription(description);
+            archeoObj.SetHeight(int.Parse(height));
+            archeoObj.SetImagelink(imagelink);
+            archeoObj.SetParticularities(particularities);
+            archeoObj.SetShortPath(shortPath);
+            archeoObj.SetTitle(title);
+            archeoObj.SetTypOfBuild(typOfBuild);
+            archeoObj.SetTypOfCoordinate(typOfCoordinate);
+            archeoObj.SetWidth(int.Parse(width));
+            SetArcheoObjInCol(2, archeoObj);
         }
 
 
