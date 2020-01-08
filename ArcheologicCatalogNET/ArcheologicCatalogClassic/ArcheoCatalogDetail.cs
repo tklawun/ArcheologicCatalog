@@ -190,8 +190,10 @@ namespace ArcheologicCatalogClassic
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
-            prgCtlObj.SaveArcheoObjToXML();
+            //Todo: Das ist ja falsch.. man muss das bestehende Object verändern. 
+            //Es fehlt wie nach dem Objekt gesucht werden soll. 0 nach Code, 1 nach Title, 2 nach Pfad????
+            prgCtlObj.SetArcheoObjInCol(2, getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
+            prgCtlObj.SaveArcheoObj();
         }
 
         private void pictureBoxObject_Click(object sender, EventArgs e)

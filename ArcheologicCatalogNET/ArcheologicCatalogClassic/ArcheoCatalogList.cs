@@ -44,7 +44,10 @@ namespace ArcheologicCatalogClassic
             }
             //throw new NotImplementedException();
         }
-
+        internal void clearListView()
+        {
+            listViewArcheoObjects.Clear();
+        }
         private void buttonChangeListView_Click(object sender, EventArgs e)
         {
             listViewArcheoObjects.View = View.List;
@@ -73,7 +76,7 @@ namespace ArcheologicCatalogClassic
 
         private void buttonRefreshPic_Click(object sender, EventArgs e)
         {
-            prgCtl.GetAllPicturesPathInDirectory();
+            prgCtl.RefreshArcheoListView();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
@@ -85,5 +88,7 @@ namespace ArcheologicCatalogClassic
         {
             Close();
         }
+
+      
     }
 }

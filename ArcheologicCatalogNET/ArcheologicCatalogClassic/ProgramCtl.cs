@@ -52,8 +52,9 @@ namespace ArcheologicCatalogClassic
         public void ViewArcheObjectList()
         {
             archeoListView = new ArcheoCatalogList(this);
-            archeoListView.SetListView();
+            RefreshArcheoListView();
             archeoListView.Show();
+
         }
         private void MatchImageListWithArcheoObjectList()
         {
@@ -125,6 +126,7 @@ namespace ArcheologicCatalogClassic
         public void AddArcheoObjectToCol(string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string shortPath, string particularities)
         {
             ArcheoObject archeoObj = new ArcheoObject();
+
             archeoObj.SetTitle(title);
             archeoObj.SetCode(code);
             archeoObj.SetTypOfBuild(typOfBuild);
@@ -162,7 +164,7 @@ namespace ArcheologicCatalogClassic
             archeoObjectCol.Add(archeoObj);
         }
 
-        internal void SaveArcheoObjToXML()
+        internal void SaveArcheoObj()
         {
             //Todo: Speichern der ArcheoObjectCollection into xml File.
             XmlData xmld = new XmlData();
@@ -219,6 +221,15 @@ namespace ArcheologicCatalogClassic
 
         }
 
+        internal void GetArcheObjFromColByPath(ArcheoCatalogDetail archeoDetail)
+        {
+
+            for (int i = 0; i < archeoObjectCol.Count; i++)
+            {
+
+            }
+        }
+
         internal void GetBackArcheObjFromCol(ArcheoCatalogDetail archeoDetail)
         {
             int x = archeoObjectCol.LastIndexOf(GetArcheoObjFromCol(archeoDetail.getCode())) - 1;
@@ -251,84 +262,174 @@ namespace ArcheologicCatalogClassic
         {
             //TODO: suche das Object in der Collection. 
             // am Besten nach dem ImageLink Pfad.
-            ArcheoObject archObj;
+            int i = 0;
             foreach (ArcheoObject item in archeoObjectCol)
             {
                 if (item.GetImagelink().Equals(archeoObj.GetImagelink()))
                 {
-                    archObj = item;
+                    //Todo: Wie aktualisiere ich ein Object in einer Collection? Best Practise? 
+                    archeoObjectCol.RemoveAt(i);
+                    archeoObjectCol.Insert(i, archeoObj);
                     break;
                 }
+                i++;
             }
             // Speicher das Object neu ab und am Besten gleich in das XML File
 
             //aktuallisiere die Ansichten
-            
-        }
 
-        public void RefreshViewList(ArcheoCatalogList archeoListView, string code)
-        {
-            //Todo: Erneuern der ListView nach Änderung der Collection durch Save.....
         }
-        public ArcheoObject GetArcheoObjFirstFromCol()
+        public void SetArcheoObjInCol(int choiseSearch, string title, string code, string typOfBuild, string height, string width, string depth, string typOfCoordinate, string coordinate, string description, string imagelink, string shortPath, string particularities)
         {
-            //Todo Das erste Element aus dem ArrayList zurückgeben
-            int anzahl = archeoObjectCol.Count;
-            if (anzahl < 1)
+            //TODO:  Verschiedene Suchfelder verwenden? Wie nach Code, ImagePfad, Title? 
+            switch (choiseSearch)
             {
-                return null;
+                //0 nach Code, 1 nach Title, 2 nach Pfad
+                //Suche nach Code: 
+                case 0:
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetCode().Equals(code))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                        }
+                    }
+                    break;
+                //suche nach Title: 
+                case 1:
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetTitle().Equals(title))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                        }
+                    }
+                    break;
+                //Suche nach ImagePfad:
+                case 2:
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetImagelink().Equals(imagelink))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
-            //gibt das erste Element zurück
-            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
-            return archeoObj;
         }
 
-        public string[] GetAllPicturesPathInDirectory()
+
+        public void SetArcheoObjInCol(int choiseSearch, ArcheoObject archeoObj)
         {
-            string pathToPictures = pathOfPictures;
-            //if (!(Directory.GetFiles(pathToPictures, "*.jpg") == null) && !(Directory.GetFiles(pathToPictures, "*.jpg").Length < 1))
-            //{
-                picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
-
-                //if (picturesPath.Length < 1)
-                //{
-                //    picturesPath.Append("no pictures found in " + pathToPictures);
-                //}
-            //}
-            //{
-            //    picturesPath = null;
-            //}
-            return picturesPath;
-        }
-
-        public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
-        {
-            string[] longpath = GetAllPicturesPathInDirectory();
-            string[,] Paths = new string[longpath.Length, 2];
-
-            for (int i = 0; i < longpath.Length; i++)
+            //TODO:  Verschiedene Suchfelder verwenden? Wie nach Code, ImagePfad, Title? 
+            switch (choiseSearch)
             {
-                string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
-
-                Paths[i, 0] = longpath[i];
-                Paths[i, 1] = shortpath;
+                //0 nach Code, 1 nach Title, 2 nach Pfad
+                //Suche nach Code: 
+                case 0:
+                    int i = 0;
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetCode().Equals(archeoObj.GetCode()))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                            archeoObjectCol.RemoveAt(i);
+                            archeoObjectCol.Insert(i, archeoObj);
+                        }
+                        i++;
+                    }
+                    break;
+                //suche nach Title: 
+                case 1:
+                    i = 0;
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetTitle().Equals(archeoObj.GetTitle()))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                            archeoObjectCol.RemoveAt(i);
+                            archeoObjectCol.Insert(i, archeoObj);
+                        }
+                        i++;
+                    }
+                    break;
+                //Suche nach ImagePfad:
+                case 2:
+                    i = 0;
+                    foreach (ArcheoObject item in archeoObjectCol)
+                    {
+                        if (item.GetImagelink().Equals(archeoObj.GetImagelink()))
+                        {
+                            //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
+                            archeoObjectCol.RemoveAt(i);
+                            archeoObjectCol.Insert(i, archeoObj);
+                        }
+                        i++;
+                    }
+                    break;
+                default:
+                    break;
             }
-
-            return Paths;
-        }
-        public ArrayList GetArcheoObjectCollection()
-        {
-            return archeoObjectCol;
-        }
-        internal string GetPicturesPath()
-        {
-            return reg.GetPathForPictureFolderIntoRegistry();
         }
 
-        internal ArrayList GetArcheoObjCol()
+    public ArcheoObject GetArcheoObjFirstFromCol()
+    {
+        //Todo Das erste Element aus dem ArrayList zurückgeben
+        int anzahl = archeoObjectCol.Count;
+        if (anzahl < 1)
         {
-            return archeoObjectCol;
+            return null;
         }
+        //gibt das erste Element zurück
+        ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
+        return archeoObj;
+    }
+
+    public string[] GetAllPicturesPathInDirectory()
+    {
+        string pathToPictures = pathOfPictures;
+        picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+        return picturesPath;
+    }
+
+    public void RefreshArcheoListView()
+    {
+        archeoListView.clearListView();
+        archeoListView.SetListView();
+
 
     }
+
+    public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
+    {
+        string[] longpath = GetAllPicturesPathInDirectory();
+        string[,] Paths = new string[longpath.Length, 2];
+
+        for (int i = 0; i < longpath.Length; i++)
+        {
+            string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
+
+            Paths[i, 0] = longpath[i];
+            Paths[i, 1] = shortpath;
+        }
+
+        return Paths;
+    }
+    public ArrayList GetArcheoObjectCollection()
+    {
+        return archeoObjectCol;
+    }
+    internal string GetPicturesPath()
+    {
+        return reg.GetPathForPictureFolderIntoRegistry();
+    }
+
+    internal ArrayList GetArcheoObjCol()
+    {
+        return archeoObjectCol;
+    }
+
+}
 }
