@@ -28,17 +28,17 @@ namespace ArcheologicCatalogClassic
 
             archeoObj = prgCtlObj.GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code
-            setTitle(archeoObj.GetTitle());
-            setCode(archeoObj.GetCode());
-            setWidth(archeoObj.GetWidth().ToString());
-            setHeight(archeoObj.GetHeight().ToString());
-            setDepth(archeoObj.GetDepth().ToString());
-            setDescription(archeoObj.GetDescription());
-            setCoordinate(archeoObj.GetCoordinate());
-            setParticularities(archeoObj.GetParticularities());
-            setTypeOfBuild(archeoObj.GetTypeOfBuild());
-            SetPictureBox(archeoObj.GetImagelink());
-            setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
+            //setTitle(archeoObj.GetTitle());
+            //setCode(archeoObj.GetCode());
+            //setWidth(archeoObj.GetWidth().ToString());
+            //setHeight(archeoObj.GetHeight().ToString());
+            //setDepth(archeoObj.GetDepth().ToString());
+            //setDescription(archeoObj.GetDescription());
+            //setCoordinate(archeoObj.GetCoordinate());
+            //setParticularities(archeoObj.GetParticularities());
+            //setTypeOfBuild(archeoObj.GetTypeOfBuild());
+            //SetPictureBox(archeoObj.GetImagelink());
+            //setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {
@@ -176,17 +176,14 @@ namespace ArcheologicCatalogClassic
         {
             return textBoxParticularities.Text;
         }
-        private string getImageLink()
+        public string getImageLink()
         {
-            //Todo: Link irgendwie reinbringen
-            return "Dies ist irgendwie noch ein Test.";
-            //throw new NotImplementedException();
+            return linkLabelImagePath.Text;
         }
-        private string getShortPath()
+        public string getShortPath()
         {
             //Todo: Link irgendwie reinbringen
-            return "Dies ist irgendwie noch ein Test.";
-            //throw new NotImplementedException();
+            return prgCtlObj.GetShortPathFromLongPath(linkLabelImagePath.Text);
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -216,12 +213,7 @@ namespace ArcheologicCatalogClassic
                 Console.WriteLine(ImageLink + " cannot load");
             }
         }
-        public string GetImageLink()
-        {
-            return archeoObj.GetImagelink();
-
-        }
-
+        
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -229,7 +221,7 @@ namespace ArcheologicCatalogClassic
 
         public void setImageLink(string ImageLink)
         {
-            linkLabelImagePath.Text = archeoObj.GetImagelink();
+            linkLabelImagePath.Text = ImageLink;
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

@@ -28,7 +28,6 @@ namespace ArcheologicCatalogClassic
             reg = new RegCtl();
 
             LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
-
         }
 
         public void LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj()
@@ -72,7 +71,7 @@ namespace ArcheologicCatalogClassic
                 string code = i.ToString() + " --> Type new code";
                 string title = i.ToString() + "--> New";
                 //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
-                string shortPath = "Muss noch gebaut werden";
+                string shortPath = GetShortPathFromLongPath(imageLink);
                 AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
                 i++;
             }
@@ -342,6 +341,7 @@ namespace ArcheologicCatalogClassic
                             //Todo: Setze die Eigenschaft des Objektes und gebe das in die Collection... überschreiben? .. Habe da noch keine Idee. 
                             archeoObjectCol.RemoveAt(i);
                             archeoObjectCol.Insert(i, archeoObj);
+                            break;
                         }
                         i++;
                     }
@@ -351,62 +351,67 @@ namespace ArcheologicCatalogClassic
             }
         }
 
-    public ArcheoObject GetArcheoObjFirstFromCol()
-    {
-        //Todo Das erste Element aus dem ArrayList zurückgeben
-        int anzahl = archeoObjectCol.Count;
-        if (anzahl < 1)
+        public ArcheoObject GetArcheoObjFirstFromCol()
         {
-            return null;
-        }
-        //gibt das erste Element zurück
-        ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
-        return archeoObj;
-    }
-
-    public string[] GetAllPicturesPathInDirectory()
-    {
-        string pathToPictures = pathOfPictures;
-        picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
-        return picturesPath;
-    }
-
-    public void RefreshArcheoListView()
-    {
-        archeoListView.clearListView();
-        archeoListView.SetListView();
-
-
-    }
-
-    public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
-    {
-        string[] longpath = GetAllPicturesPathInDirectory();
-        string[,] Paths = new string[longpath.Length, 2];
-
-        for (int i = 0; i < longpath.Length; i++)
-        {
-            string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
-
-            Paths[i, 0] = longpath[i];
-            Paths[i, 1] = shortpath;
+            //Todo Das erste Element aus dem ArrayList zurückgeben
+            int anzahl = archeoObjectCol.Count;
+            if (anzahl < 1)
+            {
+                return null;
+            }
+            //gibt das erste Element zurück
+            ArcheoObject archeoObj = (ArcheoObject)archeoObjectCol[0];
+            return archeoObj;
         }
 
-        return Paths;
-    }
-    public ArrayList GetArcheoObjectCollection()
-    {
-        return archeoObjectCol;
-    }
-    internal string GetPicturesPath()
-    {
-        return reg.GetPathForPictureFolderIntoRegistry();
-    }
+        public string[] GetAllPicturesPathInDirectory()
+        {
+            string pathToPictures = pathOfPictures;
+            picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
+            return picturesPath;
+        }
 
-    internal ArrayList GetArcheoObjCol()
-    {
-        return archeoObjectCol;
-    }
+        public void RefreshArcheoListView()
+        {
+            archeoListView.clearListView();
+            archeoListView.SetListView();
 
-}
+
+        }
+        public string GetShortPathFromLongPath(string longPath)
+        {
+            return longPath.Substring(longPath.LastIndexOf("\\") + 1);
+
+        }
+
+        public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
+        {
+            string[] longpath = GetAllPicturesPathInDirectory();
+            string[,] Paths = new string[longpath.Length, 2];
+
+            for (int i = 0; i < longpath.Length; i++)
+            {
+                string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
+
+                Paths[i, 0] = longpath[i];
+                Paths[i, 1] = shortpath;
+            }
+
+            return Paths;
+        }
+        public ArrayList GetArcheoObjectCollection()
+        {
+            return archeoObjectCol;
+        }
+        internal string GetPicturesPath()
+        {
+            return reg.GetPathForPictureFolderIntoRegistry();
+        }
+
+        internal ArrayList GetArcheoObjCol()
+        {
+            return archeoObjectCol;
+        }
+
+    }
 }

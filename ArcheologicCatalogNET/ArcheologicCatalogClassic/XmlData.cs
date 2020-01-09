@@ -136,8 +136,8 @@ class XmlData
     public ArrayList GetArcheoObjColFromXMLDoc(XmlDocument xmlDoc)
     {
         ArrayList archeoObjCol = new ArrayList();
-
-        XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("ArcheoObjectsList/ArcheoObject");
+        //TODO: Das Laden bestehender XML Daten funktioniert nicht korrekt. 
+        XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
         foreach (XmlNode node in elemList)
         {
             ArcheoObject archeoObj = new ArcheoObject();
@@ -149,12 +149,12 @@ class XmlData
             catch (Exception) {Console.WriteLine("Value width: Error by parse to int"); throw; }
             try { archeoObj.SetHeight(int.Parse(node.SelectSingleNode("height").InnerText)); }
             catch (Exception) {Console.WriteLine("Value height: Error by parse to int"); throw; }
-            archeoObj.SetTypOfCoordinate(node.SelectSingleNode("typofcoordinate").InnerText);
-            archeoObj.SetTypOfBuild(node.SelectSingleNode("typofbuild").InnerText);
+            archeoObj.SetTypOfCoordinate(node.SelectSingleNode("typeOfCoordinate").InnerText);
+            archeoObj.SetTypOfBuild(node.SelectSingleNode("typeOfBuild").InnerText);
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             archeoObj.SetDescription(node.SelectSingleNode("description").InnerText);
-            archeoObj.SetImagelink(node.SelectSingleNode("imagelink").InnerText);
-            archeoObj.SetImagelink(node.SelectSingleNode("shortPath").InnerText);
+            archeoObj.SetImagelink(node.SelectSingleNode("imageLink").InnerText);
+            archeoObj.SetShortPath(node.SelectSingleNode("shortPath").InnerText);
             archeoObj.SetParticularities(node.SelectSingleNode("particularities").InnerText);
         }
         return archeoObjCol;
