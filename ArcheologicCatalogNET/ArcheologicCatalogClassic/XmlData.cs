@@ -156,6 +156,7 @@ class XmlData
             archeoObj.SetImagelink(node.SelectSingleNode("imageLink").InnerText);
             archeoObj.SetShortPath(node.SelectSingleNode("shortPath").InnerText);
             archeoObj.SetParticularities(node.SelectSingleNode("particularities").InnerText);
+            archeoObjCol.Add((ArcheoObject)archeoObj);
         }
         return archeoObjCol;
     }

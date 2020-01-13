@@ -93,7 +93,7 @@ namespace ArcheologicCatalogClassic
         public ArrayList SetArcheoObjCol()
         {
             string xmlFile = GetApplicationDataXMLFile();
-            archeoObjectCol = XmlDataObj.GetArcheoObjColFromXMLDoc(XmlDataObj.ReadXMLDocumentFromFile(xmlFile));
+             archeoObjectCol = XmlDataObj.GetArcheoObjColFromXMLDoc(XmlDataObj.ReadXMLDocumentFromFile(xmlFile));
             return archeoObjectCol;
         }
 
@@ -293,7 +293,7 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetTypOfBuild(typOfBuild);
             archeoObj.SetTypOfCoordinate(typOfCoordinate);
             archeoObj.SetWidth(int.Parse(width));
-            SetArcheoObjInCol(2, archeoObj);
+            SetArcheoObjInCol(choiseSearch, archeoObj);
         }
 
 
