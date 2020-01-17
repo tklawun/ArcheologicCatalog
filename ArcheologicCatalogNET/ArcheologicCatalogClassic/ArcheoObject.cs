@@ -19,6 +19,7 @@ namespace ArcheologicCatalogClassic
         private string description;
         private string imagelink;
         private string particularities;
+        private string ShortPath;
 
         public string GetParticularities()
         {
@@ -56,7 +57,15 @@ namespace ArcheologicCatalogClassic
         {
             return code;
         }
+        public string getShortPath()
+        {
+            return ShortPath;
+        }
 
+        public void SetShortPath(string path)
+        {
+            ShortPath = path;
+        }
         public void SetCode(string value)
         {
             if (string.IsNullOrEmpty(value))

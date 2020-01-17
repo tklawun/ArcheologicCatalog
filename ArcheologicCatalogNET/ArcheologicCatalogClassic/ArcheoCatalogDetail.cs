@@ -15,6 +15,7 @@ namespace ArcheologicCatalogClassic
     {
 
         private ProgramCtl prgCtlObj;
+        private ArcheoObject archeoObj;
         public ArcheoCatalogDetail()
         {
             InitializeComponent();
@@ -22,22 +23,22 @@ namespace ArcheologicCatalogClassic
 
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
         {
+            InitializeComponent();
             prgCtlObj = programControl;
 
-            ArcheoObject archeoObj = new ArcheoObject();
             archeoObj = prgCtlObj.GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code
-            setTitle(archeoObj.GetTitle());
-            setCode(archeoObj.GetCode());
-            setWidth(archeoObj.GetWidth().ToString());
-            setHeight(archeoObj.GetHeight().ToString());
-            setDepth(archeoObj.GetDepth().ToString());
-            setDescription(archeoObj.GetDescription());
-            setCoordinate(archeoObj.GetCoordinate());
-            setParticularities(archeoObj.GetParticularities());
-            setTypeOfBuild(archeoObj.GetTypeOfBuild());
-            setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
-            InitializeComponent();
+            //setTitle(archeoObj.GetTitle());
+            //setCode(archeoObj.GetCode());
+            //setWidth(archeoObj.GetWidth().ToString());
+            //setHeight(archeoObj.GetHeight().ToString());
+            //setDepth(archeoObj.GetDepth().ToString());
+            //setDescription(archeoObj.GetDescription());
+            //setCoordinate(archeoObj.GetCoordinate());
+            //setParticularities(archeoObj.GetParticularities());
+            //setTypeOfBuild(archeoObj.GetTypeOfBuild());
+            //SetPictureBox(archeoObj.GetImagelink());
+            //setTypeOfCoordinate(archeoObj.GetTypeOfCoordinate());
         }
         private void ArcheoCatalogDetail_Load(object sender, EventArgs e)
         {
@@ -175,18 +176,75 @@ namespace ArcheologicCatalogClassic
         {
             return textBoxParticularities.Text;
         }
-        private string getImageLink()
+        public string getImageLink()
+        {
+            return linkLabelImagePath.Text;
+        }
+        public string getShortPath()
         {
             //Todo: Link irgendwie reinbringen
-            return "Dies ist irgendwie noch ein Test.";
-            //throw new NotImplementedException();
+            return prgCtlObj.GetShortPathFromLongPath(linkLabelImagePath.Text);
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-           prgCtlObj.AddArcheoObjectToCol(getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getParticularities());
+            //Todo: Das ist ja falsch.. man muss das bestehende Object verändern. 
+            //Es fehlt wie nach dem Objekt gesucht werden soll. 0 nach Code, 1 nach Title, 2 nach Pfad????
+            prgCtlObj.SetArcheoObjInCol(2, getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
+            prgCtlObj.SaveArcheoObjIntoXML();
         }
 
+        private void pictureBoxObject_Click(object sender, EventArgs e)
+        {
 
+        }
+        public void SetPictureBox(string ImageLink)
+        {
+            try
+            {
+                Image image = Image.FromFile(ImageLink);
+                pictureBoxObject.Image = image;
+                pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+            }
+            catch (Exception)
+            {
+                Image image = Properties.Resources.ImageCantLoad;
+                pictureBoxObject.Image = image;
+                pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
+                Console.WriteLine(ImageLink + " cannot load");
+            }
+        }
+        
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        public void setImageLink(string ImageLink)
+        {
+            linkLabelImagePath.Text = ImageLink;
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            prgCtlObj.ExitApplication();
+        }
+
+        private void buttonCloseWindow_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            //TODO: gehe zum vorherigen Bild
+            prgCtlObj.GetBackArcheObjFromCol(this);
+
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            //TODO: Gehe zum nächsten Bild-
+            prgCtlObj.GetNextArcheObjFromCol(this);
+        }
     }
 }

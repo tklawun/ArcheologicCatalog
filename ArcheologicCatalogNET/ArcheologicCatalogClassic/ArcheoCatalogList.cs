@@ -14,48 +14,40 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogList : Form
     {
-        ArrayList archeoObjColl = new ArrayList();
-
-        internal ProgramCtl prgCtl { get; private set; }
+        private ArrayList archeoObjColl;
+        private ProgramCtl prgCtl;
 
         public ArcheoCatalogList()
         {
             InitializeComponent();
         }
 
-        public ArcheoCatalogList(ArrayList archeoObjCol)
-        {
-            archeoObjColl = archeoObjCol;
-            InitializeComponent();
-        }
         public ArcheoCatalogList(ProgramCtl programControl)
         {
-            prgCtl = programControl;
             InitializeComponent();
+            prgCtl = programControl;
         }
 
-        public void AddListWithEntries(string code, string imagePath)
+        internal void SetListView()
         {
-            //ImageList imageList1 = new ImageList();
-            DirectoryInfo dir = new DirectoryInfo(imagePath);
-
-            listViewArcheoObjects.Items.Add(code);
-
-        }
-
-        internal void SetListView(ArrayList archeoObjCol)
-        {
-            int ListLenght = archeoObjCol.Count;
+            archeoObjColl = prgCtl.GetArcheoObjectCollection();
+            int ListLenght = archeoObjColl.Count;
+            //ListView listViewArcheoObjects = new ListView();
             //todo: Generiere die ListView mit Images..... 
             int i = 0;
-            foreach (ArcheoObject archObj in archeoObjCol)
+            foreach (ArcheoObject archObj in archeoObjColl)
             {
-                listViewArcheoObjects.Items.Add(archObj.GetCode(), i);
+                string archeoObjCode = archObj.GetCode();
+                ListViewItem item = new ListViewItem(archeoObjCode, i);
+                listViewArcheoObjects.Items.Add(item);
                 i++;
             }
             //throw new NotImplementedException();
         }
-
+        internal void clearListView()
+        {
+            listViewArcheoObjects.Clear();
+        }
         private void buttonChangeListView_Click(object sender, EventArgs e)
         {
             listViewArcheoObjects.View = View.List;
@@ -79,7 +71,24 @@ namespace ArcheologicCatalogClassic
         private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
-            prgCtl.showArcheoCatalogDetail(selectedItem.Text);
+            prgCtl.ShowArcheoCatalogDetail(selectedItem.Text);
         }
+
+        private void buttonRefreshPic_Click(object sender, EventArgs e)
+        {
+            prgCtl.RefreshArcheoListView();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            prgCtl.ExitApplication();
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+      
     }
 }

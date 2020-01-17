@@ -79,11 +79,31 @@ namespace ArcheologicCatalogClassic.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ImageCantLoad {
+            get {
+                object obj = ResourceManager.GetObject("ImageCantLoad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ArcheoCatalogSettings.xml ähnelt.
         /// </summary>
         internal static string SettingsXML {
             get {
                 return ResourceManager.GetString("SettingsXML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TklawLogo {
+            get {
+                object obj = ResourceManager.GetObject("TklawLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

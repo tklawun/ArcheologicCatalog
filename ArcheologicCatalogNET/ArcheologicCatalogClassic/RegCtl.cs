@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,19 @@ namespace ArcheologicCatalogClassic
 
         public string GetPathForPictureFolderIntoRegistry()
         {
-            string PathToPictureFolder = "Null";
+            string PathToPictureFolder = null;
             string keyname = "Software\\ArcheoCatalog";
             RegistryKey rk = Registry.CurrentUser.CreateSubKey(keyname);
-            PathToPictureFolder = rk.GetValue("ImageFolder").ToString();
+            try
+            {
+                PathToPictureFolder = rk.GetValue("ImageFolder").ToString();
+            }
+            catch (Exception)
+            {
+                PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
+            }
+            
             return PathToPictureFolder;
         }
     }

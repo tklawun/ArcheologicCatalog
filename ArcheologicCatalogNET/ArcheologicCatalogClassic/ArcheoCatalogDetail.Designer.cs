@@ -50,6 +50,11 @@
             this.textBoxParticularities = new System.Windows.Forms.TextBox();
             this.pictureBoxObject = new System.Windows.Forms.PictureBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.linkLabelImagePath = new System.Windows.Forms.LinkLabel();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonCloseWindow = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxObject)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +83,7 @@
             // labelTypeOfBuild
             // 
             this.labelTypeOfBuild.AutoSize = true;
-            this.labelTypeOfBuild.Location = new System.Drawing.Point(36, 155);
+            this.labelTypeOfBuild.Location = new System.Drawing.Point(36, 148);
             this.labelTypeOfBuild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTypeOfBuild.Name = "labelTypeOfBuild";
             this.labelTypeOfBuild.Size = new System.Drawing.Size(100, 20);
@@ -144,7 +149,7 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(38, 477);
+            this.labelDescription.Location = new System.Drawing.Point(38, 487);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(89, 20);
@@ -155,7 +160,7 @@
             // labelParticularities
             // 
             this.labelParticularities.AutoSize = true;
-            this.labelParticularities.Location = new System.Drawing.Point(38, 632);
+            this.labelParticularities.Location = new System.Drawing.Point(38, 642);
             this.labelParticularities.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelParticularities.Name = "labelParticularities";
             this.labelParticularities.Size = new System.Drawing.Size(103, 20);
@@ -229,7 +234,7 @@
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(216, 472);
+            this.textBoxDescription.Location = new System.Drawing.Point(216, 482);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
@@ -238,7 +243,7 @@
             // 
             // textBoxParticularities
             // 
-            this.textBoxParticularities.Location = new System.Drawing.Point(216, 632);
+            this.textBoxParticularities.Location = new System.Drawing.Point(216, 642);
             this.textBoxParticularities.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxParticularities.Multiline = true;
             this.textBoxParticularities.Name = "textBoxParticularities";
@@ -247,12 +252,13 @@
             // 
             // pictureBoxObject
             // 
-            this.pictureBoxObject.Location = new System.Drawing.Point(408, 78);
+            this.pictureBoxObject.Location = new System.Drawing.Point(406, 68);
             this.pictureBoxObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBoxObject.Name = "pictureBoxObject";
             this.pictureBoxObject.Size = new System.Drawing.Size(614, 378);
             this.pictureBoxObject.TabIndex = 20;
             this.pictureBoxObject.TabStop = false;
+            this.pictureBoxObject.Click += new System.EventHandler(this.pictureBoxObject_Click);
             // 
             // buttonSave
             // 
@@ -264,11 +270,67 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // linkLabelImagePath
+            // 
+            this.linkLabelImagePath.AutoSize = true;
+            this.linkLabelImagePath.Location = new System.Drawing.Point(402, 451);
+            this.linkLabelImagePath.Name = "linkLabelImagePath";
+            this.linkLabelImagePath.Size = new System.Drawing.Size(87, 20);
+            this.linkLabelImagePath.TabIndex = 22;
+            this.linkLabelImagePath.TabStop = true;
+            this.linkLabelImagePath.Text = "ImagePath";
+            this.linkLabelImagePath.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(649, 804);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(85, 37);
+            this.buttonNext.TabIndex = 23;
+            this.buttonNext.Text = "Next";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(406, 804);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(97, 37);
+            this.buttonBack.TabIndex = 24;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // buttonCloseWindow
+            // 
+            this.buttonCloseWindow.Location = new System.Drawing.Point(855, 804);
+            this.buttonCloseWindow.Name = "buttonCloseWindow";
+            this.buttonCloseWindow.Size = new System.Drawing.Size(75, 36);
+            this.buttonCloseWindow.TabIndex = 25;
+            this.buttonCloseWindow.Text = "Close";
+            this.buttonCloseWindow.UseVisualStyleBackColor = true;
+            this.buttonCloseWindow.Click += new System.EventHandler(this.buttonCloseWindow_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Location = new System.Drawing.Point(948, 804);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(72, 37);
+            this.buttonExit.TabIndex = 26;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // ArcheoCatalogDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 883);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonCloseWindow);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.linkLabelImagePath);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.pictureBoxObject);
             this.Controls.Add(this.textBoxParticularities);
@@ -325,5 +387,10 @@
         private System.Windows.Forms.TextBox textBoxParticularities;
         private System.Windows.Forms.PictureBox pictureBoxObject;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.LinkLabel linkLabelImagePath;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonCloseWindow;
+        private System.Windows.Forms.Button buttonExit;
     }
 }
