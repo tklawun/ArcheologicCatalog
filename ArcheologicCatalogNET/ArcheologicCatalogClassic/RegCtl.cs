@@ -9,12 +9,11 @@ namespace ArcheologicCatalogClassic
 {
     class RegCtl
     {
-       public void SetPathForPictureFolderIntoRegistry(string PathToPictureFolder)
+        public void SetPathForPictureFolderIntoRegistry(string PathToPictureFolder)
         {
             string keyname = "Software\\ArcheoCatalog";
             RegistryKey rk = Registry.CurrentUser.CreateSubKey(keyname);
             rk.SetValue("ImageFolder", PathToPictureFolder, RegistryValueKind.String);
-
         }
 
         public string GetPathForPictureFolderIntoRegistry()
