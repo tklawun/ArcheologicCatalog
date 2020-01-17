@@ -412,11 +412,13 @@ namespace ArcheologicCatalogClassic
         internal string GetPicturesPath()
         {
             string picturePath;
-            picturePath =  reg.GetPathForPictureFolderIntoRegistry();
-            if (picturePath = "new")
+            picturePath =  reg.GetPathForPictureFolderFromRegistry();
+            if (picturePath == "new")
             {
                 startConfigDialog();
+                picturePath = reg.GetPathForPictureFolderFromRegistry();
             }
+            return picturePath;
         }
 
         internal ArrayList GetArcheoObjCol()

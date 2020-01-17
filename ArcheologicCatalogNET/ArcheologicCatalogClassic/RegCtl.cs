@@ -17,7 +17,7 @@ namespace ArcheologicCatalogClassic
             rk.SetValue("ImageFolder", PathToPictureFolder, RegistryValueKind.String);
         }
 
-        public string GetPathForPictureFolderIntoRegistry()
+        public string GetPathForPictureFolderFromRegistry()
         {
             string PathToPictureFolder = null;
             string keyname = "Software\\ArcheoCatalog";
@@ -34,6 +34,14 @@ namespace ArcheologicCatalogClassic
             }
             
             return PathToPictureFolder;
+        }
+
+        public Boolean checkOfFirstStart()
+        {
+            //Todo: prüft auf ersten Start durch Test, ob der Registry Schluessel vorhanden ist. 
+            string keyname = "Software\\ArcheoCatalog";
+            RegistryKey rk = Registry.CurrentUser.OpenSubKey(keyname);
+            if(rk.)
         }
 
     }
