@@ -43,6 +43,12 @@ namespace ArcheologicCatalogClassic
             }
         }
 
+        internal void startConfigDialog()
+        {
+            ArcheoCatalogConfig config = new ArcheoCatalogConfig(this);
+            config.Show();
+        }
+
         internal void SetPathForPictureFolderIntoRegistry(string text)
         {
             reg.SetPathForPictureFolderIntoRegistry(text);
@@ -405,7 +411,12 @@ namespace ArcheologicCatalogClassic
         }
         internal string GetPicturesPath()
         {
-            return reg.GetPathForPictureFolderIntoRegistry();
+            string picturePath;
+            picturePath =  reg.GetPathForPictureFolderIntoRegistry();
+            if (picturePath = "new")
+            {
+                startConfigDialog();
+            }
         }
 
         internal ArrayList GetArcheoObjCol()

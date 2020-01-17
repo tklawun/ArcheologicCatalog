@@ -30,9 +30,11 @@ namespace ArcheologicCatalogClassic
             {
                 PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
                 SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
+                //Todo: wenn der Key nicht gesetzt ist, war es der erste Start, sollte man da nicht erstmal Config starten?
             }
             
             return PathToPictureFolder;
         }
+
     }
 }

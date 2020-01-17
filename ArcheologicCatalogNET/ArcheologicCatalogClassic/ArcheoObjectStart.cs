@@ -37,8 +37,7 @@ namespace ArcheologicCatalogClassic
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            ArcheoCatalogConfig config = new ArcheoCatalogConfig(prgCtl);
-            config.Show();
+           prgCtl.startConfigDialog();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
