@@ -25,7 +25,10 @@ namespace ArcheologicCatalogClassic
         public void Start()
         {
             XmlDataObj = new XmlData();
-            reg = new RegCtl();
+            reg = new RegCtl(this);
+
+            //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
+
 
             LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
         }
@@ -46,12 +49,22 @@ namespace ArcheologicCatalogClassic
         internal void startConfigDialog()
         {
             ArcheoCatalogConfig config = new ArcheoCatalogConfig(this);
+            string path = reg.GetPathForPictureFolderFromRegistry();
+            if (path == "null")
+            {
+                config.SetPathInTextField(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+            }
+            else
+            { 
+                config.SetPathInTextField(path);
+            }
             config.Show();
         }
 
         internal void SetPathForPictureFolderIntoRegistry(string text)
         {
             reg.SetPathForPictureFolderIntoRegistry(text);
+            LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
         }
 
         public void ViewArcheObjectList()
@@ -99,7 +112,7 @@ namespace ArcheologicCatalogClassic
         public ArrayList SetArcheoObjCol()
         {
             string xmlFile = GetApplicationDataXMLFile();
-             archeoObjectCol = XmlDataObj.GetArcheoObjColFromXMLDoc(XmlDataObj.ReadXMLDocumentFromFile(xmlFile));
+            archeoObjectCol = XmlDataObj.GetArcheoObjColFromXMLDoc(XmlDataObj.ReadXMLDocumentFromFile(xmlFile));
             return archeoObjectCol;
         }
 
@@ -412,8 +425,8 @@ namespace ArcheologicCatalogClassic
         internal string GetPicturesPath()
         {
             string picturePath;
-            picturePath =  reg.GetPathForPictureFolderFromRegistry();
-            if (picturePath == "new")
+            picturePath = reg.GetPathForPictureFolderFromRegistry();
+            if (picturePath == "null")
             {
                 startConfigDialog();
                 picturePath = reg.GetPathForPictureFolderFromRegistry();
@@ -425,6 +438,11 @@ namespace ArcheologicCatalogClassic
         {
             return archeoObjectCol;
         }
+        public void SetPicPathInRegistry(string path)
+        {
+           reg.SetPathForPictureFolderIntoRegistry(path);
+        }
+
 
     }
 }

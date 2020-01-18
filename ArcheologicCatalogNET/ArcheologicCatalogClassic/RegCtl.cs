@@ -10,6 +10,13 @@ namespace ArcheologicCatalogClassic
 {
     class RegCtl
     {
+        private ProgramCtl programCtl;
+
+        public RegCtl(ProgramCtl programCtl)
+        {
+            this.programCtl = programCtl;
+        }
+
         public void SetPathForPictureFolderIntoRegistry(string PathToPictureFolder)
         {
             string keyname = "Software\\ArcheoCatalog";
@@ -19,29 +26,38 @@ namespace ArcheologicCatalogClassic
 
         public string GetPathForPictureFolderFromRegistry()
         {
-            string PathToPictureFolder = null;
             string keyname = "Software\\ArcheoCatalog";
             RegistryKey rk = Registry.CurrentUser.CreateSubKey(keyname);
+            string PathToPictureFolder;
             try
             {
                 PathToPictureFolder = rk.GetValue("ImageFolder").ToString();
             }
             catch (Exception)
             {
-                PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-                SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
                 //Todo: wenn der Key nicht gesetzt ist, war es der erste Start, sollte man da nicht erstmal Config starten?
+
+                //PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                //SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
+                PathToPictureFolder = "null";
+                
             }
-            
+
             return PathToPictureFolder;
         }
 
-        public Boolean checkOfFirstStart()
+        public Boolean checkIsRegKeyExists()
         {
             //Todo: prüft auf ersten Start durch Test, ob der Registry Schluessel vorhanden ist. 
             string keyname = "Software\\ArcheoCatalog";
             RegistryKey rk = Registry.CurrentUser.OpenSubKey(keyname);
-            if(rk.)
+            if(rk == null)
+            {
+                return false;
+            }
+            {
+                return true;
+            }
         }
 
     }

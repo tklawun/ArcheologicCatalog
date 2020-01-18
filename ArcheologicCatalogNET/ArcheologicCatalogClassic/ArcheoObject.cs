@@ -153,7 +153,10 @@ namespace ArcheologicCatalogClassic
         public void SetImagelink(string value)
         {
             if (string.IsNullOrEmpty(value))
-            { imagelink = "null"; }
+            { 
+                imagelink = "null"; 
+            }
+            else
             {
                 imagelink = value;
             }
@@ -167,7 +170,10 @@ namespace ArcheologicCatalogClassic
         public void SetCoordinate(string value)
         {
             if (string.IsNullOrEmpty(value))
-            { coordinate = "null"; }
+            { 
+                coordinate = "null"; 
+            }
+            else
             {
                 coordinate = value;
             }
@@ -181,12 +187,13 @@ namespace ArcheologicCatalogClassic
         public void SetDepth(int value)
         {
             if (string.IsNullOrEmpty(value.ToString()))
-            { depth = 0; }
+            { 
+                depth = 0; 
+            }
+            else
             {
                 depth = value;
             }
         }
-
-        
     }
 }

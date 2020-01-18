@@ -64,7 +64,7 @@ namespace ArcheologicCatalogClassic
             // 
             // buttonChoisPicDir
             // 
-            this.buttonChoisPicDir.Location = new System.Drawing.Point(730, 16);
+            this.buttonChoisPicDir.Location = new System.Drawing.Point(729, 12);
             this.buttonChoisPicDir.Name = "buttonChoisPicDir";
             this.buttonChoisPicDir.Size = new System.Drawing.Size(216, 35);
             this.buttonChoisPicDir.TabIndex = 2;
@@ -131,10 +131,7 @@ namespace ArcheologicCatalogClassic
 
         private void TextBoxCoisedDirectory_TextChanged(object sender, EventArgs e)
         {
-            //textBoxChoisedDirectory.Text = folderBrowserDialogImageDirectory.SelectedPath;
-            //Todo: Write to Registry
-            RegCtl regctl = new RegCtl();
-            regctl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
+            prgCtl.SetPicPathInRegistry(textBoxChoisedDirectory.Text);
         }
 
         #endregion

@@ -19,7 +19,6 @@ namespace ArcheologicCatalogClassic
             InitializeComponent();
             //TODO: make this from ProgramCTL
             this.prgCtl = prgCtl;
-            textBoxChoisedDirectory.Text = prgCtl.GetPicturesPath();
         }
 
         private void TextBoxCoisedDirectory_DoubleClick(object sender, EventArgs e)
@@ -49,13 +48,17 @@ namespace ArcheologicCatalogClassic
             //load PicturesList from folder
             //load ArcheoObjectCollection
             prgCtl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
-            prgCtl.LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj(); 
+           
 
         }
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             prgCtl.ExitApplication();
+        }
+        public void SetPathInTextField(string path)
+        {
+            textBoxChoisedDirectory.Text = path;
         }
     }
 }
