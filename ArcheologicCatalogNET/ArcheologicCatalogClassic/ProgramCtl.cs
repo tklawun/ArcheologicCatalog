@@ -58,6 +58,7 @@ namespace ArcheologicCatalogClassic
             { 
                 config.SetPathInTextField(path);
             }
+            config.Activate();
             config.Show();
         }
 

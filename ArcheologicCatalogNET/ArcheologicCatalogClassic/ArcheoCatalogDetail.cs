@@ -14,7 +14,7 @@ namespace ArcheologicCatalogClassic
     public partial class ArcheoCatalogDetail : Form
     {
 
-        private ProgramCtl prgCtlObj;
+        private ProgramCtl prgCtl;
         private ArcheoObject archeoObj;
         public ArcheoCatalogDetail()
         {
@@ -24,9 +24,9 @@ namespace ArcheologicCatalogClassic
         public ArcheoCatalogDetail(ProgramCtl programControl, string code)
         {
             InitializeComponent();
-            prgCtlObj = programControl;
+            prgCtl = programControl;
 
-            archeoObj = prgCtlObj.GetArcheoObjFromCol(code);
+            archeoObj = prgCtl.GetArcheoObjFromCol(code);
             //Todo: Select das Element mit dem Code
             //setTitle(archeoObj.GetTitle());
             //setCode(archeoObj.GetCode());
@@ -183,14 +183,14 @@ namespace ArcheologicCatalogClassic
         public string getShortPath()
         {
             //Todo: Link irgendwie reinbringen
-            return prgCtlObj.GetShortPathFromLongPath(linkLabelImagePath.Text);
+            return prgCtl.GetShortPathFromLongPath(linkLabelImagePath.Text);
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //Todo: Das ist ja falsch.. man muss das bestehende Object verändern. 
             //Es fehlt wie nach dem Objekt gesucht werden soll. 0 nach Code, 1 nach Title, 2 nach Pfad????
-            prgCtlObj.SetArcheoObjInCol(2, getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
-            prgCtlObj.SaveArcheoObjIntoXML();
+            prgCtl.SetArcheoObjInCol(2, getTitle(), getCode(), getTypeOfBuild(), getHeight(), getWidth(), getDepth(), getTypeOfCoordinate(), getCoordinate(), getDescription(), getImageLink(), getShortPath(), getParticularities());
+            prgCtl.SaveArcheoObjIntoXML();
         }
 
         private void pictureBoxObject_Click(object sender, EventArgs e)
@@ -226,7 +226,7 @@ namespace ArcheologicCatalogClassic
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            prgCtlObj.ExitApplication();
+            prgCtl.ExitApplication();
         }
 
         private void buttonCloseWindow_Click(object sender, EventArgs e)
@@ -237,14 +237,14 @@ namespace ArcheologicCatalogClassic
         private void buttonBack_Click(object sender, EventArgs e)
         {
             //TODO: gehe zum vorherigen Bild
-            prgCtlObj.GetBackArcheObjFromCol(this);
+            prgCtl.GetBackArcheObjFromCol(this);
 
         }
 
         private void buttonNext_Click(object sender, EventArgs e)
         {
             //TODO: Gehe zum nächsten Bild-
-            prgCtlObj.GetNextArcheObjFromCol(this);
+            prgCtl.GetNextArcheObjFromCol(this);
         }
     }
 }
