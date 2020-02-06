@@ -28,15 +28,13 @@ namespace ArcheologicCatalogClassic
             reg = new RegCtl(this);
 
             //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
-
-
             LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
         }
 
         public void LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj()
         {
             pathOfPictures = GetPicturesPath();
-            listOfPics = GetAllPicturesPathInDirectory();
+            listOfPics = GetAllPicturesPathInDirectory(true);
             archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
             //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
@@ -55,7 +53,7 @@ namespace ArcheologicCatalogClassic
                 config.SetPathInTextField(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
             }
             else
-            { 
+            {
                 config.SetPathInTextField(path);
             }
             config.Activate();
@@ -78,24 +76,28 @@ namespace ArcheologicCatalogClassic
         private void MatchImageListWithArcheoObjectList()
         {
             int i = 0;
+            Boolean ifPicInArcheoObjList = false;
             foreach (string imageLink in listOfPics)
             {
+                ifPicInArcheoObjList = false;
                 foreach (ArcheoObject archeoObj in archeoObjectCol)
                 {
                     if (imageLink == archeoObj.GetImagelink())
                     {
+                        ifPicInArcheoObjList = true;
                         break;
-
                     }
                 }
-                string code = i.ToString() + " --> Type new code";
-                string title = i.ToString() + "--> New";
-                //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
-                string shortPath = GetShortPathFromLongPath(imageLink);
-                AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
+                if (!ifPicInArcheoObjList)
+                {
+                    string code = i.ToString() + " --> Type new code";
+                    string title = i.ToString() + "--> New";
+                    //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
+                    string shortPath = GetShortPathFromLongPath(imageLink);
+                    AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
+                }
                 i++;
             }
-
             //throw new NotImplementedException();
         }
 
@@ -315,8 +317,6 @@ namespace ArcheologicCatalogClassic
             archeoObj.SetWidth(int.Parse(width));
             SetArcheoObjInCol(choiseSearch, archeoObj);
         }
-
-
         public void SetArcheoObjInCol(int choiseSearch, ArcheoObject archeoObj)
         {
             //TODO:  Verschiedene Suchfelder verwenden? Wie nach Code, ImagePfad, Title? 
@@ -390,18 +390,29 @@ namespace ArcheologicCatalogClassic
             picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
             return picturesPath;
         }
+        public string[] GetAllPicturesPathInDirectory(Boolean AsShortPath)
+        {
+
+            string[] picturesPath = GetAllPicturesPathInDirectory();
+            string[] shortPicturesPath = new string[picturesPath.Length];
+            int i = 0;
+            foreach (string item in picturesPath)
+            {
+                shortPicturesPath[i] = GetShortPathFromLongPath(item);
+                i++;
+            }
+            return shortPicturesPath;
+        }
 
         public void RefreshArcheoListView()
         {
             archeoListView.clearListView();
             archeoListView.SetListView();
-
-
         }
         public string GetShortPathFromLongPath(string longPath)
         {
-            return longPath.Substring(longPath.LastIndexOf("\\") + 1);
-
+            string shortPath = longPath.Substring(longPath.LastIndexOf("\\") + 1);
+            return shortPath;
         }
 
         public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
@@ -441,7 +452,7 @@ namespace ArcheologicCatalogClassic
         }
         public void SetPicPathInRegistry(string path)
         {
-           reg.SetPathForPictureFolderIntoRegistry(path);
+            reg.SetPathForPictureFolderIntoRegistry(path);
         }
 
 

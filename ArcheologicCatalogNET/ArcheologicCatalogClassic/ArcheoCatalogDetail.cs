@@ -201,7 +201,9 @@ namespace ArcheologicCatalogClassic
         {
             try
             {
-                Image image = Image.FromFile(ImageLink);
+                //TODO: Image Link mit fullpath setzen
+                string fullImageLink = prgCtl.GetPicturesPath() + "\\" + ImageLink;
+                Image image = Image.FromFile(fullImageLink);
                 pictureBoxObject.Image = image;
                 pictureBoxObject.SizeMode = PictureBoxSizeMode.Zoom;
             }
