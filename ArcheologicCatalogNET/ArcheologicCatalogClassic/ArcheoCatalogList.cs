@@ -38,6 +38,7 @@ namespace ArcheologicCatalogClassic
             foreach (ArcheoObject archObj in archeoObjColl)
             {
                 string archeoObjCode = archObj.GetCode();
+                string archeoObjImageLink = archObj.GetImagelink();
                 ListViewItem item = new ListViewItem(archeoObjCode, i);
                 listViewArcheoObjects.Items.Add(item);
                 i++;

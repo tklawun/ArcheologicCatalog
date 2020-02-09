@@ -64,6 +64,7 @@ namespace ArcheologicCatalogClassic
         {
             reg.SetPathForPictureFolderIntoRegistry(text);
             LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
+            SaveArcheoObjIntoXML();
         }
 
         public void ViewArcheObjectList()
@@ -170,6 +171,7 @@ namespace ArcheologicCatalogClassic
             }
             try
             {
+                
                 archeoObj.SetDepth(int.Parse(depth));
             }
             catch (Exception)

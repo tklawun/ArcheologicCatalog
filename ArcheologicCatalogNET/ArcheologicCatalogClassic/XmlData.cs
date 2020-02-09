@@ -76,7 +76,7 @@ class XmlData
         foreach (ArcheoObject archObject in archObjCol)
         {
             XmlNode archeoNode = xmlDoc.CreateElement("ArcheoObject");
-                             
+            
             XmlAttribute codeAttribute = xmlDoc.CreateAttribute("code");
             codeAttribute.InnerText = archObject.GetCode();
             archeoNode.Attributes.Append(codeAttribute);
@@ -142,6 +142,7 @@ class XmlData
         foreach (XmlNode node in elemList)
         {
             ArcheoObject archeoObj = new ArcheoObject();
+            archeoObj.SetTitle(node.SelectSingleNode("title").InnerText);
             archeoObj.SetCode(node.SelectSingleNode("code").InnerText);
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             try { archeoObj.SetDepth(int.Parse(node.SelectSingleNode("depth").InnerText)); }
