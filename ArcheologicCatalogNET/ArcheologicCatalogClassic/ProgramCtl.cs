@@ -457,6 +457,23 @@ namespace ArcheologicCatalogClassic
             reg.SetPathForPictureFolderIntoRegistry(path);
         }
 
-
+        //TODO: Mal sehen wie wir das richtig auslagern können. 
+        public ListViewItem[] SetListView()
+        {
+            int ListLenght = archeoObjectCol.Count;
+            //ListView listViewArcheoObjects = new ListView();
+            //todo: Das sollte doch die ProgramCtl machen...... Die hält die Archeo Collection.
+            int i = 0;
+            ListViewItem[] listViewItems = new ListViewItem[ListLenght];
+            foreach (ArcheoObject archObj in archeoObjectCol)
+            {
+                string archeoObjCode = archObj.GetCode();
+                string archeoObjImageLink = archObj.GetImagelink();
+                ListViewItem item = new ListViewItem(archeoObjCode, i);
+                listViewItems[i] = item;
+                i++;
+            }
+            return listViewItems;
+        }
     }
 }
