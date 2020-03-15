@@ -18,7 +18,8 @@ namespace ArcheologicCatalogClassic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-     
+            //TODO: SingleTon
+            
             Application.Run(new ArcheoObjectStart());
         }
     }

@@ -18,6 +18,7 @@ namespace ArcheologicCatalogClassic
         public ArcheoObjectStart()
         {
             InitializeComponent();
+
             prgCtl = new ProgramCtl();
             prgCtl.Start();
             //ArcheoObjCol = prgCtl.GetArcheoObjCol();

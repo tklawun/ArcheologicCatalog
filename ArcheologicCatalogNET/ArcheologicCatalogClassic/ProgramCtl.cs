@@ -204,6 +204,13 @@ namespace ArcheologicCatalogClassic
             //throw new NotImplementedException();
         }
 
+        internal void addNewPictureIntoList()
+        {
+            ArcheoCatalogAddNewPic archeoNewPic = new ArcheoCatalogAddNewPic(this);
+            archeoNewPic.Show();
+            //throw new NotImplementedException();
+        }
+
         private void SetArcheoDetail(string code, ArcheoCatalogDetail archeoDetail)
         {
             ArcheoObject archeoObj = GetArcheoObjFromCol(code);

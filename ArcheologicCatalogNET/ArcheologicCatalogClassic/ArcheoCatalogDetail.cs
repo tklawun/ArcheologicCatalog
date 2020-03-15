@@ -248,5 +248,10 @@ namespace ArcheologicCatalogClassic
             //TODO: Gehe zum nächsten Bild-
             prgCtl.GetNextArcheObjFromCol(this);
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            prgCtl.addNewPictureIntoList();
+        }
     }
 }

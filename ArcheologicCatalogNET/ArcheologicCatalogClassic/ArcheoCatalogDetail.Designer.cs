@@ -55,16 +55,16 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonCloseWindow = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxObject)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(38, 32);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTitle.Location = new System.Drawing.Point(25, 21);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(38, 20);
+            this.labelTitle.Size = new System.Drawing.Size(27, 13);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Title";
             this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
@@ -72,10 +72,9 @@
             // labelCode
             // 
             this.labelCode.AutoSize = true;
-            this.labelCode.Location = new System.Drawing.Point(38, 106);
-            this.labelCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCode.Location = new System.Drawing.Point(25, 69);
             this.labelCode.Name = "labelCode";
-            this.labelCode.Size = new System.Drawing.Size(47, 20);
+            this.labelCode.Size = new System.Drawing.Size(32, 13);
             this.labelCode.TabIndex = 1;
             this.labelCode.Text = "Code";
             this.labelCode.Click += new System.EventHandler(this.labelCode_Click);
@@ -83,10 +82,9 @@
             // labelTypeOfBuild
             // 
             this.labelTypeOfBuild.AutoSize = true;
-            this.labelTypeOfBuild.Location = new System.Drawing.Point(36, 148);
-            this.labelTypeOfBuild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTypeOfBuild.Location = new System.Drawing.Point(24, 96);
             this.labelTypeOfBuild.Name = "labelTypeOfBuild";
-            this.labelTypeOfBuild.Size = new System.Drawing.Size(100, 20);
+            this.labelTypeOfBuild.Size = new System.Drawing.Size(69, 13);
             this.labelTypeOfBuild.TabIndex = 2;
             this.labelTypeOfBuild.Text = "Type of Build";
             this.labelTypeOfBuild.Click += new System.EventHandler(this.labelTypeOfBuild_Click);
@@ -94,10 +92,9 @@
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(40, 186);
-            this.labelHeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelHeight.Location = new System.Drawing.Point(27, 121);
             this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(56, 20);
+            this.labelHeight.Size = new System.Drawing.Size(38, 13);
             this.labelHeight.TabIndex = 3;
             this.labelHeight.Text = "Height";
             this.labelHeight.Click += new System.EventHandler(this.labelHeight_Click);
@@ -105,10 +102,9 @@
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(38, 229);
-            this.labelWidth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelWidth.Location = new System.Drawing.Point(25, 149);
             this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(50, 20);
+            this.labelWidth.Size = new System.Drawing.Size(35, 13);
             this.labelWidth.TabIndex = 4;
             this.labelWidth.Text = "Width";
             this.labelWidth.Click += new System.EventHandler(this.labelWidth_Click);
@@ -116,10 +112,9 @@
             // labelDepth
             // 
             this.labelDepth.AutoSize = true;
-            this.labelDepth.Location = new System.Drawing.Point(36, 271);
-            this.labelDepth.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDepth.Location = new System.Drawing.Point(24, 176);
             this.labelDepth.Name = "labelDepth";
-            this.labelDepth.Size = new System.Drawing.Size(53, 20);
+            this.labelDepth.Size = new System.Drawing.Size(36, 13);
             this.labelDepth.TabIndex = 5;
             this.labelDepth.Text = "Depth";
             this.labelDepth.Click += new System.EventHandler(this.labelDepth_Click);
@@ -127,10 +122,9 @@
             // labelTypeOfCoordinate
             // 
             this.labelTypeOfCoordinate.AutoSize = true;
-            this.labelTypeOfCoordinate.Location = new System.Drawing.Point(38, 312);
-            this.labelTypeOfCoordinate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTypeOfCoordinate.Location = new System.Drawing.Point(25, 203);
             this.labelTypeOfCoordinate.Name = "labelTypeOfCoordinate";
-            this.labelTypeOfCoordinate.Size = new System.Drawing.Size(143, 20);
+            this.labelTypeOfCoordinate.Size = new System.Drawing.Size(97, 13);
             this.labelTypeOfCoordinate.TabIndex = 6;
             this.labelTypeOfCoordinate.Text = "Type of Coordinate";
             this.labelTypeOfCoordinate.Click += new System.EventHandler(this.labelTypeOfCoordinate_Click);
@@ -138,10 +132,9 @@
             // labelCoordinate
             // 
             this.labelCoordinate.AutoSize = true;
-            this.labelCoordinate.Location = new System.Drawing.Point(40, 354);
-            this.labelCoordinate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCoordinate.Location = new System.Drawing.Point(27, 230);
             this.labelCoordinate.Name = "labelCoordinate";
-            this.labelCoordinate.Size = new System.Drawing.Size(87, 20);
+            this.labelCoordinate.Size = new System.Drawing.Size(58, 13);
             this.labelCoordinate.TabIndex = 7;
             this.labelCoordinate.Text = "Coordinate";
             this.labelCoordinate.Click += new System.EventHandler(this.labelCoordinate_Click);
@@ -149,10 +142,9 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(38, 487);
-            this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDescription.Location = new System.Drawing.Point(25, 317);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(89, 20);
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
             this.labelDescription.TabIndex = 8;
             this.labelDescription.Text = "Description";
             this.labelDescription.Click += new System.EventHandler(this.labelDescription_Click);
@@ -160,111 +152,100 @@
             // labelParticularities
             // 
             this.labelParticularities.AutoSize = true;
-            this.labelParticularities.Location = new System.Drawing.Point(38, 642);
-            this.labelParticularities.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelParticularities.Location = new System.Drawing.Point(25, 417);
             this.labelParticularities.Name = "labelParticularities";
-            this.labelParticularities.Size = new System.Drawing.Size(103, 20);
+            this.labelParticularities.Size = new System.Drawing.Size(69, 13);
             this.labelParticularities.TabIndex = 9;
             this.labelParticularities.Text = "Particularities";
             this.labelParticularities.Click += new System.EventHandler(this.labelParticularities_Click);
             // 
             // textBoxTitle
             // 
-            this.textBoxTitle.Location = new System.Drawing.Point(216, 32);
-            this.textBoxTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxTitle.Location = new System.Drawing.Point(144, 21);
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(804, 26);
+            this.textBoxTitle.Size = new System.Drawing.Size(537, 20);
             this.textBoxTitle.TabIndex = 10;
             // 
             // textBoxCode
             // 
-            this.textBoxCode.Location = new System.Drawing.Point(216, 102);
-            this.textBoxCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCode.Location = new System.Drawing.Point(144, 66);
             this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(148, 26);
+            this.textBoxCode.Size = new System.Drawing.Size(100, 20);
             this.textBoxCode.TabIndex = 11;
             // 
             // textBoxTypeOfBuild
             // 
-            this.textBoxTypeOfBuild.Location = new System.Drawing.Point(216, 142);
-            this.textBoxTypeOfBuild.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxTypeOfBuild.Location = new System.Drawing.Point(144, 92);
             this.textBoxTypeOfBuild.Name = "textBoxTypeOfBuild";
-            this.textBoxTypeOfBuild.Size = new System.Drawing.Size(148, 26);
+            this.textBoxTypeOfBuild.Size = new System.Drawing.Size(100, 20);
             this.textBoxTypeOfBuild.TabIndex = 12;
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(216, 182);
-            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxHeight.Location = new System.Drawing.Point(144, 118);
             this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.Size = new System.Drawing.Size(148, 26);
+            this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
             this.textBoxHeight.TabIndex = 13;
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(216, 225);
-            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxWidth.Location = new System.Drawing.Point(144, 146);
             this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(148, 26);
+            this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
             this.textBoxWidth.TabIndex = 14;
             // 
             // textBoxDepth
             // 
-            this.textBoxDepth.Location = new System.Drawing.Point(216, 266);
-            this.textBoxDepth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDepth.Location = new System.Drawing.Point(144, 173);
             this.textBoxDepth.Name = "textBoxDepth";
-            this.textBoxDepth.Size = new System.Drawing.Size(148, 26);
+            this.textBoxDepth.Size = new System.Drawing.Size(100, 20);
             this.textBoxDepth.TabIndex = 15;
             // 
             // textBoxTypeOfCoordinate
             // 
-            this.textBoxTypeOfCoordinate.Location = new System.Drawing.Point(216, 308);
-            this.textBoxTypeOfCoordinate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxTypeOfCoordinate.Location = new System.Drawing.Point(144, 200);
             this.textBoxTypeOfCoordinate.Name = "textBoxTypeOfCoordinate";
-            this.textBoxTypeOfCoordinate.Size = new System.Drawing.Size(148, 26);
+            this.textBoxTypeOfCoordinate.Size = new System.Drawing.Size(100, 20);
             this.textBoxTypeOfCoordinate.TabIndex = 16;
             // 
             // textBoxCoordinate
             // 
-            this.textBoxCoordinate.Location = new System.Drawing.Point(216, 349);
-            this.textBoxCoordinate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCoordinate.Location = new System.Drawing.Point(144, 227);
             this.textBoxCoordinate.Name = "textBoxCoordinate";
-            this.textBoxCoordinate.Size = new System.Drawing.Size(148, 26);
+            this.textBoxCoordinate.Size = new System.Drawing.Size(100, 20);
             this.textBoxCoordinate.TabIndex = 17;
             // 
             // textBoxDescription
             // 
-            this.textBoxDescription.Location = new System.Drawing.Point(216, 482);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDescription.Location = new System.Drawing.Point(144, 313);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(804, 139);
+            this.textBoxDescription.Size = new System.Drawing.Size(537, 92);
             this.textBoxDescription.TabIndex = 18;
             // 
             // textBoxParticularities
             // 
-            this.textBoxParticularities.Location = new System.Drawing.Point(216, 642);
-            this.textBoxParticularities.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxParticularities.Location = new System.Drawing.Point(144, 417);
             this.textBoxParticularities.Multiline = true;
             this.textBoxParticularities.Name = "textBoxParticularities";
-            this.textBoxParticularities.Size = new System.Drawing.Size(804, 144);
+            this.textBoxParticularities.Size = new System.Drawing.Size(537, 95);
             this.textBoxParticularities.TabIndex = 19;
             // 
             // pictureBoxObject
             // 
-            this.pictureBoxObject.Location = new System.Drawing.Point(406, 68);
-            this.pictureBoxObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBoxObject.Location = new System.Drawing.Point(271, 44);
             this.pictureBoxObject.Name = "pictureBoxObject";
-            this.pictureBoxObject.Size = new System.Drawing.Size(614, 378);
+            this.pictureBoxObject.Size = new System.Drawing.Size(409, 246);
             this.pictureBoxObject.TabIndex = 20;
             this.pictureBoxObject.TabStop = false;
             this.pictureBoxObject.Click += new System.EventHandler(this.pictureBoxObject_Click);
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(537, 804);
+            this.buttonSave.Location = new System.Drawing.Point(358, 523);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 37);
+            this.buttonSave.Size = new System.Drawing.Size(50, 24);
             this.buttonSave.TabIndex = 21;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -273,9 +254,10 @@
             // linkLabelImagePath
             // 
             this.linkLabelImagePath.AutoSize = true;
-            this.linkLabelImagePath.Location = new System.Drawing.Point(402, 451);
+            this.linkLabelImagePath.Location = new System.Drawing.Point(268, 293);
+            this.linkLabelImagePath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabelImagePath.Name = "linkLabelImagePath";
-            this.linkLabelImagePath.Size = new System.Drawing.Size(87, 20);
+            this.linkLabelImagePath.Size = new System.Drawing.Size(58, 13);
             this.linkLabelImagePath.TabIndex = 22;
             this.linkLabelImagePath.TabStop = true;
             this.linkLabelImagePath.Text = "ImagePath";
@@ -283,9 +265,10 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(649, 804);
+            this.buttonNext.Location = new System.Drawing.Point(433, 523);
+            this.buttonNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(85, 37);
+            this.buttonNext.Size = new System.Drawing.Size(57, 24);
             this.buttonNext.TabIndex = 23;
             this.buttonNext.Text = "Next";
             this.buttonNext.UseVisualStyleBackColor = true;
@@ -293,9 +276,10 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(406, 804);
+            this.buttonBack.Location = new System.Drawing.Point(271, 523);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(97, 37);
+            this.buttonBack.Size = new System.Drawing.Size(65, 24);
             this.buttonBack.TabIndex = 24;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = true;
@@ -303,9 +287,10 @@
             // 
             // buttonCloseWindow
             // 
-            this.buttonCloseWindow.Location = new System.Drawing.Point(855, 804);
+            this.buttonCloseWindow.Location = new System.Drawing.Point(570, 523);
+            this.buttonCloseWindow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCloseWindow.Name = "buttonCloseWindow";
-            this.buttonCloseWindow.Size = new System.Drawing.Size(75, 36);
+            this.buttonCloseWindow.Size = new System.Drawing.Size(50, 23);
             this.buttonCloseWindow.TabIndex = 25;
             this.buttonCloseWindow.Text = "Close";
             this.buttonCloseWindow.UseVisualStyleBackColor = true;
@@ -313,19 +298,31 @@
             // 
             // buttonExit
             // 
-            this.buttonExit.Location = new System.Drawing.Point(948, 804);
+            this.buttonExit.Location = new System.Drawing.Point(632, 523);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(72, 37);
+            this.buttonExit.Size = new System.Drawing.Size(48, 24);
             this.buttonExit.TabIndex = 26;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(179, 524);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(65, 23);
+            this.buttonAdd.TabIndex = 27;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // ArcheoCatalogDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1072, 883);
+            this.ClientSize = new System.Drawing.Size(715, 574);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonCloseWindow);
             this.Controls.Add(this.buttonBack);
@@ -353,7 +350,6 @@
             this.Controls.Add(this.labelTypeOfBuild);
             this.Controls.Add(this.labelCode);
             this.Controls.Add(this.labelTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoCatalogDetail";
             this.Text = "Archeo Catalog Detail Ansicht";
             this.Load += new System.EventHandler(this.ArcheoCatalogDetail_Load);
@@ -392,5 +388,6 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonCloseWindow;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

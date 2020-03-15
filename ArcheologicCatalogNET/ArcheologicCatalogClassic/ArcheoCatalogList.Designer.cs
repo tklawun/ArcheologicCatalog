@@ -39,6 +39,7 @@ namespace ArcheologicCatalogClassic
             this.buttonRefreshPic = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewArcheoObjects
@@ -47,12 +48,11 @@ namespace ArcheologicCatalogClassic
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewArcheoObjects.HideSelection = false;
-            this.listViewArcheoObjects.Location = new System.Drawing.Point(32, 67);
-            this.listViewArcheoObjects.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewArcheoObjects.Location = new System.Drawing.Point(21, 44);
             this.listViewArcheoObjects.MultiSelect = false;
             this.listViewArcheoObjects.Name = "listViewArcheoObjects";
             this.listViewArcheoObjects.ShowItemToolTips = true;
-            this.listViewArcheoObjects.Size = new System.Drawing.Size(1132, 572);
+            this.listViewArcheoObjects.Size = new System.Drawing.Size(756, 373);
             this.listViewArcheoObjects.TabIndex = 0;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
             this.listViewArcheoObjects.View = System.Windows.Forms.View.List;
@@ -62,9 +62,10 @@ namespace ArcheologicCatalogClassic
             // buttonChangeListView
             // 
             this.buttonChangeListView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChangeListView.Location = new System.Drawing.Point(42, 648);
+            this.buttonChangeListView.Location = new System.Drawing.Point(28, 421);
+            this.buttonChangeListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChangeListView.Name = "buttonChangeListView";
-            this.buttonChangeListView.Size = new System.Drawing.Size(75, 32);
+            this.buttonChangeListView.Size = new System.Drawing.Size(50, 21);
             this.buttonChangeListView.TabIndex = 1;
             this.buttonChangeListView.Text = "List";
             this.buttonChangeListView.UseVisualStyleBackColor = true;
@@ -73,9 +74,10 @@ namespace ArcheologicCatalogClassic
             // buttonListViewDetails
             // 
             this.buttonListViewDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonListViewDetails.Location = new System.Drawing.Point(123, 648);
+            this.buttonListViewDetails.Location = new System.Drawing.Point(82, 421);
+            this.buttonListViewDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonListViewDetails.Name = "buttonListViewDetails";
-            this.buttonListViewDetails.Size = new System.Drawing.Size(75, 32);
+            this.buttonListViewDetails.Size = new System.Drawing.Size(50, 21);
             this.buttonListViewDetails.TabIndex = 2;
             this.buttonListViewDetails.Text = "Details";
             this.buttonListViewDetails.UseVisualStyleBackColor = true;
@@ -84,9 +86,10 @@ namespace ArcheologicCatalogClassic
             // buttonChangeSmallIcon
             // 
             this.buttonChangeSmallIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChangeSmallIcon.Location = new System.Drawing.Point(204, 648);
+            this.buttonChangeSmallIcon.Location = new System.Drawing.Point(136, 421);
+            this.buttonChangeSmallIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChangeSmallIcon.Name = "buttonChangeSmallIcon";
-            this.buttonChangeSmallIcon.Size = new System.Drawing.Size(97, 32);
+            this.buttonChangeSmallIcon.Size = new System.Drawing.Size(65, 21);
             this.buttonChangeSmallIcon.TabIndex = 3;
             this.buttonChangeSmallIcon.Text = "Small-Icon";
             this.buttonChangeSmallIcon.UseVisualStyleBackColor = true;
@@ -95,9 +98,10 @@ namespace ArcheologicCatalogClassic
             // buttonChangeLargeIcon
             // 
             this.buttonChangeLargeIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChangeLargeIcon.Location = new System.Drawing.Point(307, 648);
+            this.buttonChangeLargeIcon.Location = new System.Drawing.Point(205, 421);
+            this.buttonChangeLargeIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChangeLargeIcon.Name = "buttonChangeLargeIcon";
-            this.buttonChangeLargeIcon.Size = new System.Drawing.Size(113, 32);
+            this.buttonChangeLargeIcon.Size = new System.Drawing.Size(75, 21);
             this.buttonChangeLargeIcon.TabIndex = 4;
             this.buttonChangeLargeIcon.Text = "Large-Icon";
             this.buttonChangeLargeIcon.UseVisualStyleBackColor = true;
@@ -106,9 +110,10 @@ namespace ArcheologicCatalogClassic
             // buttonRefreshPic
             // 
             this.buttonRefreshPic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRefreshPic.Location = new System.Drawing.Point(936, 652);
+            this.buttonRefreshPic.Location = new System.Drawing.Point(624, 424);
+            this.buttonRefreshPic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonRefreshPic.Name = "buttonRefreshPic";
-            this.buttonRefreshPic.Size = new System.Drawing.Size(88, 33);
+            this.buttonRefreshPic.Size = new System.Drawing.Size(59, 21);
             this.buttonRefreshPic.TabIndex = 5;
             this.buttonRefreshPic.Text = "Refresh Images";
             this.buttonRefreshPic.UseVisualStyleBackColor = true;
@@ -117,9 +122,10 @@ namespace ArcheologicCatalogClassic
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(1113, 652);
+            this.buttonExit.Location = new System.Drawing.Point(742, 424);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(75, 33);
+            this.buttonExit.Size = new System.Drawing.Size(50, 21);
             this.buttonExit.TabIndex = 6;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -128,19 +134,31 @@ namespace ArcheologicCatalogClassic
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(1031, 652);
+            this.buttonClose.Location = new System.Drawing.Point(687, 424);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 33);
+            this.buttonClose.Size = new System.Drawing.Size(50, 21);
             this.buttonClose.TabIndex = 7;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(294, 422);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(65, 20);
+            this.buttonAdd.TabIndex = 28;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // ArcheoCatalogList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 697);
+            this.ClientSize = new System.Drawing.Size(800, 453);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonRefreshPic);
@@ -149,7 +167,6 @@ namespace ArcheologicCatalogClassic
             this.Controls.Add(this.buttonListViewDetails);
             this.Controls.Add(this.buttonChangeListView);
             this.Controls.Add(this.listViewArcheoObjects);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoCatalogList";
             this.Text = "Archeo Catalog List";
             this.ResumeLayout(false);
@@ -179,5 +196,6 @@ namespace ArcheologicCatalogClassic
         private System.Windows.Forms.Button buttonRefreshPic;
         private Button buttonExit;
         private Button buttonClose;
+        private Button buttonAdd;
     }
 }

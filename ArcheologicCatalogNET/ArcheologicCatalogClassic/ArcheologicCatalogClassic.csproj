@@ -80,6 +80,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArcheoCatalogAddNewPic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArcheoCatalogAddNewPic.Designer.cs">
+      <DependentUpon>ArcheoCatalogAddNewPic.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArcheoCatalogConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,12 +105,6 @@
       <DependentUpon>ArcheoCatalogList.cs</DependentUpon>
     </Compile>
     <Compile Include="ArcheoObject.cs" />
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="ProgramCtl.cs" />
     <Compile Include="RegCtl.cs" />
     <Compile Include="Settings.cs" />
@@ -118,6 +118,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArcheoCatalogAddNewPic.resx">
+      <DependentUpon>ArcheoCatalogAddNewPic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArcheoCatalogConfig.resx">
       <DependentUpon>ArcheoCatalogConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ArcheoObjectStart.resx">
       <DependentUpon>ArcheoObjectStart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

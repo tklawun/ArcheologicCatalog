@@ -31,20 +31,6 @@ namespace ArcheologicCatalogClassic
         internal void SetListView()
         {
             prgCtl.SetListView();
-            //archeoObjColl = prgCtl.GetArcheoObjectCollection();
-            //int ListLenght = archeoObjColl.Count;
-            ////ListView listViewArcheoObjects = new ListView();
-            ////todo: Das sollte doch die ProgramCtl machen...... Die hält die Archeo Collection.
-            //int i = 0;
-            //foreach (ArcheoObject archObj in archeoObjColl)
-            //{
-            //    string archeoObjCode = archObj.GetCode();
-            //    string archeoObjImageLink = archObj.GetImagelink();
-            //    ListViewItem item = new ListViewItem(archeoObjCode, i);
-            //    listViewArcheoObjects.Items.Add(item);
-            //    i++;
-            //}
-            //throw new NotImplementedException();
         }
         internal void clearListView()
         {
@@ -91,6 +77,9 @@ namespace ArcheologicCatalogClassic
             Close();
         }
 
-      
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            prgCtl.addNewPictureIntoList();
+        }
     }
 }
