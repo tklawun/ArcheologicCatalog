@@ -14,7 +14,6 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogList : Form
     {
-        private ArrayList archeoObjColl;
         private ProgramCtl prgCtl;
 
         public ArcheoCatalogList()
