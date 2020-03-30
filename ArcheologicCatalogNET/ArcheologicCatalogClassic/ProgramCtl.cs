@@ -28,20 +28,17 @@ namespace ArcheologicCatalogClassic
             reg = new RegCtl(this);
 
             //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
-            LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
+            LoadXMLDataAndPathAndCreateNewArcheoObj();
         }
 
-        public void LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj()
+        public void LoadXMLDataAndPathAndCreateNewArcheoObj()
         {
+            //Todo: Bau es um, damit nur gespeicherte Bilder geladen werden. Alle anderen per PicUp Funktion hinzufügen.
+            
             pathOfPictures = GetPicturesPath();
-            listOfPics = GetAllPicturesPathInDirectory(true);
+            //listOfPics = GetAllPicturesPathInDirectory(true);
             archeoObjectCol = new ArrayList();
             archeoObjectCol = SetArcheoObjCol();
-            //TODO: Matchen der Liste der Bilder mit den schon vorhandenen Einträgen in dem Objektkatalog Idee ist: den Dateinamen zu verwenden.
-            if (!(listOfPics == null))
-            {
-                MatchImageListWithArcheoObjectList();
-            }
         }
 
         internal void startConfigDialog()
@@ -63,7 +60,7 @@ namespace ArcheologicCatalogClassic
         internal void SetPathForPictureFolderIntoRegistry(string text)
         {
             reg.SetPathForPictureFolderIntoRegistry(text);
-            LoadXMLDataAndPathAndMatchAndCreateNewArcheoObj();
+            LoadXMLDataAndPathAndCreateNewArcheoObj();
             SaveArcheoObjIntoXML();
         }
 
