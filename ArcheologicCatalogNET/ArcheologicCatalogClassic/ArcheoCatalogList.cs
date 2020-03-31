@@ -29,7 +29,12 @@ namespace ArcheologicCatalogClassic
 
         internal void SetListView()
         {
-            prgCtl.SetListView();
+            ListViewItem[] listviewItems = prgCtl.SetListView();
+            foreach (ListViewItem item in listviewItems)
+            {
+                listViewArcheoObjects.Items.Add(item);
+                
+            }
         }
         internal void clearListView()
         {
