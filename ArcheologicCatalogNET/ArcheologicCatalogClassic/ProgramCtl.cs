@@ -471,17 +471,30 @@ namespace ArcheologicCatalogClassic
             ImageList archeoObjectsImageList = new ImageList();
             foreach (ArcheoObject archObj in archeoObjectCol)
             {
+
+                //TODO: Die Bilder können auch angezeigt werden, allerdings braucht man dazu ein Resize Image Funktion, die muss noch gebaut werden.
                 string archeoObjCode = archObj.GetCode();
                 string archeoObjImageLink = archObj.GetImagelink();
                 ListViewItem item = new ListViewItem(archeoObjCode, i);
+                //
                 Image img = Image.FromFile(pathOfPictures + "\\" + archObj.GetImagelink());
-                archeoObjectsImageList.Images.Add(img);
+                //archeoObjectsImageList.Images.Add(img);
                 archeoObjectsListView.Items.Add(item);
                 i++;
             }
-            archeoObjectsListView.StateImageList = archeoObjectsImageList;
+            //archeoObjectsListView.StateImageList = archeoObjectsImageList;
             
             return archeoObjectsListView;
+        }
+
+        //TODO: Resizing Image
+        public Image resizeImg(Image img) { 
+
+            Image imgResize = img;
+            
+            //System.Drawing.Imaging
+
+            return imgResize;
         }
     }
 }

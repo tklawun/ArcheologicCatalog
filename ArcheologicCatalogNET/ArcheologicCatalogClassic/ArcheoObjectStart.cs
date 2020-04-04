@@ -24,20 +24,16 @@ namespace ArcheologicCatalogClassic
             //ArcheoObjCol = prgCtl.GetArcheoObjCol();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonList_Click(object sender, EventArgs e)
         {
             //Show List as form
             prgCtl.ViewArcheObjectList();
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonConfig_Click(object sender, EventArgs e)
         {
-            prgCtl.SetArcheoObjCol();
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
+            //Start Config Form
            prgCtl.startConfigDialog();
         }
 

@@ -31,31 +31,31 @@ namespace ArcheologicCatalogClassic
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonList = new System.Windows.Forms.Button();
+            this.buttonConfig = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonList
             // 
-            this.button1.Location = new System.Drawing.Point(60, 49);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 35);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "List";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonList.Location = new System.Drawing.Point(60, 49);
+            this.buttonList.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonList.Name = "buttonList";
+            this.buttonList.Size = new System.Drawing.Size(112, 35);
+            this.buttonList.TabIndex = 0;
+            this.buttonList.Text = "List";
+            this.buttonList.UseVisualStyleBackColor = true;
+            this.buttonList.Click += new System.EventHandler(this.buttonList_Click);
             // 
-            // button3
+            // buttonConfig
             // 
-            this.button3.Location = new System.Drawing.Point(60, 111);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 34);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Config";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.buttonConfig.Location = new System.Drawing.Point(60, 111);
+            this.buttonConfig.Name = "buttonConfig";
+            this.buttonConfig.Size = new System.Drawing.Size(112, 34);
+            this.buttonConfig.TabIndex = 2;
+            this.buttonConfig.Text = "Config";
+            this.buttonConfig.UseVisualStyleBackColor = true;
+            this.buttonConfig.Click += new System.EventHandler(this.buttonConfig_Click);
             // 
             // buttonExit
             // 
@@ -73,8 +73,8 @@ namespace ArcheologicCatalogClassic
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 257);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonConfig);
+            this.Controls.Add(this.buttonList);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoObjectStart";
             this.Text = "Archeo Object Start";
@@ -90,8 +90,8 @@ namespace ArcheologicCatalogClassic
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonList;
+        private System.Windows.Forms.Button buttonConfig;
         private System.Windows.Forms.Button buttonExit;
     }
 }
