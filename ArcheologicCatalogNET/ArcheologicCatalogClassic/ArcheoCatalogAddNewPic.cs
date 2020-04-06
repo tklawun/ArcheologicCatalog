@@ -22,8 +22,10 @@ namespace ArcheologicCatalogClassic
 
         private void buttonSelectPicture_Click(object sender, EventArgs e)
         {
+
             string fileDir = prgCtl.GetPicturesPath();
             openFileDialog1.InitialDirectory = fileDir;
+            openFileDialog1.FileName = "newPic.jpg";
             openFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
@@ -42,14 +44,18 @@ namespace ArcheologicCatalogClassic
 
                     throw;
                 }
-                
+
             }
+
+            prgCtl.choisPic(this);
+            
 
         }
 
         private void buttonAddPicture_Click(object sender, EventArgs e)
         {
-
+            //TODO: Copy Pic into pic Folder and start Add Dialog
+            
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

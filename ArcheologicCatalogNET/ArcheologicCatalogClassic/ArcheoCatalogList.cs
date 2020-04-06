@@ -30,6 +30,7 @@ namespace ArcheologicCatalogClassic
         internal void SetListView()
         {
             listViewArcheoObjects = prgCtl.SetListView();
+            Refresh();
         }
         internal void clearListView()
         {
@@ -82,3 +83,5 @@ namespace ArcheologicCatalogClassic
         }
     }
 }
+
+

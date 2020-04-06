@@ -21,6 +21,33 @@ namespace ArcheologicCatalogClassic
         private RegCtl reg;
         private string[] picturesPath;
 
+        internal void choisPic(ArcheoCatalogAddNewPic archeoCatalogAddNewPic)
+        {
+            //throw new NotImplementedException();
+            //string fileDir = prgCtl.GetPicturesPath();
+            //openFileDialog1.InitialDirectory = fileDir;
+            //openFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
+            //openFileDialog1.FilterIndex = 1;
+            //openFileDialog1.RestoreDirectory = true;
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        string imageLink = openFileDialog1.FileName;
+            //        Image image = Image.FromFile(imageLink);
+            //        pictureBox1.Image = image;
+            //        linkLabel1.Text = imageLink;
+
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //        throw;
+            //    }
+
+            //}
+        }
+
         //TODO: Singleton Pattern
 
         public void Start()
@@ -413,8 +440,8 @@ namespace ArcheologicCatalogClassic
 
         public void RefreshArcheoListView()
         {
-            archeoListView.clearListView();
-            archeoListView.SetListView();
+            //archeoListView.clearListView();
+            archeoListView.listViewArcheoObjects = SetListView();
         }
         public string GetShortPathFromLongPath(string longPath)
         {
@@ -462,24 +489,24 @@ namespace ArcheologicCatalogClassic
             reg.SetPathForPictureFolderIntoRegistry(path);
         }
 
-        //TODO: Mal sehen wie wir das richtig auslagern können. 
         public ListView SetListView()
         {
             ListView archeoObjectsListView = new ListView();
             int i = 0;
            
-            ImageList archeoObjectsImageList = new ImageList();
+            //ImageList archeoObjectsImageList = new ImageList();
             foreach (ArcheoObject archObj in archeoObjectCol)
             {
 
                 //TODO: Die Bilder können auch angezeigt werden, allerdings braucht man dazu ein Resize Image Funktion, die muss noch gebaut werden.
                 string archeoObjCode = archObj.GetCode();
                 string archeoObjImageLink = archObj.GetImagelink();
-                ListViewItem item = new ListViewItem(archeoObjCode, i);
+                ListViewItem item = new ListViewItem(archeoObjCode);
+                archeoListView.listViewArcheoObjects.Items.Add(item);
                 //
-                Image img = Image.FromFile(pathOfPictures + "\\" + archObj.GetImagelink());
+                //Image img = Image.FromFile(pathOfPictures + "\\" + archObj.GetImagelink());
                 //archeoObjectsImageList.Images.Add(img);
-                archeoObjectsListView.Items.Add(item);
+                //archeoObjectsListView.Items.Add(item);
                 i++;
             }
             //archeoObjectsListView.StateImageList = archeoObjectsImageList;
