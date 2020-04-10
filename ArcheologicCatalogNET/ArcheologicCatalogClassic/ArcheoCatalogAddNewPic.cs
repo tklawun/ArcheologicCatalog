@@ -12,20 +12,18 @@ namespace ArcheologicCatalogClassic
 {
     public partial class ArcheoCatalogAddNewPic : Form
     {
-        ProgramCtl prgCtl;
+        ProgramCtl programCtl;
         public ArcheoCatalogAddNewPic(ProgramCtl prgCtl)
         {
             InitializeComponent();
             //TODO: make this from ProgramCTL
-            this.prgCtl = prgCtl;
+            this.programCtl = prgCtl;
         }
 
         private void buttonSelectPicture_Click(object sender, EventArgs e)
         {
-
-            string fileDir = prgCtl.GetPicturesPath();
-            openFileDialog1.InitialDirectory = fileDir;
-            openFileDialog1.FileName = "newPic.jpg";
+            openFileDialog1.InitialDirectory = programCtl.GetPicturesPath(); 
+            openFileDialog1.FileName = "*.jpg";
             openFileDialog1.Filter = "jpg files (*.jpg)|*.jpg|All files (*.*)|*.*";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
@@ -37,24 +35,19 @@ namespace ArcheologicCatalogClassic
                     Image image = Image.FromFile(imageLink);
                     pictureBox1.Image = image;
                     linkLabel1.Text = imageLink;
-
                 }
                 catch (Exception)
                 {
-
                     throw;
                 }
-
             }
-
-            prgCtl.choisPic(this);
-            
-
+            programCtl.choisPic(this);
         }
 
         private void buttonAddPicture_Click(object sender, EventArgs e)
         {
             //TODO: Copy Pic into pic Folder and start Add Dialog
+            programCtl.copyFileToPictureFolder(linkLabel1.Text);
             
         }
 

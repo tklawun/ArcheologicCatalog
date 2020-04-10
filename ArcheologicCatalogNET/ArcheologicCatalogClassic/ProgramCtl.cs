@@ -48,6 +48,11 @@ namespace ArcheologicCatalogClassic
             //}
         }
 
+        internal void copyFileToPictureFolder(string picPath)
+        {
+            throw new NotImplementedException();
+        }
+
         //TODO: Singleton Pattern
 
         public void Start()
@@ -233,7 +238,6 @@ namespace ArcheologicCatalogClassic
         {
             ArcheoCatalogAddNewPic archeoNewPic = new ArcheoCatalogAddNewPic(this);
             archeoNewPic.Show();
-            //throw new NotImplementedException();
         }
 
         private void SetArcheoDetail(string code, ArcheoCatalogDetail archeoDetail)
