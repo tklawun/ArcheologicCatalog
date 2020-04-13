@@ -6,20 +6,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using System.Xml;
+using MessageBox = System.Windows.MessageBox;
+
 namespace ArcheologicCatalogClassic
 {
     public class ProgramCtl
     {
         private string pathOfPictures;
-        private string[] listOfPics;
         private const string constDataXMLFile = "ArcheoCatalogData.xml";
         private ArrayList archeoObjectCol;
         private ArcheoCatalogList archeoListView;
         private XmlData XmlDataObj;
         private RegCtl reg;
-        private string[] picturesPath;
+        private CodeGenerator codeGen;
+        //private string[] picturesPath;
 
         internal void choisPic(ArcheoCatalogAddNewPic archeoCatalogAddNewPic)
         {
@@ -50,7 +53,39 @@ namespace ArcheologicCatalogClassic
 
         internal void copyFileToPictureFolder(string picPath)
         {
-            throw new NotImplementedException();
+            int last = picPath.LastIndexOf("\\") + 2;
+
+            string fileName = picPath.Substring(last);
+            string destFile = pathOfPictures + "\\"+ fileName;
+            if (System.IO.File.Exists(destFile))
+            {
+                string messageBoxText = "Do you want to overwrite the picture?";
+                string caption = "Picture exists warning!";
+                MessageBoxButton button = MessageBoxButton.YesNo;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                
+                MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
+
+                // Process message box results
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        // User pressed Yes button
+                        System.IO.File.Copy(picPath, destFile, true);
+                        break;
+                    case MessageBoxResult.No:
+                        // User pressed No button
+                        // ...
+                        break;
+          
+                }
+            }
+            else
+            {
+                System.IO.File.Copy(picPath, destFile);
+            }
+            
+
         }
 
         //TODO: Singleton Pattern
@@ -59,7 +94,7 @@ namespace ArcheologicCatalogClassic
         {
             XmlDataObj = new XmlData();
             reg = new RegCtl(this);
-
+            codeGen = new CodeGenerator(this);
             //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
             LoadXMLDataAndPathAndCreateNewArcheoObj();
         }
@@ -104,33 +139,33 @@ namespace ArcheologicCatalogClassic
             archeoListView.Show();
 
         }
-        private void MatchImageListWithArcheoObjectList()
-        {
-            int i = 0;
-            Boolean ifPicInArcheoObjList = false;
-            foreach (string imageLink in listOfPics)
-            {
-                ifPicInArcheoObjList = false;
-                foreach (ArcheoObject archeoObj in archeoObjectCol)
-                {
-                    if (imageLink == archeoObj.GetImagelink())
-                    {
-                        ifPicInArcheoObjList = true;
-                        break;
-                    }
-                }
-                if (!ifPicInArcheoObjList)
-                {
-                    string code = i.ToString() + " --> Type new code";
-                    string title = i.ToString() + "--> New";
-                    //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
-                    string shortPath = GetShortPathFromLongPath(imageLink);
-                    AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
-                }
-                i++;
-            }
-            //throw new NotImplementedException();
-        }
+        //private void MatchImageListWithArcheoObjectList()
+        //{
+        //    int i = 0;
+        //    Boolean ifPicInArcheoObjList = false;
+        //    foreach (string imageLink in listOfPics)
+        //    {
+        //        ifPicInArcheoObjList = false;
+        //        foreach (ArcheoObject archeoObj in archeoObjectCol)
+        //        {
+        //            if (imageLink == archeoObj.GetImagelink())
+        //            {
+        //                ifPicInArcheoObjList = true;
+        //                break;
+        //            }
+        //        }
+        //        if (!ifPicInArcheoObjList)
+        //        {
+        //            string code = i.ToString() + " --> Type new code";
+        //            string title = i.ToString() + "--> New";
+        //            //Todo: Wie baue ich das am besten den ShortPath Wert zusammen? 
+        //            string shortPath = GetShortPathFromLongPath(imageLink);
+        //            AddArcheoObjectToCol("New", code, "Typ of build", "0", "0", "0", "Typ of coordinate", "Coordinate", "Description", imageLink, shortPath, "Particularities");
+        //        }
+        //        i++;
+        //    }
+        //    //throw new NotImplementedException();
+        //}
 
         public string GetApplicationDataXMLFile()
         {
@@ -153,7 +188,7 @@ namespace ArcheologicCatalogClassic
         internal void ExitApplication()
         {
             //Todo: Application Exist Handling
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
             //throw new NotImplementedException();
         }
 
@@ -422,16 +457,16 @@ namespace ArcheologicCatalogClassic
             return archeoObj;
         }
 
-        public string[] GetAllPicturesPathInDirectory()
+        public string[] GetAllPicturesPathInDirectory(String directory)
         {
-            string pathToPictures = pathOfPictures;
-            picturesPath = Directory.GetFiles(pathToPictures, "*.jpg");
-            return picturesPath;
+            String[] picturesInPath;
+            picturesInPath = Directory.GetFiles(directory, "*.jpg");
+            return picturesInPath;
         }
-        public string[] GetAllPicturesPathInDirectory(Boolean AsShortPath)
+        public string[] GetAllPicturesPathInDirectory(String directory, Boolean AsShortPath)
         {
 
-            string[] picturesPath = GetAllPicturesPathInDirectory();
+            string[] picturesPath = GetAllPicturesPathInDirectory(directory);
             string[] shortPicturesPath = new string[picturesPath.Length];
             int i = 0;
             foreach (string item in picturesPath)
@@ -453,21 +488,21 @@ namespace ArcheologicCatalogClassic
             return shortPath;
         }
 
-        public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
-        {
-            string[] longpath = GetAllPicturesPathInDirectory();
-            string[,] Paths = new string[longpath.Length, 2];
+        //public string[,] GetAllPicturesPathInDirectoryWithShortAndLongPath()
+        //{
+        //    string[] longpath = GetAllPicturesPathInDirectory(picturesPath);
+        //    string[,] Paths = new string[longpath.Length, 2];
 
-            for (int i = 0; i < longpath.Length; i++)
-            {
-                string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
+        //    for (int i = 0; i < longpath.Length; i++)
+        //    {
+        //        string shortpath = longpath[i].Substring(longpath[i].LastIndexOf("\\") + 1);
 
-                Paths[i, 0] = longpath[i];
-                Paths[i, 1] = shortpath;
-            }
+        //        Paths[i, 0] = longpath[i];
+        //        Paths[i, 1] = shortpath;
+        //    }
 
-            return Paths;
-        }
+        //    return Paths;
+        //}
         public ArrayList GetArcheoObjectCollection()
         {
             return archeoObjectCol;
@@ -484,6 +519,18 @@ namespace ArcheologicCatalogClassic
             return picturePath;
         }
 
+        internal string GetCodePattern()
+        {
+            string codePattern;
+            codePattern = reg.GetCodePatternFromRegistry();
+            if (codePattern == "null")
+            {
+                startConfigDialog();
+                codePattern = reg.GetPathForPictureFolderFromRegistry();
+            }
+            return codePattern;
+        }
+
         internal ArrayList GetArcheoObjCol()
         {
             return archeoObjectCol;
@@ -492,10 +539,15 @@ namespace ArcheologicCatalogClassic
         {
             reg.SetPathForPictureFolderIntoRegistry(path);
         }
+        public void SetCodePatternInRegistry(string codePattern)
+        {
+            reg.SetCodePatternIntoRegistry(codePattern);
+        }
+
 
         public ListView SetListView()
         {
-            ListView archeoObjectsListView = new ListView();
+            //ListView archeoObjectsListView = new ListView();
             int i = 0;
            
             //ImageList archeoObjectsImageList = new ImageList();
@@ -515,7 +567,7 @@ namespace ArcheologicCatalogClassic
             }
             //archeoObjectsListView.StateImageList = archeoObjectsImageList;
             
-            return archeoObjectsListView;
+            return archeoListView.listViewArcheoObjects;
         }
 
         //TODO: Resizing Image
@@ -527,5 +579,7 @@ namespace ArcheologicCatalogClassic
 
             return imgResize;
         }
+
+        
     }
 }

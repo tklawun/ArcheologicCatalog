@@ -48,7 +48,7 @@ namespace ArcheologicCatalogClassic
         {
             //TODO: Copy Pic into pic Folder and start Add Dialog
             programCtl.copyFileToPictureFolder(linkLabel1.Text);
-            
+            Close();
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

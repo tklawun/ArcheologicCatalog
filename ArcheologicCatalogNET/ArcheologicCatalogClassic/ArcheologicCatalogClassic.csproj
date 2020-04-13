@@ -67,6 +67,7 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -105,6 +106,7 @@
       <DependentUpon>ArcheoCatalogList.cs</DependentUpon>
     </Compile>
     <Compile Include="ArcheoObject.cs" />
+    <Compile Include="CodeGenerator.cs" />
     <Compile Include="ProgramCtl.cs" />
     <Compile Include="RegCtl.cs" />
     <Compile Include="Settings.cs" />

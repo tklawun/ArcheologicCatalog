@@ -37,6 +37,8 @@ namespace ArcheologicCatalogClassic
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
+            this.labelCodeTemplate = new System.Windows.Forms.Label();
+            this.textBoxCodeTemplate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelChoiseImageDir
@@ -105,11 +107,32 @@ namespace ArcheologicCatalogClassic
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
+            // labelCodeTemplate
+            // 
+            this.labelCodeTemplate.AutoSize = true;
+            this.labelCodeTemplate.Location = new System.Drawing.Point(20, 69);
+            this.labelCodeTemplate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCodeTemplate.Name = "labelCodeTemplate";
+            this.labelCodeTemplate.Size = new System.Drawing.Size(169, 20);
+            this.labelCodeTemplate.TabIndex = 6;
+            this.labelCodeTemplate.Text = "Change Codetemplate";
+            // 
+            // textBoxCodeTemplate
+            // 
+            this.textBoxCodeTemplate.Location = new System.Drawing.Point(202, 66);
+            this.textBoxCodeTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCodeTemplate.Name = "textBoxCodeTemplate";
+            this.textBoxCodeTemplate.Size = new System.Drawing.Size(520, 26);
+            this.textBoxCodeTemplate.TabIndex = 7;
+            this.textBoxCodeTemplate.TextChanged += new System.EventHandler(this.textBoxCodeTemplate_TextChanged);
+            // 
             // ArcheoCatalogConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.textBoxCodeTemplate);
+            this.Controls.Add(this.labelCodeTemplate);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
@@ -119,6 +142,7 @@ namespace ArcheologicCatalogClassic
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoCatalogConfig";
             this.Text = "Archeo Catalog Config";
+            this.Load += new System.EventHandler(this.ArcheoCatalogConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +167,7 @@ namespace ArcheologicCatalogClassic
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Label labelCodeTemplate;
+        private System.Windows.Forms.TextBox textBoxCodeTemplate;
     }
 }

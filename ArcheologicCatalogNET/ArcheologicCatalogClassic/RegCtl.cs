@@ -46,6 +46,35 @@ namespace ArcheologicCatalogClassic
             return PathToPictureFolder;
         }
 
+        public void SetCodePatternIntoRegistry(string CodePattern)
+        {
+            string keyname = "Software\\ArcheoCatalog";
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(keyname);
+            rk.SetValue("CodePattern", CodePattern, RegistryValueKind.String);
+        }
+
+        public string GetCodePatternFromRegistry()
+        {
+            string keyname = "Software\\ArcheoCatalog";
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(keyname);
+            string PathToPictureFolder;
+            try
+            {
+                PathToPictureFolder = rk.GetValue("CodePattern").ToString();
+            }
+            catch (Exception)
+            {
+                //Todo: wenn der Key nicht gesetzt ist, war es der erste Start, sollte man da nicht erstmal Config starten?
+
+                //PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+                //SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
+                PathToPictureFolder = "null";
+
+            }
+
+            return PathToPictureFolder;
+        }
+
         public Boolean checkIsRegKeyExists()
         {
             //Todo: prüft auf ersten Start durch Test, ob der Registry Schluessel vorhanden ist. 

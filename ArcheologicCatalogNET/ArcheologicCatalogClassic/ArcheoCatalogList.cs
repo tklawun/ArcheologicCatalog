@@ -58,8 +58,11 @@ namespace ArcheologicCatalogClassic
 
         private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            ListViewItem selectedItem = listViewArcheoObjects.SelectedItems[0];
-            prgCtl.ShowArcheoCatalogDetail(selectedItem.Text);
+            if (listViewArcheoObjects.IsHandleCreated)
+            {
+                prgCtl.ShowArcheoCatalogDetail(listViewArcheoObjects.SelectedItems[0].Text);
+            }
+            
         }
 
         private void buttonRefreshPic_Click(object sender, EventArgs e)

@@ -60,5 +60,15 @@ namespace ArcheologicCatalogClassic
         {
             textBoxChoisedDirectory.Text = path;
         }
+
+        private void ArcheoCatalogConfig_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCodeTemplate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

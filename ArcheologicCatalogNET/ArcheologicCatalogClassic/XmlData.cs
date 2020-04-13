@@ -162,4 +162,25 @@ class XmlData
         }
         return archeoObjCol;
     }
+    public int lastEntryCode(XmlDocument xmlDoc)
+    {
+        int lastCode = 0;
+        XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
+        int anzahl = elemList.Count;
+        int[] listOfCodeNumbers = new int[anzahl]; 
+        int i = 0;
+        foreach (XmlNode node in elemList)
+        {
+            string code = node.SelectSingleNode("code").InnerText;
+            listOfCodeNumbers[i] = int.Parse(code.Substring(code.Length - 2));
+            i++;            
+        }
+        Array.Sort(listOfCodeNumbers);
+        lastCode = listOfCodeNumbers[listOfCodeNumbers.Length];
+
+        return lastCode;
+        
+
+
+    }
  }
