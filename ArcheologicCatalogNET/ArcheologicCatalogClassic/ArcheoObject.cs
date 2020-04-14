@@ -10,6 +10,7 @@ namespace ArcheologicCatalogClassic
     {
         private string title;
         private string code;
+        private int currentNumber;
         private string typOfBuild;
         private int height;
         private int width;
@@ -57,11 +58,20 @@ namespace ArcheologicCatalogClassic
         {
             return code;
         }
-        public string getShortPath()
+        public string GetShortPath()
         {
             return ShortPath;
         }
 
+        public int GetCurrentNumber()
+        {
+            return currentNumber;
+        }
+
+        public void SetCurrentNumber(int value)
+        {
+            currentNumber = value;
+        }
         public void SetShortPath(string path)
         {
             ShortPath = path;

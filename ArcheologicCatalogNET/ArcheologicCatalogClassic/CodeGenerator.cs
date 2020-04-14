@@ -16,7 +16,7 @@ namespace ArcheologicCatalogClassic
             codeMuster = prgCtl.GetCodePattern();
 
         }
-        public string newCode()
+        public string NewCode()
         {
             int laufendeNummer = 1;
             string newCode = codeMuster + laufendeNummer.ToString();
@@ -25,7 +25,7 @@ namespace ArcheologicCatalogClassic
             return newCode;
         }
 
-      private int getLastCodeNumber()
+      private int GetLastCodeNumber()
         {
             int lastCodenumber;
             lastCodenumber = 0; 

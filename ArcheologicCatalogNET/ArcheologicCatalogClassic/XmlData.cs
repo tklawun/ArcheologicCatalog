@@ -88,6 +88,10 @@ class XmlData
             code.InnerText = archObject.GetCode();
             archeoNode.AppendChild(code);
 
+            XmlNode currentNumber = xmlDoc.CreateElement("currentNumber");
+            currentNumber.InnerText = archObject.GetCurrentNumber().ToString();
+            archeoNode.AppendChild(currentNumber);
+
             XmlNode coordinate = xmlDoc.CreateElement("coordinate");
             coordinate.InnerText = archObject.GetCoordinate();
             archeoNode.AppendChild(coordinate);
@@ -113,7 +117,7 @@ class XmlData
             archeoNode.AppendChild(imageLink);
 
             XmlNode shortPath = xmlDoc.CreateElement("shortPath");
-            imageLink.InnerText = archObject.getShortPath();
+            imageLink.InnerText = archObject.GetShortPath();
             archeoNode.AppendChild(shortPath);
 
             XmlNode typeOfBuild = xmlDoc.CreateElement("typeOfBuild");
@@ -144,6 +148,8 @@ class XmlData
             ArcheoObject archeoObj = new ArcheoObject();
             archeoObj.SetTitle(node.SelectSingleNode("title").InnerText);
             archeoObj.SetCode(node.SelectSingleNode("code").InnerText);
+            try { archeoObj.SetCurrentNumber(int.Parse(node.SelectSingleNode("currentNumber").InnerText)); }
+            catch (Exception) { Console.WriteLine("Value currentNumber: Error by parse to int"); throw; }
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             try { archeoObj.SetDepth(int.Parse(node.SelectSingleNode("depth").InnerText)); }
             catch (Exception) {Console.WriteLine("Value depth: Error by parse to int"); throw; }
@@ -162,25 +168,22 @@ class XmlData
         }
         return archeoObjCol;
     }
-    public int lastEntryCode(XmlDocument xmlDoc)
-    {
-        int lastCode = 0;
-        XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
-        int anzahl = elemList.Count;
-        int[] listOfCodeNumbers = new int[anzahl]; 
-        int i = 0;
-        foreach (XmlNode node in elemList)
-        {
-            string code = node.SelectSingleNode("code").InnerText;
-            listOfCodeNumbers[i] = int.Parse(code.Substring(code.Length - 2));
-            i++;            
-        }
-        Array.Sort(listOfCodeNumbers);
-        lastCode = listOfCodeNumbers[listOfCodeNumbers.Length];
+    //public int lastEntryCode(XmlDocument xmlDoc)
+    //{
+    //    int lastCode = 0;
+    //    XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
+    //    int anzahl = elemList.Count;
+    //    int[] listOfCurrentNumbers = new int[anzahl]; 
+    //    int i = 0;
+    //    foreach (XmlNode node in elemList)
+    //    {
+    //        listOfCurrentNumbers[i] = int.Parse(node.SelectSingleNode("currentNumber").InnerText);
+    //        i++;            
+    //    }
+    //    Array.Sort(listOfCurrentNumbers);
+    //    lastCode = listOfCurrentNumbers[listOfCurrentNumbers.Length];
 
-        return lastCode;
+    //    return lastCode;
         
-
-
-    }
+    //}
  }

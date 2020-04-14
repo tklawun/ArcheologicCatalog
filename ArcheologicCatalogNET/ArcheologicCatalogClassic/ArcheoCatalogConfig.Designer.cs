@@ -44,10 +44,9 @@ namespace ArcheologicCatalogClassic
             // labelChoiseImageDir
             // 
             this.labelChoiseImageDir.AutoSize = true;
-            this.labelChoiseImageDir.Location = new System.Drawing.Point(20, 20);
-            this.labelChoiseImageDir.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelChoiseImageDir.Location = new System.Drawing.Point(13, 13);
             this.labelChoiseImageDir.Name = "labelChoiseImageDir";
-            this.labelChoiseImageDir.Size = new System.Drawing.Size(174, 20);
+            this.labelChoiseImageDir.Size = new System.Drawing.Size(116, 13);
             this.labelChoiseImageDir.TabIndex = 0;
             this.labelChoiseImageDir.Text = "Choise Image Directory";
             // 
@@ -57,18 +56,18 @@ namespace ArcheologicCatalogClassic
             // 
             // textBoxChoisedDirectory
             // 
-            this.textBoxChoisedDirectory.Location = new System.Drawing.Point(202, 15);
-            this.textBoxChoisedDirectory.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxChoisedDirectory.Location = new System.Drawing.Point(135, 10);
             this.textBoxChoisedDirectory.Name = "textBoxChoisedDirectory";
-            this.textBoxChoisedDirectory.Size = new System.Drawing.Size(520, 26);
+            this.textBoxChoisedDirectory.Size = new System.Drawing.Size(348, 20);
             this.textBoxChoisedDirectory.TabIndex = 1;
             this.textBoxChoisedDirectory.TextChanged += new System.EventHandler(this.TextBoxCoisedDirectory_TextChanged);
             // 
             // buttonChoisPicDir
             // 
-            this.buttonChoisPicDir.Location = new System.Drawing.Point(729, 12);
+            this.buttonChoisPicDir.Location = new System.Drawing.Point(486, 8);
+            this.buttonChoisPicDir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChoisPicDir.Name = "buttonChoisPicDir";
-            this.buttonChoisPicDir.Size = new System.Drawing.Size(216, 35);
+            this.buttonChoisPicDir.Size = new System.Drawing.Size(144, 23);
             this.buttonChoisPicDir.TabIndex = 2;
             this.buttonChoisPicDir.Text = "Choise Picture Directory";
             this.buttonChoisPicDir.UseVisualStyleBackColor = true;
@@ -77,9 +76,10 @@ namespace ArcheologicCatalogClassic
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(936, 651);
+            this.buttonSave.Location = new System.Drawing.Point(624, 423);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(75, 29);
+            this.buttonSave.Size = new System.Drawing.Size(50, 19);
             this.buttonSave.TabIndex = 3;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -88,9 +88,10 @@ namespace ArcheologicCatalogClassic
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(1017, 651);
+            this.buttonCancel.Location = new System.Drawing.Point(678, 423);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(87, 29);
+            this.buttonCancel.Size = new System.Drawing.Size(58, 19);
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -99,9 +100,10 @@ namespace ArcheologicCatalogClassic
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonExit.Location = new System.Drawing.Point(1110, 651);
+            this.buttonExit.Location = new System.Drawing.Point(740, 423);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(75, 29);
+            this.buttonExit.Size = new System.Drawing.Size(50, 19);
             this.buttonExit.TabIndex = 5;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -110,27 +112,26 @@ namespace ArcheologicCatalogClassic
             // labelCodeTemplate
             // 
             this.labelCodeTemplate.AutoSize = true;
-            this.labelCodeTemplate.Location = new System.Drawing.Point(20, 69);
-            this.labelCodeTemplate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCodeTemplate.Location = new System.Drawing.Point(13, 45);
             this.labelCodeTemplate.Name = "labelCodeTemplate";
-            this.labelCodeTemplate.Size = new System.Drawing.Size(169, 20);
+            this.labelCodeTemplate.Size = new System.Drawing.Size(112, 13);
             this.labelCodeTemplate.TabIndex = 6;
             this.labelCodeTemplate.Text = "Change Codetemplate";
             // 
             // textBoxCodeTemplate
             // 
-            this.textBoxCodeTemplate.Location = new System.Drawing.Point(202, 66);
-            this.textBoxCodeTemplate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxCodeTemplate.Location = new System.Drawing.Point(135, 43);
             this.textBoxCodeTemplate.Name = "textBoxCodeTemplate";
-            this.textBoxCodeTemplate.Size = new System.Drawing.Size(520, 26);
+            this.textBoxCodeTemplate.Size = new System.Drawing.Size(348, 20);
             this.textBoxCodeTemplate.TabIndex = 7;
+            this.textBoxCodeTemplate.Text = "KN.2020-HT.XXX";
             this.textBoxCodeTemplate.TextChanged += new System.EventHandler(this.textBoxCodeTemplate_TextChanged);
             // 
             // ArcheoCatalogConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.textBoxCodeTemplate);
             this.Controls.Add(this.labelCodeTemplate);
             this.Controls.Add(this.buttonExit);
@@ -139,7 +140,6 @@ namespace ArcheologicCatalogClassic
             this.Controls.Add(this.buttonChoisPicDir);
             this.Controls.Add(this.textBoxChoisedDirectory);
             this.Controls.Add(this.labelChoiseImageDir);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ArcheoCatalogConfig";
             this.Text = "Archeo Catalog Config";
             this.Load += new System.EventHandler(this.ArcheoCatalogConfig_Load);
