@@ -48,7 +48,7 @@ namespace ArcheologicCatalogClassic
             //load PicturesList from folder
             //load ArcheoObjectCollection
             prgCtl.SetPathForPictureFolderIntoRegistry(textBoxChoisedDirectory.Text);
-           
+            prgCtl.SetPathForCodePatternIntoRegistry(textBoxCodeTemplate.Text);
 
         }
 

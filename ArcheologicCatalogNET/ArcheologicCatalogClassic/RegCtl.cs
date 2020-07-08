@@ -64,12 +64,8 @@ namespace ArcheologicCatalogClassic
             }
             catch (Exception)
             {
-                //Todo: wenn der Key nicht gesetzt ist, war es der erste Start, sollte man da nicht erstmal Config starten?
-
-                //PathToPictureFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-                //SetPathForPictureFolderIntoRegistry(PathToPictureFolder);
-                CodePattern = "null";
-
+                CodePattern = Properties.Resources.CodePattern;
+                SetCodePatternIntoRegistry(CodePattern);
             }
 
             return CodePattern;

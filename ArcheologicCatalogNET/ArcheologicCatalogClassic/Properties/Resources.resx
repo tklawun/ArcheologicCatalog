@@ -121,6 +121,10 @@
     <value>ArcheoCatalog</value>
     <comment>Datas and Settings</comment>
   </data>
+  <data name="CodePattern" xml:space="preserve">
+    <value>KN.2020-HT.XXX</value>
+    <comment>Code</comment>
+  </data>
   <data name="DataXML" xml:space="preserve">
     <value>ArcheoCatalogData.xml</value>
     <comment>Data Storage as XML</comment>

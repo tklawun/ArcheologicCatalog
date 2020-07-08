@@ -22,6 +22,7 @@ namespace ArcheologicCatalogClassic
         private XmlData XmlDataObj;
         private RegCtl reg;
         private CodeGenerator codeGen;
+        private Boolean firstStart;
         //private string[] picturesPath;
 
         internal void choisPic(ArcheoCatalogAddNewPic archeoCatalogAddNewPic)
@@ -49,6 +50,12 @@ namespace ArcheologicCatalogClassic
             //    }
 
             //}
+        }
+
+        internal void SetPathForCodePatternIntoRegistry(string text)
+        {
+          reg.SetCodePatternIntoRegistry(text);
+
         }
 
         internal void copyFileToPictureFolder(string picPath)
@@ -95,8 +102,17 @@ namespace ArcheologicCatalogClassic
             XmlDataObj = new XmlData();
             reg = new RegCtl(this);
             codeGen = new CodeGenerator(this);
-            //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
-            LoadXMLDataAndPathAndCreateNewArcheoObj();
+            if (!reg.CheckIsRegKeyExists())
+            {
+                //TODO: ist es der erste Start muss das Bild Verzeichnis ausgewählt werden. 
+                //TODO: Dann muss auch der CodePattern gesetzt werden.
+                //TODO: Öffne ArcheoCatalogConfig Dialog                
+                firstStart = true;
+            }
+            else {
+                firstStart = false;
+                LoadXMLDataAndPathAndCreateNewArcheoObj();
+            }
         }
 
         public void LoadXMLDataAndPathAndCreateNewArcheoObj()

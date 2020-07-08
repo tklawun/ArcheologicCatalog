@@ -13,7 +13,7 @@ namespace ArcheologicCatalogClassic
         public CodeGenerator(ProgramCtl programCtl)
         {
             prgCtl = programCtl;
-            codeMuster = prgCtl.GetCodePattern();
+            //codeMuster = prgCtl.GetCodePattern();
 
         }
         public string NewCode()

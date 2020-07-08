@@ -70,6 +70,15 @@ namespace ArcheologicCatalogClassic.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die KN.2020-HT.XXX ähnelt.
+        /// </summary>
+        internal static string CodePattern {
+            get {
+                return ResourceManager.GetString("CodePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die ArcheoCatalogData.xml ähnelt.
         /// </summary>
         internal static string DataXML {
