@@ -12,30 +12,37 @@ namespace ArcheologicCatalogClassicV2
         public void ArcheoObject()
         {
             archeoObjects = new List<ArcheoObject>();
-            //load ArcheoObjects from XML File, if exists
-            XmlData xmlData = new XmlData();
-            String xmlFilePath = (new XmlFilePath().getXmlFilePath() );
-            xmlData.ReadXMLDocumentFromFile(xmlFilePath);
-
+            SetArcheoObjectsFromDatabase();
         }
         
+        public List<ArcheoObject> GetArcheoObjects()
+        {
+            return archeoObjects;
+        }
 
-        public ArcheoObject newArcheoObject() {
+        //das ist die Schnittstelle zwischen der Datensammlung und dem Programm. Derzeit als XML Doc definiert.
+        public void SetArcheoObjectsFromDatabase()
+        {
+           XmlData xmlData = new XmlData();
+           archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new XmlFilePath().getXmlFilePath()));
+        }
 
+        public ArcheoObject NewArcheoObject() {
             ArcheoObject archeoObject = new ArcheoObject();
+            archeoObjects.Add(archeoObject);
             return archeoObject;
-        
         }
 
         public void SetArcheoObject(ArcheoObject archeoObject)
         {
-            
+            ArcheoObject archeoObject1 = GetArcheoObject(this.archeoObjects, archeoObject.GetCode());
         }
 
-        public ArcheoObject GetArcheoObject (String code)
+        public ArcheoObject GetArcheoObject (List<ArcheoObject> archeoObjects, String code)
         {
+            this.archeoObjects = archeoObjects;
             ArcheoObject archeoObject = null;
-            foreach (ArcheoObject item in archeoObjects)
+            foreach (ArcheoObject item in this.archeoObjects)
             {
                 if (item.GetCode().Equals(code))
                 {
@@ -45,6 +52,7 @@ namespace ArcheologicCatalogClassicV2
             }
             return archeoObject;
         }
+
 
 
     }

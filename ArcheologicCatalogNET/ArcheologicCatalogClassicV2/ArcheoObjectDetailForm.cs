@@ -12,8 +12,11 @@ namespace ArcheologicCatalogClassicV2
 {
     public partial class ArcheoObjectDetailForm : Form
     {
-        public ArcheoObjectDetailForm()
+        ArcheoObjectViewCtl archeoObjectViewCtl;
+        public ArcheoObjectDetailForm(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
+            this.archeoObjectViewCtl = archeoObjectViewCtl;
+            
             InitializeComponent();
         }
 
@@ -22,7 +25,8 @@ namespace ArcheologicCatalogClassicV2
             ArcheoObject archeoObject = new ArcheoObject();
             archeoObject.SetCode(this.textBoxCode.Text);
             archeoObject.SetCoordinate(this.textBoxCoordinate.Text);
-            try { 
+            try
+            {
                 archeoObject.SetDepth(int.Parse(this.textBoxDepth.Text));
             }
             catch
@@ -31,7 +35,8 @@ namespace ArcheologicCatalogClassicV2
                 this.labelExamDepth.BackColor = Color.Red;
             }
             archeoObject.SetDescription(this.textBoxDescription.Text);
-            try { 
+            try
+            {
                 archeoObject.SetHeight(int.Parse(this.textBoxHeight.Text));
             }
             catch
@@ -44,7 +49,8 @@ namespace ArcheologicCatalogClassicV2
             archeoObject.SetTitle(this.textBoxTitle.Text);
             archeoObject.SetTypOfBuild(this.textBoxTypeOfBuild.Text);
             archeoObject.SetTypOfCoordinate(this.textBoxTypeOfCoordinate.Text);
-            try { 
+            try
+            {
                 archeoObject.SetWidth(int.Parse(this.textBoxWidth.Text));
             }
             catch
@@ -55,6 +61,24 @@ namespace ArcheologicCatalogClassicV2
             ArcheoObjectCtl archeoObjectCtl = new ArcheoObjectCtl();
             archeoObjectCtl.SetArcheoObject(archeoObject);
             this.buttonSave.Enabled = false;
+        }
+
+        internal void SetArcheoObjectInForm(List<ArcheoObject> archeoObjects, string archeoObjectCode)
+        {
+            ArcheoObject archeoObject = new ArcheoObject();
+            ArcheoObjectCtl archeoObjectCtl = new ArcheoObjectCtl();
+            archeoObject =  archeoObjectCtl.GetArcheoObject(archeoObjects, archeoObjectCode);
+            this.textBoxCode.Text = archeoObject.GetCode();
+            this.textBoxCoordinate.Text = archeoObject.GetCoordinate();
+            this.textBoxDepth.Text = archeoObject.GetDepth().ToString();
+            this.textBoxDescription.Text = archeoObject.GetDescription();
+            this.textBoxHeight.Text = archeoObject.GetHeight().ToString();
+            this.textBoxParticularities.Text = archeoObject.GetParticularities();
+            this.textBoxPicturePath.Text = archeoObject.GetShortPath();
+            this.textBoxTitle.Text = archeoObject.GetTitle();
+            this.textBoxTypeOfBuild.Text = archeoObject.GetTypeOfBuild();
+            this.textBoxTypeOfCoordinate.Text = archeoObject.GetTypeOfCoordinate();
+            this.textBoxWidth.Text = archeoObject.GetWidth().ToString();
         }
 
         private void textBoxTitle_TextChanged(object sender, EventArgs e)
@@ -74,16 +98,43 @@ namespace ArcheologicCatalogClassicV2
 
         private void textBoxHeight_TextChanged(object sender, EventArgs e)
         {
+            if (!(int.TryParse(this.textBoxHeight.Text, out int number)))
+            {
+                this.textBoxHeight.Text = "000";
+                this.labelExamHeight.BackColor = Color.Red;
+            }
+            else
+            {
+                this.labelExamHeight.BackColor = this.BackColor;
+            }
             this.buttonSave.Enabled = true;
         }
 
         private void textBoxWidth_TextChanged(object sender, EventArgs e)
         {
+            if (!(int.TryParse(this.textBoxWidth.Text, out int number)))
+            {
+                this.textBoxHeight.Text = "000";
+                this.labelExamHeight.BackColor = Color.Red;
+            }
+            else
+            {
+                this.labelExamWidth.BackColor = this.BackColor;
+            }
             this.buttonSave.Enabled = true;
         }
 
         private void textBoxDepth_TextChanged(object sender, EventArgs e)
         {
+            if (!(int.TryParse(this.textBoxDepth.Text, out int number)))
+            {
+                this.textBoxDepth.Text = "000";
+                this.labelExamDepth.BackColor = Color.Red;
+            }
+            else
+            {
+                this.labelExamDepth.BackColor = this.BackColor;
+            }
             this.buttonSave.Enabled = true;
         }
 
@@ -110,6 +161,11 @@ namespace ArcheologicCatalogClassicV2
         private void textBoxParticularities_TextChanged(object sender, EventArgs e)
         {
             this.buttonSave.Enabled = true;
+        }
+
+        private void ArcheoObjectDetailForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

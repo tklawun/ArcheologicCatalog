@@ -335,6 +335,7 @@
             this.Controls.Add(this.labelTitle);
             this.Name = "ArcheoObjectDetailForm";
             this.Text = "Archeo Object Detail";
+            this.Load += new System.EventHandler(this.ArcheoObjectDetailForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

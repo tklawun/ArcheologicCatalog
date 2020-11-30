@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ArcheologicCatalogClassicV2
 {
@@ -10,7 +11,11 @@ namespace ArcheologicCatalogClassicV2
     {
         public String getXmlFilePath()
         {
-            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalogData\\ArcheoCatalogData.xml";
+            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogData.xml";
+            if (!File.Exists(xmlFilePath)){ 
+                XmlData xmld = new XmlData();
+                xmld.InitializeXMLFile(xmlFilePath);
+            }
             return xmlFilePath;
         }
     }

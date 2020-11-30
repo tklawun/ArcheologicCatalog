@@ -16,9 +16,11 @@ namespace ArcheologicCatalogClassicV2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //get the Entries of archeo-Objects
             ArcheoObjectListForm archeoObjectListForm = new ArcheoObjectListForm();
-
+            
             Application.Run(archeoObjectListForm);
         }
+
     }
 }

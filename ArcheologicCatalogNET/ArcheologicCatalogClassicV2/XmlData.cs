@@ -43,14 +43,11 @@ class XmlData
             //todo: Ausnahme behandeln
             throw;
         }
-       
     }
 
     public XmlDocument ReadXMLDocumentFromFile (string xmlFilePath)
     {
-        
         XmlDocument xmlDoc = new XmlDocument();
-
         try
         {
             xmlDoc.Load(xmlFilePath);
@@ -60,7 +57,6 @@ class XmlData
             Console.WriteLine("Failure: File not exists!");
             throw;
         }
-
         return xmlDoc;
     }
     /// <summary>
@@ -68,7 +64,7 @@ class XmlData
     /// </summary>
     /// <param name="archObj"></param>
     /// <returns>gibt das XmlDocument zurück</returns>
-    public XmlDocument GenerateXMLDocumentFromArcheoObjectList(ArrayList archObjCol)
+    public XmlDocument GenerateXMLDocumentFromArcheoObjectList(List<ArcheoObject> archObjCol)
     {
         XmlDocument xmlDoc = new XmlDocument();
         XmlNode rootNode = xmlDoc.CreateElement("ArcheoObjectsList");
@@ -138,9 +134,9 @@ class XmlData
         return xmlDoc;
     }
 
-    public ArrayList GetArcheoObjColFromXMLDoc(XmlDocument xmlDoc)
+    public List<ArcheoObject> GetArcheoObjColFromXMLDoc(XmlDocument xmlDoc)
     {
-        ArrayList archeoObjCol = new ArrayList();
+        List<ArcheoObject> archeoObjCol = new List<ArcheoObject>();
         //TODO: Das Laden bestehender XML Daten funktioniert nicht korrekt. 
         XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
         foreach (XmlNode node in elemList)
@@ -148,8 +144,8 @@ class XmlData
             ArcheoObject archeoObj = new ArcheoObject();
             archeoObj.SetTitle(node.SelectSingleNode("title").InnerText);
             archeoObj.SetCode(node.SelectSingleNode("code").InnerText);
-            try { archeoObj.SetCurrentNumber(int.Parse(node.SelectSingleNode("currentNumber").InnerText)); }
-            catch (Exception) { Console.WriteLine("Value currentNumber: Error by parse to int"); throw; }
+            //try { archeoObj.SetCurrentNumber(int.Parse(node.SelectSingleNode("currentNumber").InnerText)); }
+            //catch (Exception) { Console.WriteLine("Value currentNumber: Error by parse to int"); throw; }
             archeoObj.SetCoordinate(node.SelectSingleNode("coordinate").InnerText);
             try { archeoObj.SetDepth(int.Parse(node.SelectSingleNode("depth").InnerText)); }
             catch (Exception) {Console.WriteLine("Value depth: Error by parse to int"); throw; }
