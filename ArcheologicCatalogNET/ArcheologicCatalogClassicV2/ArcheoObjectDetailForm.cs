@@ -63,11 +63,8 @@ namespace ArcheologicCatalogClassicV2
             this.buttonSave.Enabled = false;
         }
 
-        internal void SetArcheoObjectInForm(List<ArcheoObject> archeoObjects, string archeoObjectCode)
+        internal void SetArcheoObjectInForm(ArcheoObject archeoObject)
         {
-            ArcheoObject archeoObject = new ArcheoObject();
-            ArcheoObjectCtl archeoObjectCtl = new ArcheoObjectCtl();
-            archeoObject =  archeoObjectCtl.GetArcheoObject(archeoObjects, archeoObjectCode);
             this.textBoxCode.Text = archeoObject.GetCode();
             this.textBoxCoordinate.Text = archeoObject.GetCoordinate();
             this.textBoxDepth.Text = archeoObject.GetDepth().ToString();

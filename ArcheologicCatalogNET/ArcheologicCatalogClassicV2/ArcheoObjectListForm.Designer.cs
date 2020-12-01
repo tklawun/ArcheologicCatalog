@@ -30,6 +30,7 @@
         {
             this.listViewArcheoObjects = new System.Windows.Forms.ListView();
             this.buttonNew = new System.Windows.Forms.Button();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewArcheoObjects
@@ -40,7 +41,8 @@
             this.listViewArcheoObjects.Size = new System.Drawing.Size(775, 406);
             this.listViewArcheoObjects.TabIndex = 0;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
-            this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
+            this.listViewArcheoObjects.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewArcheoObjects_MouseDoubleClick);
             // 
             // buttonNew
             // 
@@ -52,16 +54,28 @@
             this.buttonNew.UseVisualStyleBackColor = true;
             this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(366, 446);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(120, 20);
+            this.labelStatus.TabIndex = 2;
+            this.labelStatus.Text = "Dies ist ein Text";
+            this.labelStatus.Visible = false;
+            // 
             // ArcheoObjectListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 495);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.listViewArcheoObjects);
             this.Name = "ArcheoObjectListForm";
             this.Text = "Archeo Object List";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,5 +83,6 @@
 
         private System.Windows.Forms.ListView listViewArcheoObjects;
         private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.Label labelStatus;
     }
 }

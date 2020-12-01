@@ -12,24 +12,20 @@ namespace ArcheologicCatalogClassicV2
 {
     public partial class ArcheoObjectListForm : Form
     {
-        ArcheoObjectViewCtl archeoObjectViewCtl;
+        private ArcheoObjectViewCtl archeoObjectViewCtl;
         public ArcheoObjectListForm()
         {
             archeoObjectViewCtl = new ArcheoObjectViewCtl();
             archeoObjectViewCtl.CreateArcheoObjectsList(this);
             InitializeComponent();
+            SetListViewArcheoObjects();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //archeoObjectDetailForm.Activate();
-            //TODO: selectiertes ArcheologObject in der Form platzieren
 
-            ListView.SelectedListViewItemCollection archeoObjectCodeList = this.listViewArcheoObjects.SelectedItems;
-
-            string archeObjectCode = archeoObjectCodeList[0].Text;
-            archeoObjectViewCtl.CreateArcheoObjectDetailView(archeObjectCode);
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
@@ -44,6 +40,27 @@ namespace ArcheologicCatalogClassicV2
                 this.listViewArcheoObjects.Items.Add(item.GetCode());
                 this.listViewArcheoObjects.View = View.List;
             }
+        }
+
+        private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //archeoObjectDetailForm.Activate();
+            //TODO: selectiertes ArcheologObject in der Form platzieren
+            this.labelStatus.Visible = false;
+            this.labelStatus.ForeColor = Color.Black;
+            ListView.SelectedListViewItemCollection archeoObjectCodeList = this.listViewArcheoObjects.SelectedItems;
+            try
+            {
+                string archeObjectCode = archeoObjectCodeList[0].Text;
+                archeoObjectViewCtl.CreateArcheoObjectDetailView(archeObjectCode);
+            }
+            catch (Exception)
+            {
+                this.labelStatus.Text = "Element not found!";
+                this.labelStatus.Visible = true;
+                this.labelStatus.ForeColor = Color.Red;
+            }
+
         }
     }
 }

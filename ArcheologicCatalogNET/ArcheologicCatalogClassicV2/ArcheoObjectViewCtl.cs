@@ -14,7 +14,6 @@ namespace ArcheologicCatalogClassicV2
             XmlData xmlData = new XmlData();
             archeoObjects = new List<ArcheoObject>();
             archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new XmlFilePath().getXmlFilePath()));
-            
         }
 
         internal void CreateArcheoObjectDetailView(string archeObjectCode)
@@ -22,24 +21,25 @@ namespace ArcheologicCatalogClassicV2
             ArcheoObjectDetailForm archeoObjectDetailForm = new ArcheoObjectDetailForm(this);
             if (archeObjectCode != null)
             {
-                archeoObjectDetailForm.Show();
-            }
-            else
-            {
                 foreach (ArcheoObject item in archeoObjects)
                 {
                     if (item.GetCode().Equals(archeObjectCode))
                     {
-
+                        archeoObjectDetailForm.SetArcheoObjectInForm(item);
+                        break;
                     }
                 }
+                archeoObjectDetailForm.Show();
             }
-
+            else
+            {
+                archeoObjectDetailForm.Show();
+            }
         }
 
         internal IEnumerable<ArcheoObject> GetArcheoObjects()
         {
-            throw new NotImplementedException();
+            return this.archeoObjects;
         }
     }
 }
