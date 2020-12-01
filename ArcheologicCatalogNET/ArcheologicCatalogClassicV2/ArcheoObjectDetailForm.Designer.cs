@@ -124,7 +124,7 @@
             // 
             // textBoxTypeOfBuild
             // 
-            this.textBoxTypeOfBuild.Location = new System.Drawing.Point(212, 141);
+            this.textBoxTypeOfBuild.Location = new System.Drawing.Point(647, 139);
             this.textBoxTypeOfBuild.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxTypeOfBuild.Name = "textBoxTypeOfBuild";
             this.textBoxTypeOfBuild.Size = new System.Drawing.Size(148, 26);
@@ -322,10 +322,11 @@
             "Treppenwange QN20-TW",
             "Tympanonecke QN20-TE",
             "Zahnstab QN20-ZS"});
-            this.comboBoxTypeOfBuild.Location = new System.Drawing.Point(401, 138);
+            this.comboBoxTypeOfBuild.Location = new System.Drawing.Point(212, 139);
             this.comboBoxTypeOfBuild.Name = "comboBoxTypeOfBuild";
             this.comboBoxTypeOfBuild.Size = new System.Drawing.Size(392, 28);
             this.comboBoxTypeOfBuild.TabIndex = 49;
+            this.comboBoxTypeOfBuild.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfBuild_SelectedIndexChanged);
             // 
             // ArcheoObjectDetailForm
             // 

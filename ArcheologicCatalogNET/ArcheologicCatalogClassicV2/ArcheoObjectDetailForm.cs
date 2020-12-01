@@ -13,6 +13,7 @@ namespace ArcheologicCatalogClassicV2
     public partial class ArcheoObjectDetailForm : Form
     {
         ArcheoObjectViewCtl archeoObjectViewCtl;
+        ArcheoObject archeoObject;
         public ArcheoObjectDetailForm(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
@@ -22,7 +23,7 @@ namespace ArcheologicCatalogClassicV2
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            ArcheoObject archeoObject = new ArcheoObject();
+            archeoObject = new ArcheoObject();
             archeoObject.SetCode(this.textBoxCode.Text);
             archeoObject.SetCoordinate(this.textBoxCoordinate.Text);
             try
@@ -65,6 +66,7 @@ namespace ArcheologicCatalogClassicV2
 
         internal void SetArcheoObjectInForm(ArcheoObject archeoObject)
         {
+            this.archeoObject = archeoObject;
             this.textBoxCode.Text = archeoObject.GetCode();
             this.textBoxCoordinate.Text = archeoObject.GetCoordinate();
             this.textBoxDepth.Text = archeoObject.GetDepth().ToString();
@@ -162,6 +164,14 @@ namespace ArcheologicCatalogClassicV2
 
         private void ArcheoObjectDetailForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void comboBoxTypeOfBuild_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.textBoxTypeOfBuild.Text = this.comboBoxTypeOfBuild.SelectedItem.ToString();
+            
+            this.buttonSave.Enabled = true;
 
         }
     }
