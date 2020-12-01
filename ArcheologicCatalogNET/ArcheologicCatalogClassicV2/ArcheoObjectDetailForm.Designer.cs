@@ -54,6 +54,7 @@
             this.labelExamHeight = new System.Windows.Forms.Label();
             this.labelExamWidth = new System.Windows.Forms.Label();
             this.labelExamDepth = new System.Windows.Forms.Label();
+            this.comboBoxTypeOfBuild = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBoxParticularities
@@ -302,11 +303,36 @@
             this.labelExamDepth.TabIndex = 48;
             this.labelExamDepth.Text = "Please type only integer.";
             // 
+            // comboBoxTypeOfBuild
+            // 
+            this.comboBoxTypeOfBuild.FormattingEnabled = true;
+            this.comboBoxTypeOfBuild.Items.AddRange(new object[] {
+            "Aktroter QN20-A",
+            "Architrav  QN20-AR",
+            "Eckpilaster Voluten und Akanthusblätter QN20-EP",
+            "Fußprofil und verschiedene Plinthe QN20-FP",
+            "Ionische Eierstabkyma QN20-IK",
+            "Kanellüren QN20-KA",
+            "Konsolen QN20-KO",
+            "Korintisches Kapitell und Pilaster QN20-K",
+            "Säulen QN20-SÄ",
+            "Säulenbasis QN20-SB",
+            "Sofitenecken QN20-SE",
+            "Treppen und Vorhalle QN20-T",
+            "Treppenwange QN20-TW",
+            "Tympanonecke QN20-TE",
+            "Zahnstab QN20-ZS"});
+            this.comboBoxTypeOfBuild.Location = new System.Drawing.Point(401, 138);
+            this.comboBoxTypeOfBuild.Name = "comboBoxTypeOfBuild";
+            this.comboBoxTypeOfBuild.Size = new System.Drawing.Size(392, 28);
+            this.comboBoxTypeOfBuild.TabIndex = 49;
+            // 
             // ArcheoObjectDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 819);
+            this.Controls.Add(this.comboBoxTypeOfBuild);
             this.Controls.Add(this.labelExamDepth);
             this.Controls.Add(this.labelExamWidth);
             this.Controls.Add(this.labelExamHeight);
@@ -368,6 +394,7 @@
         public System.Windows.Forms.Label labelExamHeight;
         public System.Windows.Forms.Label labelExamWidth;
         public System.Windows.Forms.Label labelExamDepth;
+        private System.Windows.Forms.ComboBox comboBoxTypeOfBuild;
     }
 }
 
