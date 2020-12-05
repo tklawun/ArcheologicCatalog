@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcheologicCatalogClassic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcheologicCatalogClassicV2", "ArcheologicCatalogClassicV2\ArcheologicCatalogClassicV2.csproj", "{B4F2A28D-057A-4AD6-98DC-97807E9BA134}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArcheologicCatalogClassicV3", "ArcheologicCatalogClassicV3\ArcheologicCatalogClassicV3.csproj", "{71B694B0-9189-47BB-AF7E-9AC38EF20C47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B4F2A28D-057A-4AD6-98DC-97807E9BA134}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4F2A28D-057A-4AD6-98DC-97807E9BA134}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4F2A28D-057A-4AD6-98DC-97807E9BA134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B694B0-9189-47BB-AF7E-9AC38EF20C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B694B0-9189-47BB-AF7E-9AC38EF20C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B694B0-9189-47BB-AF7E-9AC38EF20C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B694B0-9189-47BB-AF7E-9AC38EF20C47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,14 +20,6 @@ namespace ArcheologicCatalogClassicV2
             InitializeComponent();
             SetListViewArcheoObjects();
         }
-
-        
-        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void buttonNew_Click(object sender, EventArgs e)
         {
             archeoObjectViewCtl.CreateArcheoObjectDetailView(null);
@@ -60,6 +52,21 @@ namespace ArcheologicCatalogClassicV2
                 this.labelStatus.Visible = true;
                 this.labelStatus.ForeColor = Color.Red;
             }
+
+        }
+
+        private void labelStatus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ArcheoObjectListForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewArcheoObjects_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

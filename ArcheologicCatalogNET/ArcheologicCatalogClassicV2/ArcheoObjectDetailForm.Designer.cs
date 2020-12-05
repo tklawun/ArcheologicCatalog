@@ -55,6 +55,7 @@
             this.labelExamWidth = new System.Windows.Forms.Label();
             this.labelExamDepth = new System.Windows.Forms.Label();
             this.comboBoxTypeOfBuild = new System.Windows.Forms.ComboBox();
+            this.buttonExportToWord = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxParticularities
@@ -328,11 +329,22 @@
             this.comboBoxTypeOfBuild.TabIndex = 49;
             this.comboBoxTypeOfBuild.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfBuild_SelectedIndexChanged);
             // 
+            // buttonExportToWord
+            // 
+            this.buttonExportToWord.Location = new System.Drawing.Point(165, 753);
+            this.buttonExportToWord.Name = "buttonExportToWord";
+            this.buttonExportToWord.Size = new System.Drawing.Size(182, 31);
+            this.buttonExportToWord.TabIndex = 50;
+            this.buttonExportToWord.Text = "Export to Word";
+            this.buttonExportToWord.UseVisualStyleBackColor = true;
+            this.buttonExportToWord.Click += new System.EventHandler(this.buttonExportToWord_Click);
+            // 
             // ArcheoObjectDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 819);
+            this.Controls.Add(this.buttonExportToWord);
             this.Controls.Add(this.comboBoxTypeOfBuild);
             this.Controls.Add(this.labelExamDepth);
             this.Controls.Add(this.labelExamWidth);
@@ -396,6 +408,7 @@
         public System.Windows.Forms.Label labelExamWidth;
         public System.Windows.Forms.Label labelExamDepth;
         private System.Windows.Forms.ComboBox comboBoxTypeOfBuild;
+        private System.Windows.Forms.Button buttonExportToWord;
     }
 }
 

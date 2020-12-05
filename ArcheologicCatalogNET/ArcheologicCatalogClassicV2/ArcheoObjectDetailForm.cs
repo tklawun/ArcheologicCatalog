@@ -174,5 +174,11 @@ namespace ArcheologicCatalogClassicV2
             this.buttonSave.Enabled = true;
 
         }
+
+        private void buttonExportToWord_Click(object sender, EventArgs e)
+        {
+            Export export = new Export();
+            export.ExportToWord(archeoObject, "c:\\Test.doc");
+        }
     }
 }

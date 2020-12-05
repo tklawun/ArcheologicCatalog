@@ -7,7 +7,7 @@ using System.IO;
 
 namespace ArcheologicCatalogClassicV2
 {
-    class XmlFilePath
+    class FilePaths
     {
         public String getXmlFilePath()
         {
@@ -17,6 +17,15 @@ namespace ArcheologicCatalogClassicV2
                 xmld.InitializeXMLFile(xmlFilePath);
             }
             return xmlFilePath;
+        }
+        public String getTemplatePath()
+        {
+            String templatePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogTemplate.dotx";
+            if (!File.Exists(templatePath))
+            {
+                templatePath = null;
+            }
+            return templatePath;
         }
     }
 }

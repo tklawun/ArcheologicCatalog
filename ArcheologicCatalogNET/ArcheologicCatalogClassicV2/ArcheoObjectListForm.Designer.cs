@@ -41,7 +41,7 @@
             this.listViewArcheoObjects.Size = new System.Drawing.Size(775, 406);
             this.listViewArcheoObjects.TabIndex = 0;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
-            this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
+            this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.listViewArcheoObjects_SelectedIndexChanged);
             this.listViewArcheoObjects.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewArcheoObjects_MouseDoubleClick);
             // 
             // buttonNew
@@ -63,6 +63,7 @@
             this.labelStatus.TabIndex = 2;
             this.labelStatus.Text = "Dies ist ein Text";
             this.labelStatus.Visible = false;
+            this.labelStatus.Click += new System.EventHandler(this.labelStatus_Click);
             // 
             // ArcheoObjectListForm
             // 
@@ -74,6 +75,7 @@
             this.Controls.Add(this.listViewArcheoObjects);
             this.Name = "ArcheoObjectListForm";
             this.Text = "Archeo Object List";
+            this.Load += new System.EventHandler(this.ArcheoObjectListForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

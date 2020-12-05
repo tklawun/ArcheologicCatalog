@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B4F2A28D-057A-4AD6-98DC-97807E9BA134}</ProjectGuid>
+    <ProjectGuid>{71B694B0-9189-47BB-AF7E-9AC38EF20C47}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ArcheologicCatalogClassicV2</RootNamespace>
-    <AssemblyName>ArcheologicCatalogClassicV2</AssemblyName>
+    <RootNamespace>ArcheologicCatalogClassicV3</RootNamespace>
+    <AssemblyName>ArcheologicCatalogClassicV3</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,31 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArcheologCatalogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArcheologCatalogList.Designer.cs">
+      <DependentUpon>ArcheologCatalogList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArcheologicCatalogDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArcheologicCatalogDetail.Designer.cs">
+      <DependentUpon>ArcheologicCatalogDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArcheoObject.cs" />
     <Compile Include="ArcheoObjectCtl.cs" />
-    <Compile Include="ArcheoObjectDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ArcheoObjectDetailForm.Designer.cs">
-      <DependentUpon>ArcheoObjectDetailForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ArcheoObjectListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ArcheoObjectListForm.Designer.cs">
-      <DependentUpon>ArcheoObjectListForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ArcheoObjectViewCtl.cs" />
     <Compile Include="Export.cs" />
+    <Compile Include="FilePaths.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlData.cs" />
-    <Compile Include="FilePaths.cs" />
-    <EmbeddedResource Include="ArcheoObjectDetailForm.resx">
-      <DependentUpon>ArcheoObjectDetailForm.cs</DependentUpon>
+    <EmbeddedResource Include="ArcheologCatalogList.resx">
+      <DependentUpon>ArcheologCatalogList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArcheoObjectListForm.resx">
-      <DependentUpon>ArcheoObjectListForm.cs</DependentUpon>
+    <EmbeddedResource Include="ArcheologicCatalogDetail.resx">
+      <DependentUpon>ArcheologicCatalogDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

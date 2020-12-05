@@ -13,7 +13,7 @@ namespace ArcheologicCatalogClassicV2
         {
             XmlData xmlData = new XmlData();
             archeoObjects = new List<ArcheoObject>();
-            archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new XmlFilePath().getXmlFilePath()));
+            archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new FilePaths().getXmlFilePath()));
         }
 
         internal void CreateArcheoObjectDetailView(string archeObjectCode)

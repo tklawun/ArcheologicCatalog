@@ -205,5 +205,16 @@ namespace ArcheologicCatalogClassicV2
                 depth = value;
             }
         }
+        public string[] getObjectProperties()
+        {
+            String[] ObjectProperties = new string[13];
+
+            ObjectProperties = @{ "title", "code", "currentNumber", "typOfBuild", "height", "width", "depth", "typOfCoordinate", "coordinate", "description", "imagelink", "particularities", "ShortPath"};
+
+
+            return ObjectProperties;
+
+
+        }
     }
 }

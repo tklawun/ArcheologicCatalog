@@ -24,7 +24,7 @@ namespace ArcheologicCatalogClassicV2
         public void SetArcheoObjectsFromDatabase()
         {
            XmlData xmlData = new XmlData();
-           archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new XmlFilePath().getXmlFilePath()));
+           archeoObjects = xmlData.GetArcheoObjColFromXMLDoc(xmlData.ReadXMLDocumentFromFile(new FilePaths().getXmlFilePath()));
         }
 
         public ArcheoObject NewArcheoObject() {
