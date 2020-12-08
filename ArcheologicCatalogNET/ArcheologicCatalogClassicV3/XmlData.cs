@@ -82,7 +82,7 @@ namespace ArcheologicCatalogClassicV3
                 codeAttribute.InnerText = archObject.Key;
                 archeoNode.Attributes.Append(codeAttribute);
                 ArcheoObject archeoObject = archObject.Value;
-                Dictionary<string, string> PropertyList = archeoObject.getArcheoObjectAsDictonary();
+                Dictionary<string, string> PropertyList = archeoObject.GetArcheoObjectAsDictonary();
 
                 foreach (KeyValuePair<string, string> item in PropertyList)
                 {

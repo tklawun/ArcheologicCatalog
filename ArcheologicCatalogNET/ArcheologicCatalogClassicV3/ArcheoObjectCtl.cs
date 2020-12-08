@@ -15,10 +15,9 @@ namespace ArcheologicCatalogClassicV3
             return archeoObjects;
         }
         
-        public ArcheoObject GetArcheoObject(string code)
+        internal ArcheoObject GetArcheoObject(string code)
         {
-            ArcheoObject archeoObject = new ArcheoObject();
-
+            ArcheoObject archeoObject;
             //Todo: Gebe das Object zurück.
             bool existObject = archeoObjects.TryGetValue(code, out archeoObject);
             if (existObject)
@@ -28,14 +27,25 @@ namespace ArcheologicCatalogClassicV3
             else { return null; }
 
         }
-        
-        public void AddArcheoObject(ArcheoObject archeoObject)
+
+        internal string[] GetArcheoObjectsCode()
+        {
+            string[] archeoObjectsCode = new string[archeoObjects.Count-1];
+            foreach (KeyValuePair<string, ArcheoObject> item in archeoObjects)
+            {
+                archeoObjectsCode.Append(item.Key);
+            }
+            return archeoObjectsCode;
+        }
+
+        internal void AddArcheoObject(ArcheoObject archeoObject)
         {
             archeoObjects.Add(archeoObject.CodeOut, archeoObject);
         }
         
-        public void SetArcheoObject(string code, ArcheoObject archeoObject)
+        internal void SetArcheoObject(string code, ArcheoObject archeoObject)
         {
+            //TODO: Suche das richtige ArcheoObject, wenn keins da, dann mach neuen Eintrag. 
             ArcheoObject archeo = GetArcheoObject(code);
             archeo = archeoObject;
             this.RemoveArcheoObject(code);

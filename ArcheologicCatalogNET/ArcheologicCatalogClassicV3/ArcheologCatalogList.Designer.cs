@@ -51,6 +51,7 @@
             this.buttonNew.TabIndex = 4;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // listViewArcheoObjects
             // 
@@ -60,6 +61,8 @@
             this.listViewArcheoObjects.Size = new System.Drawing.Size(775, 406);
             this.listViewArcheoObjects.TabIndex = 3;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
+            this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.listViewArcheoObjects_SelectedIndexChanged);
+            this.listViewArcheoObjects.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewArcheoObjects_MouseDoubleClick);
             // 
             // ArcheologCatalogList
             // 
