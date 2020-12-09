@@ -8,9 +8,15 @@ namespace ArcheologicCatalogClassicV3
 {
     class ArcheoObjectCtl
     {
-        Dictionary<string, ArcheoObject> archeoObjects = new Dictionary<string, ArcheoObject>();
-        
-        public Dictionary<string, ArcheoObject> GetArcheoObjects()
+        Dictionary<string, ArcheoObject> archeoObjects;
+        XmlData xmlData;
+        internal ArcheoObjectCtl()
+        {
+            this.xmlData = new XmlData();
+            this.archeoObjects = this.xmlData.GetArcheoObjColFromXMLDoc();
+        }
+
+        internal Dictionary<string, ArcheoObject> GetArcheoObjects()
         {
             return archeoObjects;
         }
@@ -50,19 +56,25 @@ namespace ArcheologicCatalogClassicV3
             archeo = archeoObject;
             this.RemoveArcheoObject(code);
             this.AddArcheoObject(archeoObject);
+            this.SaveArcheoObjects();
         }
         
-        public bool RemoveArcheoObject(string Code)
+        internal bool RemoveArcheoObject(string Code)
         {
             bool removed = archeoObjects.Remove(Code);
             return removed;
         }
 
-        public void createArcheoObjectDictionary()
+        internal void CreateArcheoObjectDictionary()
         {
             XmlData xmlData = new XmlData();
             this.archeoObjects = xmlData.GetArcheoObjColFromXMLDoc();
+        }
 
+        internal void SaveArcheoObjects()
+        {
+           XmlData xmlData = new XmlData();
+           xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().getXmlFilePath());
         }
     }
 }

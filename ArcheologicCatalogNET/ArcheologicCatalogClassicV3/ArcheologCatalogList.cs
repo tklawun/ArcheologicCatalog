@@ -17,7 +17,7 @@ namespace ArcheologicCatalogClassicV3
         {
             archeoObjectViewCtl = new ArcheoObjectViewCtl(this);
             InitializeComponent();
-            
+            archeoObjectViewCtl.SetArcheoObjectListInView();
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
@@ -27,10 +27,12 @@ namespace ArcheologicCatalogClassicV3
 
         internal void SetListView(Dictionary<string, ArcheoObject>.KeyCollection keys)
         {
+            this.listViewArcheoObjects.Items.Clear();
             foreach (string key in keys)
             {
                 this.listViewArcheoObjects.Items.Add(key);
             }
+            this.Refresh();
             
         }
 

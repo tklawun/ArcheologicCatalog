@@ -51,6 +51,7 @@
             this.labelRockType = new System.Windows.Forms.Label();
             this.buttonChoisePicture = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.labelPicture = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,8 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(215, 621);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(374, 262);
+            this.pictureBox1.Size = new System.Drawing.Size(1034, 396);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -94,22 +96,22 @@
             // 
             this.textBoxSpecialFeatures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSpecialFeatures.Location = new System.Drawing.Point(216, 294);
+            this.textBoxSpecialFeatures.Location = new System.Drawing.Point(216, 478);
             this.textBoxSpecialFeatures.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSpecialFeatures.Multiline = true;
             this.textBoxSpecialFeatures.Name = "textBoxSpecialFeatures";
-            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(804, 110);
+            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(1033, 110);
             this.textBoxSpecialFeatures.TabIndex = 69;
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDescription.Location = new System.Drawing.Point(215, 437);
+            this.textBoxDescription.Location = new System.Drawing.Point(215, 291);
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(805, 139);
+            this.textBoxDescription.Size = new System.Drawing.Size(1034, 150);
             this.textBoxDescription.TabIndex = 68;
             // 
             // textBoxCoordinate
@@ -117,7 +119,7 @@
             this.textBoxCoordinate.Location = new System.Drawing.Point(216, 129);
             this.textBoxCoordinate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCoordinate.Name = "textBoxCoordinate";
-            this.textBoxCoordinate.Size = new System.Drawing.Size(235, 26);
+            this.textBoxCoordinate.Size = new System.Drawing.Size(172, 26);
             this.textBoxCoordinate.TabIndex = 67;
             // 
             // textBoxDepth
@@ -149,13 +151,13 @@
             this.textBoxCode.Location = new System.Drawing.Point(216, 28);
             this.textBoxCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(148, 26);
+            this.textBoxCode.Size = new System.Drawing.Size(172, 26);
             this.textBoxCode.TabIndex = 61;
             // 
             // labelParticularities
             // 
             this.labelParticularities.AutoSize = true;
-            this.labelParticularities.Location = new System.Drawing.Point(40, 294);
+            this.labelParticularities.Location = new System.Drawing.Point(40, 481);
             this.labelParticularities.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelParticularities.Name = "labelParticularities";
             this.labelParticularities.Size = new System.Drawing.Size(122, 20);
@@ -165,7 +167,7 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(44, 437);
+            this.labelDescription.Location = new System.Drawing.Point(40, 316);
             this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(107, 20);
@@ -235,7 +237,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(48, 847);
+            this.buttonSave.Location = new System.Drawing.Point(44, 1028);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(114, 36);
             this.buttonSave.TabIndex = 72;
@@ -246,7 +248,7 @@
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(921, 850);
+            this.buttonClose.Location = new System.Drawing.Point(1150, 1031);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(99, 33);
             this.buttonClose.TabIndex = 73;
@@ -258,8 +260,9 @@
             // 
             this.textBoxRockType.Location = new System.Drawing.Point(216, 235);
             this.textBoxRockType.Name = "textBoxRockType";
-            this.textBoxRockType.Size = new System.Drawing.Size(196, 26);
+            this.textBoxRockType.Size = new System.Drawing.Size(264, 26);
             this.textBoxRockType.TabIndex = 74;
+            this.textBoxRockType.Text = "Kalkstein";
             // 
             // labelRockType
             // 
@@ -273,7 +276,7 @@
             // buttonChoisePicture
             // 
             this.buttonChoisePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonChoisePicture.Location = new System.Drawing.Point(608, 847);
+            this.buttonChoisePicture.Location = new System.Drawing.Point(44, 676);
             this.buttonChoisePicture.Name = "buttonChoisePicture";
             this.buttonChoisePicture.Size = new System.Drawing.Size(133, 36);
             this.buttonChoisePicture.TabIndex = 76;
@@ -286,11 +289,21 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // labelPicture
+            // 
+            this.labelPicture.AutoSize = true;
+            this.labelPicture.Location = new System.Drawing.Point(40, 634);
+            this.labelPicture.Name = "labelPicture";
+            this.labelPicture.Size = new System.Drawing.Size(80, 20);
+            this.labelPicture.TabIndex = 77;
+            this.labelPicture.Text = "Abbildung";
+            // 
             // ArcheologCatalogDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1269, 895);
+            this.ClientSize = new System.Drawing.Size(1278, 1073);
+            this.Controls.Add(this.labelPicture);
             this.Controls.Add(this.buttonChoisePicture);
             this.Controls.Add(this.labelRockType);
             this.Controls.Add(this.textBoxRockType);
@@ -347,5 +360,6 @@
         private System.Windows.Forms.Label labelRockType;
         private System.Windows.Forms.Button buttonChoisePicture;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label labelPicture;
     }
 }

@@ -55,12 +55,15 @@
             // 
             // listViewArcheoObjects
             // 
+            this.listViewArcheoObjects.GridLines = true;
             this.listViewArcheoObjects.HideSelection = false;
             this.listViewArcheoObjects.Location = new System.Drawing.Point(13, 12);
+            this.listViewArcheoObjects.MultiSelect = false;
             this.listViewArcheoObjects.Name = "listViewArcheoObjects";
             this.listViewArcheoObjects.Size = new System.Drawing.Size(775, 406);
             this.listViewArcheoObjects.TabIndex = 3;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
+            this.listViewArcheoObjects.View = System.Windows.Forms.View.List;
             this.listViewArcheoObjects.SelectedIndexChanged += new System.EventHandler(this.listViewArcheoObjects_SelectedIndexChanged);
             this.listViewArcheoObjects.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewArcheoObjects_MouseDoubleClick);
             // 

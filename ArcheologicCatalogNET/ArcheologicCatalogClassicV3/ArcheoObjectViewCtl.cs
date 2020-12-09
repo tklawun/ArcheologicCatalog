@@ -18,7 +18,6 @@ namespace ArcheologicCatalogClassicV3
             this.archeologCatalogList = archeologCatalogList;
             this.archeologCatalogDetail = new ArcheologCatalogDetail(this);
             this.archeologCatalogDetail.Visible = false;
-
         }
 
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
@@ -27,25 +26,35 @@ namespace ArcheologicCatalogClassicV3
             if (archeoObjectCode != null)
             {
                 ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectCode);
-                this.archeologCatalogDetail.SetArcheoObjectInForm(null);
+                this.archeologCatalogDetail.SetArcheoObjectInForm(archeoObject);
                 this.archeologCatalogDetail.Activate();
                 this.archeologCatalogDetail.Visible = true;
                 this.archeologCatalogDetail.Show();
             }
             else
             {
-                ArcheologCatalogDetail.Show();
+                //Clear the textboxes....
+                this.archeologCatalogDetail.ClearArcheoObjectInForm();
+                this.archeologCatalogDetail.Show();
             }
         }
 
         internal void SetArcheoObjectListInView()
         {
             archeologCatalogList.SetListView(archeoObjectCtl.GetArcheoObjects().Keys);
+
         }
 
         internal void SaveArcheoObjectInList(ArcheoObject archeoObject)
         {
             this.archeoObjectCtl.SetArcheoObject(archeoObject.CodeOut, archeoObject);
+            this.RefreshListInListView();
+        }
+
+        private void RefreshListInListView()
+        {
+            SetArcheoObjectListInView();
+
         }
     }
 }

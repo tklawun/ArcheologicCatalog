@@ -30,7 +30,21 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxWidth.Text = archeoObject.WidthOut;
             this.textBoxDepth.Text = archeoObject.DepthOut;
             this.textBoxRockType.Text = archeoObject.RockTypeOut;
-            this.pictureBox1.ImageLocation = archeoObject.PicturelinkOut;
+            this.pictureBox1.ImageLocation = archeoObject.PictureLinkOut;
+        }
+
+        internal void ClearArcheoObjectInForm()
+        {
+            this.textBoxCode.Text = "";
+            this.textBoxCoordinate.Text = "";
+            this.textBoxDepth.Text = "";
+            this.textBoxDescription.Text = "";
+            this.textBoxHeight.Text = "";
+            this.textBoxSpecialFeatures.Text = "";
+            this.textBoxWidth.Text = "";
+            this.textBoxDepth.Text = "";
+            this.textBoxRockType.Text = "";
+            this.pictureBox1.ImageLocation = "";
         }
 
         private void ArcheologCatalogDetail_Load(object sender, EventArgs e)
@@ -40,7 +54,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = false;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -55,7 +69,7 @@ namespace ArcheologicCatalogClassicV3
                 SpecialFeaturesOut = this.textBoxSpecialFeatures.Text,
                 WidthOut = this.textBoxWidth.Text,
                 RockTypeOut = this.textBoxRockType.Text,
-                PicturelinkOut = this.pictureBox1.ImageLocation
+                PictureLinkOut = this.pictureBox1.ImageLocation
             };
 
             this.archeoObjectViewCtl.SaveArcheoObjectInList(archeoObject);
@@ -75,7 +89,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+            
         }
     }
 }
