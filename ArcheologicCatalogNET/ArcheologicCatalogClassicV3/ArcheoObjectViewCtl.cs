@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace ArcheologicCatalogClassicV3
 {
@@ -22,7 +23,7 @@ namespace ArcheologicCatalogClassicV3
 
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
         {
-            ArcheologCatalogDetail ArcheologCatalogDetail = new ArcheologCatalogDetail(this);
+            if (this.archeologCatalogDetail.IsDisposed) { this.archeologCatalogDetail = new ArcheologCatalogDetail(this); }
             if (archeoObjectCode != null)
             {
                 ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectCode);
@@ -33,7 +34,6 @@ namespace ArcheologicCatalogClassicV3
             }
             else
             {
-                //Clear the textboxes....
                 this.archeologCatalogDetail.ClearArcheoObjectInForm();
                 this.archeologCatalogDetail.Show();
             }
@@ -55,6 +55,37 @@ namespace ArcheologicCatalogClassicV3
         {
             SetArcheoObjectListInView();
 
+        }
+
+        internal void SetStatus(string Status, bool important)
+        {
+            string status = Status;
+            archeologCatalogList.labelStatus.Visible = true;
+            archeologCatalogDetail.labelStatus.Visible = true;
+
+            archeologCatalogList.labelStatus.Text = status;
+            archeologCatalogDetail.labelStatus.Text = status;
+            if (important)
+            {
+                archeologCatalogList.labelStatus.ForeColor = Color.Red;
+                archeologCatalogDetail.labelStatus.ForeColor = Color.Red;
+            }
+            {
+                archeologCatalogList.labelStatus.ForeColor = Color.Black;
+                archeologCatalogDetail.labelStatus.ForeColor = Color.Black;
+            }
+        }
+        internal void ReturnStatus()
+        {
+            archeologCatalogList.labelStatus.Visible = false;
+            archeologCatalogDetail.labelStatus.Visible = false;
+            archeologCatalogList.labelStatus.ForeColor = Color.Black;
+            archeologCatalogDetail.labelStatus.ForeColor = Color.Black;
+        }
+
+        internal void exportToWord(string archeoObjectCode)
+        {
+            archeoObjectCtl.ExportToWord(archeoObjectCode);
         }
     }
 }

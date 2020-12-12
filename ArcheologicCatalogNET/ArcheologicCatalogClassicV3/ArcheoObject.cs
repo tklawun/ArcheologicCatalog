@@ -10,6 +10,7 @@ namespace ArcheologicCatalogClassicV3
     {
         private string Code;
         private string Coordinates;
+        private string TypOfBuild;
         private string Height;
         private string Width;
         private string Depth;
@@ -19,43 +20,45 @@ namespace ArcheologicCatalogClassicV3
         private string PictureLink;
         private string RockType;
 
-        public string CodeOut { get => Code; set => Code = value; }
-        public string CoordinatesOut { get => Coordinates; set => Coordinates = value; }
-        public string HeightOut { get => Height; set => Height = value; }
-        public string WidthOut { get => Width; set => Width = value; }
-        public string DepthOut { get => Depth; set => Depth = value; }
-        public string Particularities { get => Description; set => Description = value; }
-        public string DesignationOut { get => Designation; set => Designation = value; }
-        public string SpecialFeaturesOut { get => SpecialFeatures; set => SpecialFeatures = value; }
-        public string PictureLinkOut { get => PictureLink; set => PictureLink = value; }
-        public string RockTypeOut { get => RockType; set => RockType = value; }
+        internal string CodeOut { get => Code; set => Code = value; }
+        internal string CoordinatesOut { get => Coordinates; set => Coordinates = value; }
+        internal string HeightOut { get => Height; set => Height = value; }
+        internal string WidthOut { get => Width; set => Width = value; }
+        internal string DepthOut { get => Depth; set => Depth = value; }
+        internal string Particularities { get => Description; set => Description = value; }
+        internal string DesignationOut { get => Designation; set => Designation = value; }
+        internal string SpecialFeaturesOut { get => SpecialFeatures; set => SpecialFeatures = value; }
+        internal string PictureLinkOut { get => PictureLink; set => PictureLink = value; }
+        internal string RockTypeOut { get => RockType; set => RockType = value; }
+        internal string TypOfBuildOut { get => TypOfBuild; set => TypOfBuild = value; }
 
         /// <summary>
         /// Gibt die verfügbaren Porperties zurück
         /// </summary>
         /// <returns>verfügbare Properties</returns>
-        public string[] GetObjectProperties()
+        internal string[] GetObjectProperties()
         {
-            String[] ObjectProperties = new string[] { "Code", "Coordinates", "Height", "Width", "Depth", "Description", "Designation", "SpecialFeatures", "PictureLink", "RockType" };
+            String[] ObjectProperties = new string[] { "Code", "Coordinates", "TypOfBuild", "Height", "Width", "Depth", "Description", "Designation", "SpecialFeatures", "PictureLink", "RockType" };
             return ObjectProperties;
         }
-        
-        public ArcheoObject GetArcheoObject()
+
+        internal ArcheoObject GetArcheoObject()
         {
             return this;
         }
 
-        public string[] GetArcheoObject(bool AsString)
+        internal string[] GetArcheoObject(bool AsString)
         {
-            string[] archeoAsString = new string[] { Code, Coordinates, Height, Width, Depth, Description, Designation, SpecialFeatures, PictureLink, RockType };
+            string[] archeoAsString = new string[] { Code, Coordinates, TypOfBuild, Height, Width, Depth, Description, Designation, SpecialFeatures, PictureLink, RockType };
             return archeoAsString;
             
         }
 
-        public void SetArcheoObject(string Code, string Coordinates, string Height, string Width, string Depth, string Description,string Designation, string SpecialFeatures, string PictureLink, string RockType)
+        internal void SetArcheoObject(string Code, string Coordinates, string TypOfBuild, string Height, string Width, string Depth, string Description,string Designation, string SpecialFeatures, string PictureLink, string RockType)
         {
             this.Code = Code;
             this.Coordinates = Coordinates;
+            this.TypOfBuild = TypOfBuild;
             this.Height = Height;
             this.Width = Width;
             this.Depth = Depth;
@@ -66,12 +69,13 @@ namespace ArcheologicCatalogClassicV3
             this.RockType = RockType;
         }
 
-        public void SetArcheoObject(Dictionary<string, string> keyValuePairs)
+        internal void SetArcheoObject(Dictionary<string, string> keyValuePairs)
         {
             foreach (KeyValuePair<string, string> property in keyValuePairs)
             {
                 if (property.Key.Equals("Code")) { this.Code = property.Value.ToString(); };
                 if (property.Key.Equals("Coordinates")) { this.Coordinates = property.Value.ToString(); };
+                if (property.Key.Equals("TypOfBuild")) { this.TypOfBuild = property.Value.ToString(); };
                 if (property.Key.Equals("Height")) { this.Height = property.Value.ToString(); };
                 if (property.Key.Equals("Width")) { this.Width = property.Value.ToString(); };
                 if (property.Key.Equals("Depth")) { this.Depth = property.Value.ToString(); };
@@ -83,10 +87,11 @@ namespace ArcheologicCatalogClassicV3
             }
         }
 
-        public Dictionary<string, string> GetArcheoObjectAsDictonary() {
+        internal Dictionary<string, string> GetArcheoObjectAsDictonary() {
             Dictionary<string, string> archeoObject = new Dictionary<string, string>();
             archeoObject.Add("Code", this.Code);
             archeoObject.Add("Coordinates", this.Coordinates);
+            archeoObject.Add("TypOfBuild", this.TypOfBuild);
             archeoObject.Add("Height", this.Height);
             archeoObject.Add("Width", this.Width);
             archeoObject.Add("Depth", this.Depth);

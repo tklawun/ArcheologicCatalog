@@ -76,6 +76,13 @@ namespace ArcheologicCatalogClassicV3
            XmlData xmlData = new XmlData();
            xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().getXmlFilePath());
         }
+
+        internal void ExportToWord(string archeoObjectCode)
+        {
+            Export exportCtl = new Export();
+            exportCtl.ExportToWord(this.GetArcheoObject(archeoObjectCode), new FilePaths().getWordExportPath());
+
+        }
     }
 }
 

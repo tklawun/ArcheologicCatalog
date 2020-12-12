@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArcheoCatalogTypOfBuild.cs" />
     <Compile Include="ArcheologCatalogList.cs">
       <SubType>Form</SubType>
     </Compile>

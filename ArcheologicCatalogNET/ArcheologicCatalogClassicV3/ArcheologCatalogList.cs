@@ -22,6 +22,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
+
             archeoObjectViewCtl.CreateArcheoObjectDetailView(null);
         }
 
@@ -43,22 +44,20 @@ namespace ArcheologicCatalogClassicV3
 
         private void listViewArcheoObjects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //archeoObjectDetailForm.Activate();
-            //TODO: selectiertes ArcheologObject in der Form platzieren
             this.labelStatus.Visible = false;
             this.labelStatus.ForeColor = Color.Black;
             ListView.SelectedListViewItemCollection archeoObjectCodeList = this.listViewArcheoObjects.SelectedItems;
-            try
-            {
+           // try
+            //{
                 string archeObjectCode = archeoObjectCodeList[0].Text;
                 archeoObjectViewCtl.CreateArcheoObjectDetailView(archeObjectCode);
-            }
-            catch (Exception)
-            {
-                this.labelStatus.Text = "Element not found!";
-                this.labelStatus.Visible = true;
-                this.labelStatus.ForeColor = Color.Red;
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    this.labelStatus.Text = "Element not found!";
+            //    this.labelStatus.Visible = true;
+            //    this.labelStatus.ForeColor = Color.Red;
+            //}
         }
     }
 }

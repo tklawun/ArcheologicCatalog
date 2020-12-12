@@ -1,4 +1,6 @@
-﻿namespace ArcheologicCatalogClassicV3
+﻿using System;
+
+namespace ArcheologicCatalogClassicV3
 {
     partial class ArcheologCatalogDetail
     {
@@ -52,6 +54,8 @@
             this.buttonChoisePicture = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.labelPicture = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.buttonExportToWord = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +95,7 @@
             this.comboBoxTypeOfBuild.Name = "comboBoxTypeOfBuild";
             this.comboBoxTypeOfBuild.Size = new System.Drawing.Size(392, 28);
             this.comboBoxTypeOfBuild.TabIndex = 71;
+            this.comboBoxTypeOfBuild.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfBuild_SelectedIndexChanged);
             // 
             // textBoxSpecialFeatures
             // 
@@ -137,6 +142,7 @@
             this.textBoxWidth.Name = "textBoxWidth";
             this.textBoxWidth.Size = new System.Drawing.Size(148, 26);
             this.textBoxWidth.TabIndex = 64;
+            this.textBoxWidth.TextChanged += new System.EventHandler(this.textBoxWidth_TextChanged);
             // 
             // textBoxHeight
             // 
@@ -248,9 +254,9 @@
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(1150, 1031);
+            this.buttonClose.Location = new System.Drawing.Point(1150, 1028);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(99, 33);
+            this.buttonClose.Size = new System.Drawing.Size(99, 36);
             this.buttonClose.TabIndex = 73;
             this.buttonClose.Text = "Schließen";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -298,11 +304,34 @@
             this.labelPicture.TabIndex = 77;
             this.labelPicture.Text = "Abbildung";
             // 
+            // labelStatus
+            // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(977, 1036);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(120, 20);
+            this.labelStatus.TabIndex = 78;
+            this.labelStatus.Text = "Dies ist ein Text";
+            this.labelStatus.Visible = false;
+            // 
+            // buttonExportToWord
+            // 
+            this.buttonExportToWord.Location = new System.Drawing.Point(190, 1028);
+            this.buttonExportToWord.Name = "buttonExportToWord";
+            this.buttonExportToWord.Size = new System.Drawing.Size(188, 36);
+            this.buttonExportToWord.TabIndex = 79;
+            this.buttonExportToWord.Text = "Export nach Word";
+            this.buttonExportToWord.UseVisualStyleBackColor = true;
+            this.buttonExportToWord.Click += new System.EventHandler(this.buttonExportToWord_Click);
+            // 
             // ArcheologCatalogDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1278, 1073);
+            this.Controls.Add(this.buttonExportToWord);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.labelPicture);
             this.Controls.Add(this.buttonChoisePicture);
             this.Controls.Add(this.labelRockType);
@@ -328,11 +357,22 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "ArcheologCatalogDetail";
             this.Text = "Archäologischer Katalog - Objekt Detail";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ArcheologCatalogDetail_FormClosing);
             this.Load += new System.EventHandler(this.ArcheologCatalogDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void textBoxWidth_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBoxTypeOfBuild_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         #endregion
@@ -361,5 +401,7 @@
         private System.Windows.Forms.Button buttonChoisePicture;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label labelPicture;
+        internal System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Button buttonExportToWord;
     }
 }

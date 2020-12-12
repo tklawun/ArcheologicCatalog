@@ -83,10 +83,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.ListView listViewArcheoObjects;
+        internal System.Windows.Forms.Label labelStatus;
     }
 }
 

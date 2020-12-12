@@ -13,7 +13,7 @@ namespace ArcheologicCatalogClassicV3
     public partial class ArcheologCatalogDetail : Form
     {
         ArcheoObjectViewCtl archeoObjectViewCtl;
-        public ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
+         internal ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace ArcheologicCatalogClassicV3
         {
             this.textBoxCode.Text = archeoObject.CodeOut;
             this.textBoxCoordinate.Text = archeoObject.CoordinatesOut;
+            this.comboBoxTypeOfBuild.Text = archeoObject.TypOfBuildOut;
             this.textBoxDepth.Text = archeoObject.DepthOut;
             this.textBoxDescription.Text = archeoObject.DesignationOut;
             this.textBoxHeight.Text = archeoObject.HeightOut;
@@ -37,6 +38,7 @@ namespace ArcheologicCatalogClassicV3
         {
             this.textBoxCode.Text = "";
             this.textBoxCoordinate.Text = "";
+            this.comboBoxTypeOfBuild.Text = "";
             this.textBoxDepth.Text = "";
             this.textBoxDescription.Text = "";
             this.textBoxHeight.Text = "";
@@ -63,6 +65,7 @@ namespace ArcheologicCatalogClassicV3
             {
                 CodeOut = this.textBoxCode.Text,
                 CoordinatesOut = this.textBoxCoordinate.Text,
+                TypOfBuildOut = this.comboBoxTypeOfBuild.Text,
                 DepthOut = this.textBoxDepth.Text,
                 DesignationOut = this.textBoxDescription.Text,
                 HeightOut = this.textBoxHeight.Text,
@@ -73,11 +76,13 @@ namespace ArcheologicCatalogClassicV3
             };
 
             this.archeoObjectViewCtl.SaveArcheoObjectInList(archeoObject);
+            
+            archeoObjectViewCtl.SetStatus(archeoObject.CodeOut + " gespeichert.", false);
         }
 
         private void buttonChoisePicture_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.InitialDirectory = new FilePaths().getSelectPicturePath();
             openFileDialog1.Filter = "All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 0;
             openFileDialog1.RestoreDirectory = true;
@@ -89,7 +94,17 @@ namespace ArcheologicCatalogClassicV3
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+
+        }
+
+        private void ArcheologCatalogDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
             
+        }
+
+        private void buttonExportToWord_Click(object sender, EventArgs e)
+        {
+            this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
         }
     }
 }
