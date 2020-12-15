@@ -25,7 +25,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxCoordinate.Text = archeoObject.CoordinatesOut;
             this.comboBoxTypeOfBuild.Text = archeoObject.TypOfBuildOut;
             this.textBoxDepth.Text = archeoObject.DepthOut;
-            this.textBoxDescription.Text = archeoObject.DesignationOut;
+            this.textBoxDescription.Text = archeoObject.DescriptionOut;
             this.textBoxHeight.Text = archeoObject.HeightOut;
             this.textBoxSpecialFeatures.Text = archeoObject.SpecialFeaturesOut;
             this.textBoxWidth.Text = archeoObject.WidthOut;
@@ -67,7 +67,7 @@ namespace ArcheologicCatalogClassicV3
                 CoordinatesOut = this.textBoxCoordinate.Text,
                 TypOfBuildOut = this.comboBoxTypeOfBuild.Text,
                 DepthOut = this.textBoxDepth.Text,
-                DesignationOut = this.textBoxDescription.Text,
+                DescriptionOut = this.textBoxDescription.Text,
                 HeightOut = this.textBoxHeight.Text,
                 SpecialFeaturesOut = this.textBoxSpecialFeatures.Text,
                 WidthOut = this.textBoxWidth.Text,
