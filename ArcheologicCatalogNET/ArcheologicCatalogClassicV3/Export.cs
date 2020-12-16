@@ -39,7 +39,7 @@ namespace ArcheologicCatalogClassicV3
             }
 
             //Einfügen Bild
-            Range aRange = oWordDoc.Range(Start: oWordDoc.Paragraphs[12].Range.Start, oWordDoc.Paragraphs[13].Range.End);
+            Range aRange = oWordDoc.Range(Start: oWordDoc.Paragraphs[12].Range.Start, oWordDoc.Paragraphs[12].Range.End);
             oWordDoc.InlineShapes.AddPicture(archeoObject.PictureLinkOut, false, true, aRange); 
 
             oWordDoc.SaveAs2(fileName);
