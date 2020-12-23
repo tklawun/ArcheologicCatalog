@@ -59,5 +59,15 @@ namespace ArcheologicCatalogClassicV3
                this.labelStatus.ForeColor = Color.Red;
             }
         }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            archeoObjectViewCtl.CloseApplication();
+        }
+
+        private void buttonConfig_Click(object sender, EventArgs e)
+        {
+            archeoObjectViewCtl.OpenConfigDialog();
+        }
     }
 }

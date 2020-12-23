@@ -11,7 +11,7 @@ using System.Reflection;
 
 namespace ArcheologicCatalogClassicV3
 {
-    class XmlData
+    class ArcheoObjectXmlData
     {
         XmlDocument xmlDoc = new XmlDocument();
 
@@ -104,7 +104,7 @@ namespace ArcheologicCatalogClassicV3
         public Dictionary<string, ArcheoObject> GetArcheoObjColFromXMLDoc()
         {
             Dictionary<string, ArcheoObject> archeoObjects = new Dictionary<string, ArcheoObject>();
-            XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().getXmlFilePath());
+            XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().getXmlDataFilePath());
             XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoObjectsList/ArcheoObject");
             foreach (XmlNode node in elemList)
             {

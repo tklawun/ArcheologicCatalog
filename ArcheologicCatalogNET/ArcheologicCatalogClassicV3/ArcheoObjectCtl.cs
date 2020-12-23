@@ -9,10 +9,10 @@ namespace ArcheologicCatalogClassicV3
     class ArcheoObjectCtl
     {
         Dictionary<string, ArcheoObject> archeoObjects;
-        XmlData xmlData;
+        ArcheoObjectXmlData xmlData;
         internal ArcheoObjectCtl()
         {
-            this.xmlData = new XmlData();
+            this.xmlData = new ArcheoObjectXmlData();
             this.archeoObjects = this.xmlData.GetArcheoObjColFromXMLDoc();
         }
 
@@ -67,14 +67,14 @@ namespace ArcheologicCatalogClassicV3
 
         internal void CreateArcheoObjectDictionary()
         {
-            XmlData xmlData = new XmlData();
+            ArcheoObjectXmlData xmlData = new ArcheoObjectXmlData();
             this.archeoObjects = xmlData.GetArcheoObjColFromXMLDoc();
         }
 
         internal void SaveArcheoObjects()
         {
-           XmlData xmlData = new XmlData();
-           xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().getXmlFilePath());
+           ArcheoObjectXmlData xmlData = new ArcheoObjectXmlData();
+           xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().getXmlDataFilePath());
         }
 
         internal void ExportToWord(string archeoObjectCode)

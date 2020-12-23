@@ -10,14 +10,23 @@ namespace ArcheologicCatalogClassicV3
     public class ArcheoObjectViewCtl
     {
         ArcheoObjectCtl archeoObjectCtl;
+        ArcheoConfigParameter archeoConfigTypeOfBuild;
+        ArcheoConfigParameter archeoConfigRockTyp;
         ArcheologCatalogDetail archeologCatalogDetail;
         ArcheologCatalogList archeologCatalogList;
+        ArcheologCatalogConfig archeologCatalogConfig;
+        string paramRockType = "RockType";
+        string paramTypeOfBuild = "TypeOfBuild";
+       
 
         public ArcheoObjectViewCtl(ArcheologCatalogList archeologCatalogList)
         {
             this.archeoObjectCtl = new ArcheoObjectCtl();
+            ArcheoConfigParameter archeoConfigTypeOfBuild = new ArcheoConfigParameter(paramTypeOfBuild);
+            ArcheoConfigParameter archeoConfigRockType = new ArcheoConfigParameter(paramRockType);
             this.archeologCatalogList = archeologCatalogList;
             this.archeologCatalogDetail = new ArcheologCatalogDetail(this);
+            this.archeologCatalogConfig = new ArcheologCatalogConfig(this);
             this.archeologCatalogDetail.Visible = false;
         }
 
@@ -75,8 +84,27 @@ namespace ArcheologicCatalogClassicV3
                 archeologCatalogDetail.labelStatus.ForeColor = Color.Black;
             }
         }
+
+        internal void OpenConfigDialog()
+        {
+            if (this.archeologCatalogConfig.IsDisposed) { this.archeologCatalogConfig = new ArcheologCatalogConfig(this); }
+            this.archeologCatalogConfig.SetConfigParameterInForm(paramRockType, archeoConfigRockTyp.Parameters);
+            this.archeologCatalogConfig.SetConfigParameterInForm(paramTypeOfBuild, archeoConfigTypeOfBuild.Parameters);
+            this.archeologCatalogConfig.Activate();
+            this.archeologCatalogConfig.Visible = true;
+            this.archeologCatalogConfig.Show();
+
+        }
+
+        internal void CloseApplication()
+        {
+           //Todo: ApplicationExit. Speichern und schließen
+        }
+
         internal void ReturnStatus()
         {
+            archeologCatalogList.labelStatus.Text = "";
+            archeologCatalogDetail.labelStatus.Text = "";
             archeologCatalogList.labelStatus.Visible = false;
             archeologCatalogDetail.labelStatus.Visible = false;
             archeologCatalogList.labelStatus.ForeColor = Color.Black;
@@ -86,6 +114,11 @@ namespace ArcheologicCatalogClassicV3
         internal void exportToWord(string archeoObjectCode)
         {
             archeoObjectCtl.ExportToWord(archeoObjectCode);
+        }
+
+        internal void SetConfigListsInView()
+        {
+            
         }
     }
 }

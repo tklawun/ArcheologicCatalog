@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace ArcheologicCatalogClassicV3
 {
     class FilePaths
     {
-        internal String getXmlFilePath()
+        internal String getXmlDataFilePath()
         {
-            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogData.xml";
-            if (!File.Exists(xmlFilePath)){ 
-                XmlData xmld = new XmlData();
-                xmld.InitializeXMLFile(xmlFilePath);
+            String xmlDataFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogData.xml";
+            if (!File.Exists(xmlDataFilePath)){ 
+                ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();
+                xmld.InitializeXMLFile(xmlDataFilePath);
             }
-            return xmlFilePath;
+            return xmlDataFilePath;
         }
         internal String getTemplatePath()
         {
@@ -47,12 +43,12 @@ namespace ArcheologicCatalogClassicV3
             return templatePath;
         }
 
-        internal String getXmlFileForConfiguration()
+        internal String getXmlConfigFilePath()
         {
             String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogConfig.xml";
             if (!File.Exists(xmlFilePath))
             {
-                XmlData xmld = new XmlData();
+                ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();
                 xmld.InitializeXMLFile(xmlFilePath);
             }
             return xmlFilePath;
