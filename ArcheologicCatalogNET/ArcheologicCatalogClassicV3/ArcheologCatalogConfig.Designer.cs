@@ -43,13 +43,13 @@ namespace ArcheologicCatalogClassicV3
             this.listBoxTypOfBuild.Location = new System.Drawing.Point(34, 75);
             this.listBoxTypOfBuild.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxTypOfBuild.Name = "listBoxTypOfBuild";
-            this.listBoxTypOfBuild.Size = new System.Drawing.Size(283, 564);
+            this.listBoxTypOfBuild.Size = new System.Drawing.Size(317, 564);
             this.listBoxTypOfBuild.TabIndex = 0;
             // 
             // labelTypOfBuild
             // 
             this.labelTypOfBuild.AutoSize = true;
-            this.labelTypOfBuild.Location = new System.Drawing.Point(44, 35);
+            this.labelTypOfBuild.Location = new System.Drawing.Point(58, 35);
             this.labelTypOfBuild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTypOfBuild.Name = "labelTypOfBuild";
             this.labelTypOfBuild.Size = new System.Drawing.Size(129, 20);
@@ -59,7 +59,7 @@ namespace ArcheologicCatalogClassicV3
             // labelRockType
             // 
             this.labelRockType.AutoSize = true;
-            this.labelRockType.Location = new System.Drawing.Point(409, 35);
+            this.labelRockType.Location = new System.Drawing.Point(427, 35);
             this.labelRockType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRockType.Name = "labelRockType";
             this.labelRockType.Size = new System.Drawing.Size(94, 20);
@@ -73,7 +73,7 @@ namespace ArcheologicCatalogClassicV3
             this.listBoxRockType.Location = new System.Drawing.Point(399, 75);
             this.listBoxRockType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listBoxRockType.Name = "listBoxRockType";
-            this.listBoxRockType.Size = new System.Drawing.Size(276, 564);
+            this.listBoxRockType.Size = new System.Drawing.Size(330, 564);
             this.listBoxRockType.TabIndex = 3;
             // 
             // ArcheologCatalogConfig

@@ -9,21 +9,21 @@ namespace ArcheologicCatalogClassicV3
 {
     public class ArcheoObjectViewCtl
     {
-        ArcheoObjectCtl archeoObjectCtl;
-        ArcheoConfigParameter archeoConfigTypeOfBuild;
-        ArcheoConfigParameter archeoConfigRockTyp;
-        ArcheologCatalogDetail archeologCatalogDetail;
-        ArcheologCatalogList archeologCatalogList;
-        ArcheologCatalogConfig archeologCatalogConfig;
-        string paramRockType = "RockType";
-        string paramTypeOfBuild = "TypeOfBuild";
-       
+        private ArcheoObjectCtl archeoObjectCtl;
+        private ArcheoConfigParameter archeoConfigTypeOfBuild;
+        private ArcheoConfigParameter archeoConfigRockType;
+        private ArcheologCatalogDetail archeologCatalogDetail;
+        private ArcheologCatalogList archeologCatalogList;
+        private ArcheologCatalogConfig archeologCatalogConfig;
+        private string paramRockType = "RockType";
+        private string paramTypeOfBuild = "TypeOfBuild";
+
 
         public ArcheoObjectViewCtl(ArcheologCatalogList archeologCatalogList)
         {
             this.archeoObjectCtl = new ArcheoObjectCtl();
-            ArcheoConfigParameter archeoConfigTypeOfBuild = new ArcheoConfigParameter(paramTypeOfBuild);
-            ArcheoConfigParameter archeoConfigRockType = new ArcheoConfigParameter(paramRockType);
+            this.archeoConfigTypeOfBuild = new ArcheoConfigParameter(paramTypeOfBuild);
+            this.archeoConfigRockType = new ArcheoConfigParameter(paramRockType);
             this.archeologCatalogList = archeologCatalogList;
             this.archeologCatalogDetail = new ArcheologCatalogDetail(this);
             this.archeologCatalogConfig = new ArcheologCatalogConfig(this);
@@ -51,7 +51,6 @@ namespace ArcheologicCatalogClassicV3
         internal void SetArcheoObjectListInView()
         {
             archeologCatalogList.SetListView(archeoObjectCtl.GetArcheoObjects().Keys);
-
         }
 
         internal void SaveArcheoObjectInList(ArcheoObject archeoObject)
@@ -63,7 +62,6 @@ namespace ArcheologicCatalogClassicV3
         private void RefreshListInListView()
         {
             SetArcheoObjectListInView();
-
         }
 
         internal void SetStatus(string Status, bool important)
@@ -88,17 +86,20 @@ namespace ArcheologicCatalogClassicV3
         internal void OpenConfigDialog()
         {
             if (this.archeologCatalogConfig.IsDisposed) { this.archeologCatalogConfig = new ArcheologCatalogConfig(this); }
-            this.archeologCatalogConfig.SetConfigParameterInForm(paramRockType, archeoConfigRockTyp.Parameters);
+            this.archeologCatalogConfig.SetConfigParameterInForm(paramRockType, archeoConfigRockType.Parameters);
             this.archeologCatalogConfig.SetConfigParameterInForm(paramTypeOfBuild, archeoConfigTypeOfBuild.Parameters);
             this.archeologCatalogConfig.Activate();
             this.archeologCatalogConfig.Visible = true;
             this.archeologCatalogConfig.Show();
-
         }
 
+        internal void SaveConfigParameter(string parameter, string[] parameters)
+        {
+
+        }
         internal void CloseApplication()
         {
-           //Todo: ApplicationExit. Speichern und schließen
+            //Todo: ApplicationExit. Speichern und schließen
         }
 
         internal void ReturnStatus()
@@ -116,9 +117,5 @@ namespace ArcheologicCatalogClassicV3
             archeoObjectCtl.ExportToWord(archeoObjectCode);
         }
 
-        internal void SetConfigListsInView()
-        {
-            
-        }
     }
 }
