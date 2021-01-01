@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArcheoCatalogNewEntryAddListEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArcheoCatalogNewEntryAddListEntry.Designer.cs">
+      <DependentUpon>ArcheoCatalogNewEntryAddListEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArcheoCatalogTypOfBuild.cs" />
     <Compile Include="ArcheoConfigParameter.cs" />
     <Compile Include="ArcheoConfigXmlData.cs" />
@@ -110,6 +116,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ArcheoObjectXmlData.cs" />
+    <EmbeddedResource Include="ArcheoCatalogNewEntryAddListEntry.resx">
+      <DependentUpon>ArcheoCatalogNewEntryAddListEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArcheologCatalogConfig.resx">
       <DependentUpon>ArcheologCatalogConfig.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +138,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="ArcheologicCatalogClassicV3_TemporaryKey.pfx" />
+    <None Include="Properties\DataSources\ArcheoConfigParameter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -22,20 +22,28 @@ namespace ArcheologicCatalogClassicV3
         public ArcheologCatalogConfig(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
+            InitializeComponent();
         }
 
-        internal void SetConfigParameterInForm(string parameter, string[] parameterList)
+        internal void SetConfigParameterInForm(string parameter, List<string> parameterList)
         {
-           //Todo: setzte die Parameter in der Form. 
-           if (parameter.Equals("RockType"))
+            //Todo: setzte die Parameter in der Form. 
+            string[] paramList = parameterList.ToArray();
+            if (parameter.Equals("RockType"))
             {
-                listBoxRockType.Items.AddRange(parameterList);
+                listBoxRockType.Items.AddRange(paramList);
             }
-           if (parameter.Equals("TypOfBuild"))
+            if (parameter.Equals("TypeOfBuild"))
             {
-                listBoxTypOfBuild.Items.AddRange(parameterList);
+                listBoxTypOfBuild.Items.AddRange(paramList);
             }
         }
-        
+
+        private void buttonNewRockTyp_Click(object sender, EventArgs e)
+        {
+            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry("RockTyp");
+            listBoxRockType.Items.Add(archeoCatalogNewEntryAddListEntry.getTextBoxText());
+
+        }
     }
 }

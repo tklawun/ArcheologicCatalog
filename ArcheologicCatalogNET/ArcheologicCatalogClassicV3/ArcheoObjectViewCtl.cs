@@ -99,6 +99,7 @@ namespace ArcheologicCatalogClassicV3
         }
         internal void CloseApplication()
         {
+            System.Environment.Exit(0);
             //Todo: ApplicationExit. Speichern und schließen
         }
 

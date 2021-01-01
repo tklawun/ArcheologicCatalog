@@ -19,6 +19,7 @@ namespace ArcheologicCatalogClassicV3
         {
             XmlNode rootNode = xmlDoc.CreateElement("ArcheoConfig");
             xmlDoc.AppendChild(rootNode);
+            XmlNode param1Node = xmlDoc.CreateElement("");
             try
             {
                 xmlDoc.Save(xmlFilePath);
@@ -65,8 +66,8 @@ namespace ArcheologicCatalogClassicV3
             }
             return xmlDoc;
         }
-        
-        public XmlDocument GenerateXMLDocumentFromList(string[] List, string Parameter)
+
+        public XmlDocument GenerateXMLDocumentFromList(List<string> List, string Parameter)
         {
             XmlDocument xmlDoc = new XmlDocument();
             String ListName = Parameter + "List";
@@ -82,20 +83,29 @@ namespace ArcheologicCatalogClassicV3
             return xmlDoc;
         }
 
-        public string[] GetListFromXMLDoc(string Parameter)
+        public List<string> GetListFromXMLDoc(string Parameter)
         {
             XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().getXmlConfigFilePath());
             String ListName = Parameter + "List";
             string xmlNodePath = "/" + ListName + "/" + Parameter;
-            XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes("/ArcheoTypeOfBuildList/TypeOfBuild");
-            string[] List = new string[elemList.Count];
-            int i = 0;
-            foreach (XmlNode node in elemList)
+            XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes(xmlNodePath);
+            List<string> ListOfElement;
+            if (elemList.Count < 1)
             {
-                List[i] = node.InnerText;
-                i++;
+                ListOfElement = new List<string>
+                {
+                    "Kein Eintrag vorhanden."
+                };
             }
-            return List;
+            else
+            {
+                ListOfElement = new List<string>();
+                foreach (XmlNode node in elemList)
+                {
+                    ListOfElement.Add(node.InnerText);
+                }
+            }
+            return ListOfElement;
         }
     }
 }
