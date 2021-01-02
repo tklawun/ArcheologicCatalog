@@ -35,14 +35,19 @@ namespace ArcheologicCatalogClassicV3
             }
             if (parameter.Equals("TypeOfBuild"))
             {
-                listBoxTypOfBuild.Items.AddRange(paramList);
+                listBoxTypeOfBuild.Items.AddRange(paramList);
             }
         }
 
         private void buttonNewRockTyp_Click(object sender, EventArgs e)
         {
+
             ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry("RockTyp");
-            listBoxRockType.Items.Add(archeoCatalogNewEntryAddListEntry.getTextBoxText());
+        }
+
+        private void buttonNewTypeOfBuild_Click(object sender, EventArgs e)
+        {
+            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry("TypeOfBuild");
 
         }
     }

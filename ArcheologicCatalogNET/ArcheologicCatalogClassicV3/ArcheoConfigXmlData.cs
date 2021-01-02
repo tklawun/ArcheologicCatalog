@@ -87,7 +87,7 @@ namespace ArcheologicCatalogClassicV3
         {
             XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().getXmlConfigFilePath());
             String ListName = Parameter + "List";
-            string xmlNodePath = "/" + ListName + "/" + Parameter;
+            string xmlNodePath = "/ArcheoConfig/" + ListName + "/" + Parameter;
             XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes(xmlNodePath);
             List<string> ListOfElement;
             if (elemList.Count < 1)

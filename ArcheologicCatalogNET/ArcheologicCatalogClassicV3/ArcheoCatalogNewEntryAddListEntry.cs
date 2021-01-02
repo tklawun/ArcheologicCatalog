@@ -12,14 +12,11 @@ namespace ArcheologicCatalogClassicV3
 {
     public partial class ArcheoCatalogNewEntryAddListEntry : Form
     {
-        public ArcheoCatalogNewEntryAddListEntry()
+        public ArcheoCatalogNewEntryAddListEntry(string labelText)
         {
             InitializeComponent();
-        }
-
-        internal ArcheoCatalogNewEntryAddListEntry(string v)
-        {
-
+            this.labelTyp.Text = labelText;
+            this.Text = "New " + labelText;
         }
 
         internal object getTextBoxText()
