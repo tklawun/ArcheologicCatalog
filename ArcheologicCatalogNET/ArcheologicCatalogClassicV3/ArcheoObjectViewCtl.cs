@@ -30,6 +30,11 @@ namespace ArcheologicCatalogClassicV3
             this.archeologCatalogDetail.Visible = false;
         }
 
+        internal void NewConfigEntry(string ConfigTyp)
+        {
+            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry(ConfigTyp);
+        }
+
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
         {
             if (this.archeologCatalogDetail.IsDisposed) { this.archeologCatalogDetail = new ArcheologCatalogDetail(this); }
@@ -46,6 +51,16 @@ namespace ArcheologicCatalogClassicV3
                 this.archeologCatalogDetail.ClearArcheoObjectInForm();
                 this.archeologCatalogDetail.Show();
             }
+        }
+
+        internal void ConfigViewFinish(List<string> typeOfBuild, List<string> rockType)
+        {
+            archeoConfigRockType.Parameters.Clear();
+            archeoConfigRockType.Parameters.AddRange(rockType);
+            archeoConfigTypeOfBuild.Parameters.Clear();
+            archeoConfigTypeOfBuild.Parameters.AddRange(typeOfBuild);
+            archeoConfigRockType.SaveParameterInXML();
+            archeoConfigTypeOfBuild.SaveParameterInXML();
         }
 
         internal void SetArcheoObjectListInView()
@@ -93,10 +108,6 @@ namespace ArcheologicCatalogClassicV3
             this.archeologCatalogConfig.Show();
         }
 
-        internal void SaveConfigParameter(string parameter, string[] parameters)
-        {
-
-        }
         internal void CloseApplication()
         {
             System.Environment.Exit(0);

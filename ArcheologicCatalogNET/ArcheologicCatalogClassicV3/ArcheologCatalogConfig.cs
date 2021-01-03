@@ -31,24 +31,68 @@ namespace ArcheologicCatalogClassicV3
             string[] paramList = parameterList.ToArray();
             if (parameter.Equals("RockType"))
             {
-                listBoxRockType.Items.AddRange(paramList);
+                int i = 0;
+                foreach (string param in paramList)
+                {
+                    dataGridViewRockType.Rows.Add();
+                    dataGridViewRockType.Rows[i].Cells[0].Value = param;
+                    i++;
+                }
             }
             if (parameter.Equals("TypeOfBuild"))
             {
-                listBoxTypeOfBuild.Items.AddRange(paramList);
+                int i = 0;
+                foreach (string param in paramList)
+                {
+                    dataGridViewTypeOfBuild.Rows.Add();
+                    dataGridViewTypeOfBuild.Rows[i].Cells[0].Value = param;
+                    i++;
+                }
             }
         }
 
         private void buttonNewRockTyp_Click(object sender, EventArgs e)
         {
-
-            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry("RockTyp");
+            archeoObjectViewCtl.NewConfigEntry("RockTyp");
         }
 
         private void buttonNewTypeOfBuild_Click(object sender, EventArgs e)
         {
-            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry("TypeOfBuild");
+            archeoObjectViewCtl.NewConfigEntry("TypeOfBuild");
+        }
 
+        private void dataGridViewTypeOfBuild_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ArcheologCatalogConfig_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            List<string> typeOfBuild = new List<string>();
+            int j = dataGridViewTypeOfBuild.Rows.Count - 1;
+            int i;
+
+            for (i = 0; i < j; i++)
+            {
+                typeOfBuild.Add(dataGridViewTypeOfBuild.Rows[i].Cells[0].Value.ToString());
+            }
+
+            List<string> rockType = new List<string>();
+            j = dataGridViewRockType.Rows.Count - 1;
+
+            for (i = 0; i < j; i++)
+            {
+                rockType.Add(dataGridViewRockType.Rows[i].Cells[0].Value.ToString());
+            }
+
+            archeoObjectViewCtl.ConfigViewFinish(typeOfBuild, rockType);
+
+            this.Close();
         }
     }
 }

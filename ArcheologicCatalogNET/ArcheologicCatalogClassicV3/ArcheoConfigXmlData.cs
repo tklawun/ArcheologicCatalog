@@ -13,11 +13,11 @@ namespace ArcheologicCatalogClassicV3
 {
     class ArcheoConfigXmlData
     {
-        XmlDocument xmlDoc = new XmlDocument();
-
+        private XmlDocument xmlDoc = new XmlDocument();
+        private XmlNode rootNode;
         public void InitializeXMLFile(string xmlFilePath)
         {
-            XmlNode rootNode = xmlDoc.CreateElement("ArcheoConfig");
+            rootNode = xmlDoc.CreateElement("ArcheoConfig");
             xmlDoc.AppendChild(rootNode);
             XmlNode param1Node = xmlDoc.CreateElement("");
             try
@@ -29,7 +29,6 @@ namespace ArcheologicCatalogClassicV3
                 Console.WriteLine("Failure: Application Datafile doesnt saved!");
                 throw;
             }
-
         }
 
         /// <summary>
@@ -47,12 +46,12 @@ namespace ArcheologicCatalogClassicV3
             {
                 //todo: Ausnahme behandeln
                 throw;
+
             }
         }
 
         public XmlDocument ReadXMLDocumentFromFile(string xmlFilePath)
         {
-            XmlDocument xmlDoc = new XmlDocument();
             try
             {
                 xmlDoc.Load(xmlFilePath);
@@ -69,16 +68,17 @@ namespace ArcheologicCatalogClassicV3
 
         public XmlDocument GenerateXMLDocumentFromList(List<string> List, string Parameter)
         {
-            XmlDocument xmlDoc = new XmlDocument();
             String ListName = Parameter + "List";
-            XmlNode rootNode = xmlDoc.CreateElement(ListName);
-
-            foreach (string TypeOfBuild in List)
+            XmlNode rootNode = xmlDoc.SelectSingleNode("ArcheoConfig");
+            XmlNode ListNode = xmlDoc.CreateElement(ListName);
+            
+            foreach (string entry in List)
             {
-                XmlNode typeOfBuildNode = xmlDoc.CreateElement(Parameter);
-                typeOfBuildNode.InnerText = TypeOfBuild;
-                rootNode.AppendChild(typeOfBuildNode);
+                XmlNode entryNode = xmlDoc.CreateElement(Parameter);
+                entryNode.InnerText = entry;
+                rootNode.AppendChild(entryNode);
             }
+            rootNode.AppendChild(ListNode);
             xmlDoc.AppendChild(rootNode);
             return xmlDoc;
         }

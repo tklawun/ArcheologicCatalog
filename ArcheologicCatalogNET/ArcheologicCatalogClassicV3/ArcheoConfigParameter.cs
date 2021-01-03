@@ -33,7 +33,7 @@ namespace ArcheologicCatalogClassicV3
         internal void SaveParameterInXML()
         {
             ArcheoConfigXmlData archeoConfigXmlData = new ArcheoConfigXmlData();
-            archeoConfigXmlData.GenerateXMLDocumentFromList(Parameters, parameterType);
+            archeoConfigXmlData.SaveXMLDocumentAsFile(archeoConfigXmlData.GenerateXMLDocumentFromList(Parameters, parameterType), new FilePaths().getXmlConfigFilePath());
         }
     }
 }
