@@ -17,8 +17,16 @@ namespace ArcheologicCatalogClassicV3
         private ArcheologCatalogConfig archeologCatalogConfig;
         private string paramRockType = "RockType";
         private string paramTypeOfBuild = "TypeOfBuild";
+        internal object[] GetItemsTypeOfBuild()
+        {
+            return this.archeoConfigTypeOfBuild.Parameters.ToArray();
+        }
 
-
+        internal object[] GetItemsRockType()
+        {
+            return this.archeoConfigRockType.Parameters.ToArray();
+        }
+        
         public ArcheoObjectViewCtl(ArcheologCatalogList archeologCatalogList)
         {
             this.archeoObjectCtl = new ArcheoObjectCtl();
@@ -119,6 +127,8 @@ namespace ArcheologicCatalogClassicV3
             archeologCatalogList.labelStatus.Text = "";
             archeologCatalogDetail.labelStatus.Text = "";
             archeologCatalogList.labelStatus.Visible = false;
+        
+            
             archeologCatalogDetail.labelStatus.Visible = false;
             archeologCatalogList.labelStatus.ForeColor = Color.Black;
             archeologCatalogDetail.labelStatus.ForeColor = Color.Black;
