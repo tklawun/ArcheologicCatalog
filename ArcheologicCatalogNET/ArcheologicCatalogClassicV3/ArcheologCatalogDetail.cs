@@ -32,7 +32,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxSpecialFeatures.Text = archeoObject.SpecialFeaturesOut;
             this.textBoxWidth.Text = archeoObject.WidthOut;
             this.textBoxDepth.Text = archeoObject.DepthOut;
-            this.textBoxRockType.Text = archeoObject.RockTypeOut;
+            this.comboBoxRockTyp.Text = archeoObject.RockTypeOut;
             this.pictureBox1.ImageLocation = archeoObject.PictureLinkOut;
         }
 
@@ -47,7 +47,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxSpecialFeatures.Text = "";
             this.textBoxWidth.Text = "";
             this.textBoxDepth.Text = "";
-            this.textBoxRockType.Text = "";
+            this.comboBoxRockTyp.Text = "";
             this.pictureBox1.ImageLocation = "";
         }
 
@@ -73,7 +73,7 @@ namespace ArcheologicCatalogClassicV3
                 HeightOut = this.textBoxHeight.Text,
                 SpecialFeaturesOut = this.textBoxSpecialFeatures.Text,
                 WidthOut = this.textBoxWidth.Text,
-                RockTypeOut = this.textBoxRockType.Text,
+                RockTypeOut = this.comboBoxRockTyp.Text,
                 PictureLinkOut = this.pictureBox1.ImageLocation
             };
 
