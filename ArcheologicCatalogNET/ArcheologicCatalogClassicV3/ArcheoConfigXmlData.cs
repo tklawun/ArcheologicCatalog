@@ -69,14 +69,19 @@ namespace ArcheologicCatalogClassicV3
         public XmlDocument GenerateXMLDocumentFromList(List<string> List, string Parameter)
         {
             String ListName = Parameter + "List";
-            XmlNode rootNode = xmlDoc.SelectSingleNode("ArcheoConfig");
+            
+            //TODO: 
+            //if not exist xmldocument, create new... 
+            //if not exist rootnode, create them....
+
+            XmlNode rootNode = xmlDoc.CreateElement("ArcheoConfig");
             XmlNode ListNode = xmlDoc.CreateElement(ListName);
             
             foreach (string entry in List)
             {
                 XmlNode entryNode = xmlDoc.CreateElement(Parameter);
                 entryNode.InnerText = entry;
-                rootNode.AppendChild(entryNode);
+                ListNode.AppendChild(entryNode);
             }
             rootNode.AppendChild(ListNode);
             xmlDoc.AppendChild(rootNode);
