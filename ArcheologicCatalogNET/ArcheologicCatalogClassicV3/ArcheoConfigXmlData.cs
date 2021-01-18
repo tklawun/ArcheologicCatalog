@@ -13,13 +13,23 @@ namespace ArcheologicCatalogClassicV3
 {
     class ArcheoConfigXmlData
     {
-        private XmlDocument xmlDoc = new XmlDocument();
+        private XmlDocument xmlDoc;
         private XmlNode rootNode;
+
+        internal ArcheoConfigXmlData()
+        {
+            xmlDoc = new XmlDocument();
+        }
         public void InitializeXMLFile(string xmlFilePath)
         {
+            xmlDoc = new XmlDocument();
             rootNode = xmlDoc.CreateElement("ArcheoConfig");
             xmlDoc.AppendChild(rootNode);
-            XmlNode param1Node = xmlDoc.CreateElement("");
+            XmlNode paramRockTypeNode = xmlDoc.CreateElement("RockType");
+            XmlNode paramTypeOfBuildNode = xmlDoc.CreateElement("TypeOfBuild");
+            rootNode.AppendChild(paramRockTypeNode);
+            rootNode.AppendChild(paramTypeOfBuildNode);
+
             try
             {
                 xmlDoc.Save(xmlFilePath);
@@ -52,11 +62,11 @@ namespace ArcheologicCatalogClassicV3
 
         public XmlDocument ReadXMLDocumentFromFile(string xmlFilePath)
         {
-            try
+            if (File.Exists(xmlFilePath))
             {
                 xmlDoc.Load(xmlFilePath);
             }
-            catch (Exception)
+            else
             {
                 Console.WriteLine("Failure: File not exists!");
                 Console.WriteLine("File is created.");
@@ -69,14 +79,14 @@ namespace ArcheologicCatalogClassicV3
         public XmlDocument GenerateXMLDocumentFromList(List<string> List, string Parameter)
         {
             String ListName = Parameter + "List";
-            
+
             //TODO: 
             //if not exist xmldocument, create new... 
             //if not exist rootnode, create them....
 
             XmlNode rootNode = xmlDoc.CreateElement("ArcheoConfig");
             XmlNode ListNode = xmlDoc.CreateElement(ListName);
-            
+
             foreach (string entry in List)
             {
                 XmlNode entryNode = xmlDoc.CreateElement(Parameter);
@@ -90,7 +100,7 @@ namespace ArcheologicCatalogClassicV3
 
         public List<string> GetListFromXMLDoc(string Parameter)
         {
-            XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().getXmlConfigFilePath());
+            XmlDocument xmlDoc = this.ReadXMLDocumentFromFile(new FilePaths().GetXmlConfigFilePath(Parameter));
             String ListName = Parameter + "List";
             string xmlNodePath = "/ArcheoConfig/" + ListName + "/" + Parameter;
             XmlNodeList elemList = xmlDoc.DocumentElement.SelectNodes(xmlNodePath);

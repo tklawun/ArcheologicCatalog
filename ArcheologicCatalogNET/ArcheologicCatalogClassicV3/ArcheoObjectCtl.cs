@@ -74,13 +74,13 @@ namespace ArcheologicCatalogClassicV3
         internal void SaveArcheoObjects()
         {
            ArcheoObjectXmlData xmlData = new ArcheoObjectXmlData();
-           xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().getXmlDataFilePath());
+           xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().GetXmlDataFilePath());
         }
 
         internal void ExportToWord(string archeoObjectCode)
         {
             Export exportCtl = new Export();
-            exportCtl.ExportToWord(this.GetArcheoObject(archeoObjectCode), new FilePaths().getWordExportPath());
+            exportCtl.ExportToWord(this.GetArcheoObject(archeoObjectCode), new FilePaths().GetWordExportPath());
 
         }
     }

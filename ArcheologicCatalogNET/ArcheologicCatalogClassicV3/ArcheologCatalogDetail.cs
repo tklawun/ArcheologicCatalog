@@ -12,8 +12,8 @@ namespace ArcheologicCatalogClassicV3
 {
     public partial class ArcheologCatalogDetail : Form
     {
-        ArcheoObjectViewCtl archeoObjectViewCtl;
-         internal ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
+        private ArcheoObjectViewCtl archeoObjectViewCtl;
+        internal ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
             InitializeComponent();
@@ -78,13 +78,13 @@ namespace ArcheologicCatalogClassicV3
             };
 
             this.archeoObjectViewCtl.SaveArcheoObjectInList(archeoObject);
-            
+
             archeoObjectViewCtl.SetStatus(archeoObject.CodeOut + " gespeichert.", false);
         }
 
         private void buttonChoisePicture_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = new FilePaths().getSelectPicturePath();
+            openFileDialog1.InitialDirectory = new FilePaths().GetSelectPicturePath();
             openFileDialog1.Filter = "All Files (*.*)|*.*";
             openFileDialog1.FilterIndex = 0;
             openFileDialog1.RestoreDirectory = true;
@@ -101,7 +101,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void ArcheologCatalogDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         private void buttonExportToWord_Click(object sender, EventArgs e)

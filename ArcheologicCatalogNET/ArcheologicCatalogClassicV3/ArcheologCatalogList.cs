@@ -12,7 +12,7 @@ namespace ArcheologicCatalogClassicV3
 {
     public partial class ArcheologCatalogList : Form
     {
-        ArcheoObjectViewCtl archeoObjectViewCtl;
+        private ArcheoObjectViewCtl archeoObjectViewCtl;
         public ArcheologCatalogList()
         {
             archeoObjectViewCtl = new ArcheoObjectViewCtl(this);

@@ -79,7 +79,22 @@ namespace ArcheologicCatalogClassicV3
 
             for (i = 0; i < j; i++)
             {
-                typeOfBuild.Add(dataGridViewTypeOfBuild.Rows[i].Cells[0].Value.ToString());
+                try
+                {
+                    if (dataGridViewTypeOfBuild.Rows[i].Cells[0].Value == null)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        typeOfBuild.Add(dataGridViewTypeOfBuild.Rows[i].Cells[0].Value.ToString());
+                    }
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+
             }
 
             List<string> rockType = new List<string>();
@@ -87,7 +102,22 @@ namespace ArcheologicCatalogClassicV3
 
             for (i = 0; i < j; i++)
             {
-                rockType.Add(dataGridViewRockType.Rows[i].Cells[0].Value.ToString());
+                try
+                {
+                    if (dataGridViewRockType.Rows[i].Cells[0].Value == null)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        rockType.Add(dataGridViewRockType.Rows[i].Cells[0].Value.ToString());
+                    }
+                }
+                catch (Exception)
+                {
+                    continue;
+                }
+
             }
 
             archeoObjectViewCtl.ConfigViewFinish(typeOfBuild, rockType);

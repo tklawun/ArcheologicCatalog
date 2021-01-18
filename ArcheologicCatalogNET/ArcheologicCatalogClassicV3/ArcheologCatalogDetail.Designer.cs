@@ -69,7 +69,7 @@ namespace ArcheologicCatalogClassicV3
             this.pictureBox1.Location = new System.Drawing.Point(289, 584);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(857, 319);
+            this.pictureBox1.Size = new System.Drawing.Size(857, 309);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -246,7 +246,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(55, 922);
+            this.buttonSave.Location = new System.Drawing.Point(59, 912);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(152, 44);
@@ -258,7 +258,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(1013, 922);
+            this.buttonClose.Location = new System.Drawing.Point(1013, 912);
             this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(132, 44);
@@ -280,7 +280,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonChoisePicture
             // 
             this.buttonChoisePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonChoisePicture.Location = new System.Drawing.Point(-469, 821);
+            this.buttonChoisePicture.Location = new System.Drawing.Point(59, 727);
             this.buttonChoisePicture.Margin = new System.Windows.Forms.Padding(4);
             this.buttonChoisePicture.Name = "buttonChoisePicture";
             this.buttonChoisePicture.Size = new System.Drawing.Size(178, 44);
@@ -297,7 +297,7 @@ namespace ArcheologicCatalogClassicV3
             // labelPicture
             // 
             this.labelPicture.AutoSize = true;
-            this.labelPicture.Location = new System.Drawing.Point(54, 720);
+            this.labelPicture.Location = new System.Drawing.Point(54, 663);
             this.labelPicture.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPicture.Name = "labelPicture";
             this.labelPicture.Size = new System.Drawing.Size(108, 25);
@@ -308,7 +308,7 @@ namespace ArcheologicCatalogClassicV3
             // 
             this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(1302, 989);
+            this.labelStatus.Location = new System.Drawing.Point(1302, 979);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(166, 25);
@@ -319,7 +319,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonExportToWord
             // 
             this.buttonExportToWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExportToWord.Location = new System.Drawing.Point(283, 922);
+            this.buttonExportToWord.Location = new System.Drawing.Point(288, 912);
             this.buttonExportToWord.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExportToWord.Name = "buttonExportToWord";
             this.buttonExportToWord.Size = new System.Drawing.Size(250, 44);
@@ -340,7 +340,7 @@ namespace ArcheologicCatalogClassicV3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 1035);
+            this.ClientSize = new System.Drawing.Size(1186, 1025);
             this.Controls.Add(this.comboBoxRockTyp);
             this.Controls.Add(this.buttonExportToWord);
             this.Controls.Add(this.labelStatus);

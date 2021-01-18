@@ -5,7 +5,7 @@ namespace ArcheologicCatalogClassicV3
 {
     class FilePaths
     {
-        internal String getXmlDataFilePath()
+        internal string GetXmlDataFilePath()
         {
             String xmlDataFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogData.xml";
             if (!File.Exists(xmlDataFilePath)){ 
@@ -14,7 +14,7 @@ namespace ArcheologicCatalogClassicV3
             }
             return xmlDataFilePath;
         }
-        internal String getTemplatePath()
+        internal string GetTemplatePath()
         {
             String templatePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogTemplate.dotx";
             if (!File.Exists(templatePath))
@@ -23,7 +23,7 @@ namespace ArcheologicCatalogClassicV3
             }
             return templatePath;
         }
-        internal String getWordExportPath()
+        internal string GetWordExportPath()
         {
             String WordExportPath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\WordExport\\";
             if (!Directory.Exists(WordExportPath))
@@ -32,7 +32,7 @@ namespace ArcheologicCatalogClassicV3
             }
             return WordExportPath;
         }
-        internal String getSelectPicturePath()
+        internal string GetSelectPicturePath()
         {
             String templatePath = Environment.GetEnvironmentVariable("OneDrive");
 
@@ -43,9 +43,9 @@ namespace ArcheologicCatalogClassicV3
             return templatePath;
         }
 
-        internal String getXmlConfigFilePath()
+        internal String GetXmlConfigFilePath(string ConfigType)
         {
-            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogConfig.xml";
+            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogConfig" + ConfigType + ".xml";
             if (!File.Exists(xmlFilePath))
             {
                 ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();

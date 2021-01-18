@@ -11,7 +11,7 @@ namespace ArcheologicCatalogClassicV3
             object documentTyp = 0;
             object visible = true;
             object fileName = FullDirectory + archeoObject.CodeOut + ".docx";
-            string fullTemplateName = new FilePaths().getTemplatePath();
+            string fullTemplateName = new FilePaths().GetTemplatePath();
             object templateName = fullTemplateName;
             object missing = System.Reflection.Missing.Value;
             Application oWordApp = new Application();
