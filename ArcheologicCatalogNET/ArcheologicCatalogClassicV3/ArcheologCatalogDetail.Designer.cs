@@ -66,10 +66,10 @@ namespace ArcheologicCatalogClassicV3
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(289, 584);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Location = new System.Drawing.Point(144, 304);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(857, 309);
+            this.pictureBox1.Size = new System.Drawing.Size(430, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -77,26 +77,10 @@ namespace ArcheologicCatalogClassicV3
             // comboBoxTypeOfBuild
             // 
             this.comboBoxTypeOfBuild.FormattingEnabled = true;
-            this.comboBoxTypeOfBuild.Items.AddRange(new object[] {
-            "Aktroter QN20-A",
-            "Architrav  QN20-AR",
-            "Eckpilaster Voluten und Akanthusblätter QN20-EP",
-            "Fußprofil und verschiedene Plinthe QN20-FP",
-            "Ionische Eierstabkyma QN20-IK",
-            "Kanellüren QN20-KA",
-            "Konsolen QN20-KO",
-            "Korintisches Kapitell und Pilaster QN20-K",
-            "Säulen QN20-SÄ",
-            "Säulenbasis QN20-SB",
-            "Sofitenecken QN20-SE",
-            "Treppen und Vorhalle QN20-T",
-            "Treppenwange QN20-TW",
-            "Tympanonecke QN20-TE",
-            "Zahnstab QN20-ZS"});
-            this.comboBoxTypeOfBuild.Location = new System.Drawing.Point(289, 82);
-            this.comboBoxTypeOfBuild.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxTypeOfBuild.Location = new System.Drawing.Point(144, 43);
+            this.comboBoxTypeOfBuild.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxTypeOfBuild.Name = "comboBoxTypeOfBuild";
-            this.comboBoxTypeOfBuild.Size = new System.Drawing.Size(522, 33);
+            this.comboBoxTypeOfBuild.Size = new System.Drawing.Size(263, 21);
             this.comboBoxTypeOfBuild.TabIndex = 71;
             this.comboBoxTypeOfBuild.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypeOfBuild_SelectedIndexChanged);
             // 
@@ -104,152 +88,138 @@ namespace ArcheologicCatalogClassicV3
             // 
             this.textBoxSpecialFeatures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSpecialFeatures.Location = new System.Drawing.Point(288, 440);
-            this.textBoxSpecialFeatures.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxSpecialFeatures.Location = new System.Drawing.Point(144, 229);
             this.textBoxSpecialFeatures.Multiline = true;
             this.textBoxSpecialFeatures.Name = "textBoxSpecialFeatures";
-            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(857, 125);
+            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(430, 67);
             this.textBoxSpecialFeatures.TabIndex = 69;
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDescription.Location = new System.Drawing.Point(289, 272);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxDescription.Location = new System.Drawing.Point(144, 141);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(856, 156);
+            this.textBoxDescription.Size = new System.Drawing.Size(430, 83);
             this.textBoxDescription.TabIndex = 68;
             // 
             // textBoxCoordinate
             // 
-            this.textBoxCoordinate.Location = new System.Drawing.Point(288, 135);
-            this.textBoxCoordinate.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxCoordinate.Location = new System.Drawing.Point(144, 70);
             this.textBoxCoordinate.Name = "textBoxCoordinate";
-            this.textBoxCoordinate.Size = new System.Drawing.Size(228, 31);
+            this.textBoxCoordinate.Size = new System.Drawing.Size(116, 20);
             this.textBoxCoordinate.TabIndex = 67;
             // 
             // textBoxDepth
             // 
-            this.textBoxDepth.Location = new System.Drawing.Point(950, 180);
-            this.textBoxDepth.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxDepth.Location = new System.Drawing.Point(475, 94);
             this.textBoxDepth.Name = "textBoxDepth";
-            this.textBoxDepth.Size = new System.Drawing.Size(196, 31);
+            this.textBoxDepth.Size = new System.Drawing.Size(100, 20);
             this.textBoxDepth.TabIndex = 65;
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(618, 178);
-            this.textBoxWidth.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxWidth.Location = new System.Drawing.Point(309, 93);
             this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(196, 31);
+            this.textBoxWidth.Size = new System.Drawing.Size(100, 20);
             this.textBoxWidth.TabIndex = 64;
             this.textBoxWidth.TextChanged += new System.EventHandler(this.textBoxWidth_TextChanged);
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(288, 178);
-            this.textBoxHeight.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxHeight.Location = new System.Drawing.Point(144, 93);
             this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.Size = new System.Drawing.Size(196, 31);
+            this.textBoxHeight.Size = new System.Drawing.Size(100, 20);
             this.textBoxHeight.TabIndex = 63;
             // 
             // textBoxCode
             // 
-            this.textBoxCode.Location = new System.Drawing.Point(288, 35);
-            this.textBoxCode.Margin = new System.Windows.Forms.Padding(6);
+            this.textBoxCode.Location = new System.Drawing.Point(144, 18);
             this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(228, 31);
+            this.textBoxCode.Size = new System.Drawing.Size(116, 20);
             this.textBoxCode.TabIndex = 61;
+            this.textBoxCode.TextChanged += new System.EventHandler(this.textBoxCode_TextChanged);
             // 
             // labelParticularities
             // 
             this.labelParticularities.AutoSize = true;
-            this.labelParticularities.Location = new System.Drawing.Point(54, 463);
-            this.labelParticularities.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelParticularities.Location = new System.Drawing.Point(27, 241);
             this.labelParticularities.Name = "labelParticularities";
-            this.labelParticularities.Size = new System.Drawing.Size(163, 25);
+            this.labelParticularities.Size = new System.Drawing.Size(81, 13);
             this.labelParticularities.TabIndex = 59;
             this.labelParticularities.Text = "Besonderheiten";
             // 
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(54, 275);
-            this.labelDescription.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDescription.Location = new System.Drawing.Point(27, 143);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(144, 25);
+            this.labelDescription.Size = new System.Drawing.Size(72, 13);
             this.labelDescription.TabIndex = 58;
             this.labelDescription.Text = "Beschreibung";
             // 
             // labelCoordinate
             // 
             this.labelCoordinate.AutoSize = true;
-            this.labelCoordinate.Location = new System.Drawing.Point(51, 135);
-            this.labelCoordinate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelCoordinate.Location = new System.Drawing.Point(26, 70);
             this.labelCoordinate.Name = "labelCoordinate";
-            this.labelCoordinate.Size = new System.Drawing.Size(180, 25);
+            this.labelCoordinate.Size = new System.Drawing.Size(89, 13);
             this.labelCoordinate.TabIndex = 57;
             this.labelCoordinate.Text = "Koordinaten (Ko.)";
             // 
             // labelDepth
             // 
             this.labelDepth.AutoSize = true;
-            this.labelDepth.Location = new System.Drawing.Point(868, 184);
-            this.labelDepth.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelDepth.Location = new System.Drawing.Point(434, 96);
             this.labelDepth.Name = "labelDepth";
-            this.labelDepth.Size = new System.Drawing.Size(60, 25);
+            this.labelDepth.Size = new System.Drawing.Size(31, 13);
             this.labelDepth.TabIndex = 55;
             this.labelDepth.Text = "Tiefe";
             // 
             // labelWidth
             // 
             this.labelWidth.AutoSize = true;
-            this.labelWidth.Location = new System.Drawing.Point(540, 184);
-            this.labelWidth.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelWidth.Location = new System.Drawing.Point(270, 96);
             this.labelWidth.Name = "labelWidth";
-            this.labelWidth.Size = new System.Drawing.Size(68, 25);
+            this.labelWidth.Size = new System.Drawing.Size(34, 13);
             this.labelWidth.TabIndex = 54;
             this.labelWidth.Text = "Breite";
             // 
             // labelHeight
             // 
             this.labelHeight.AutoSize = true;
-            this.labelHeight.Location = new System.Drawing.Point(54, 182);
-            this.labelHeight.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelHeight.Location = new System.Drawing.Point(27, 95);
             this.labelHeight.Name = "labelHeight";
-            this.labelHeight.Size = new System.Drawing.Size(63, 25);
+            this.labelHeight.Size = new System.Drawing.Size(33, 13);
             this.labelHeight.TabIndex = 53;
             this.labelHeight.Text = "Höhe";
             // 
             // labelTypeOfBuild
             // 
             this.labelTypeOfBuild.AutoSize = true;
-            this.labelTypeOfBuild.Location = new System.Drawing.Point(54, 86);
-            this.labelTypeOfBuild.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelTypeOfBuild.Location = new System.Drawing.Point(27, 45);
             this.labelTypeOfBuild.Name = "labelTypeOfBuild";
-            this.labelTypeOfBuild.Size = new System.Drawing.Size(173, 25);
+            this.labelTypeOfBuild.Size = new System.Drawing.Size(87, 13);
             this.labelTypeOfBuild.TabIndex = 52;
             this.labelTypeOfBuild.Text = "Baubezeichnung";
             // 
             // labelCode
             // 
             this.labelCode.AutoSize = true;
-            this.labelCode.Location = new System.Drawing.Point(54, 38);
-            this.labelCode.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelCode.Location = new System.Drawing.Point(27, 20);
             this.labelCode.Name = "labelCode";
-            this.labelCode.Size = new System.Drawing.Size(116, 25);
+            this.labelCode.Size = new System.Drawing.Size(57, 13);
             this.labelCode.TabIndex = 51;
             this.labelCode.Text = "Code (Co.)";
             // 
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(59, 912);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSave.Location = new System.Drawing.Point(30, 474);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(152, 44);
+            this.buttonSave.Size = new System.Drawing.Size(76, 23);
             this.buttonSave.TabIndex = 72;
             this.buttonSave.Text = "Speichern";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -258,10 +228,10 @@ namespace ArcheologicCatalogClassicV3
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(1013, 912);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonClose.Location = new System.Drawing.Point(506, 474);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(132, 44);
+            this.buttonClose.Size = new System.Drawing.Size(66, 23);
             this.buttonClose.TabIndex = 73;
             this.buttonClose.Text = "Schließen";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -270,20 +240,20 @@ namespace ArcheologicCatalogClassicV3
             // labelRockType
             // 
             this.labelRockType.AutoSize = true;
-            this.labelRockType.Location = new System.Drawing.Point(54, 227);
-            this.labelRockType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRockType.Location = new System.Drawing.Point(27, 118);
+            this.labelRockType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRockType.Name = "labelRockType";
-            this.labelRockType.Size = new System.Drawing.Size(149, 25);
+            this.labelRockType.Size = new System.Drawing.Size(73, 13);
             this.labelRockType.TabIndex = 75;
             this.labelRockType.Text = "Gesteinstypus";
             // 
             // buttonChoisePicture
             // 
-            this.buttonChoisePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonChoisePicture.Location = new System.Drawing.Point(59, 727);
-            this.buttonChoisePicture.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonChoisePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonChoisePicture.Location = new System.Drawing.Point(30, 378);
+            this.buttonChoisePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChoisePicture.Name = "buttonChoisePicture";
-            this.buttonChoisePicture.Size = new System.Drawing.Size(178, 44);
+            this.buttonChoisePicture.Size = new System.Drawing.Size(89, 23);
             this.buttonChoisePicture.TabIndex = 76;
             this.buttonChoisePicture.Text = "Bild auswählen";
             this.buttonChoisePicture.UseVisualStyleBackColor = true;
@@ -296,11 +266,12 @@ namespace ArcheologicCatalogClassicV3
             // 
             // labelPicture
             // 
+            this.labelPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelPicture.AutoSize = true;
-            this.labelPicture.Location = new System.Drawing.Point(54, 663);
-            this.labelPicture.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelPicture.Location = new System.Drawing.Point(27, 345);
+            this.labelPicture.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPicture.Name = "labelPicture";
-            this.labelPicture.Size = new System.Drawing.Size(108, 25);
+            this.labelPicture.Size = new System.Drawing.Size(54, 13);
             this.labelPicture.TabIndex = 77;
             this.labelPicture.Text = "Abbildung";
             // 
@@ -308,10 +279,10 @@ namespace ArcheologicCatalogClassicV3
             // 
             this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(1302, 979);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStatus.Location = new System.Drawing.Point(651, 509);
+            this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(166, 25);
+            this.labelStatus.Size = new System.Drawing.Size(82, 13);
             this.labelStatus.TabIndex = 78;
             this.labelStatus.Text = "Dies ist ein Text";
             this.labelStatus.Visible = false;
@@ -319,10 +290,10 @@ namespace ArcheologicCatalogClassicV3
             // buttonExportToWord
             // 
             this.buttonExportToWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExportToWord.Location = new System.Drawing.Point(288, 912);
-            this.buttonExportToWord.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonExportToWord.Location = new System.Drawing.Point(144, 474);
+            this.buttonExportToWord.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExportToWord.Name = "buttonExportToWord";
-            this.buttonExportToWord.Size = new System.Drawing.Size(250, 44);
+            this.buttonExportToWord.Size = new System.Drawing.Size(125, 23);
             this.buttonExportToWord.TabIndex = 79;
             this.buttonExportToWord.Text = "Export nach Word";
             this.buttonExportToWord.UseVisualStyleBackColor = true;
@@ -331,16 +302,17 @@ namespace ArcheologicCatalogClassicV3
             // comboBoxRockTyp
             // 
             this.comboBoxRockTyp.FormattingEnabled = true;
-            this.comboBoxRockTyp.Location = new System.Drawing.Point(288, 224);
+            this.comboBoxRockTyp.Location = new System.Drawing.Point(144, 116);
+            this.comboBoxRockTyp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxRockTyp.Name = "comboBoxRockTyp";
-            this.comboBoxRockTyp.Size = new System.Drawing.Size(523, 33);
+            this.comboBoxRockTyp.Size = new System.Drawing.Size(264, 21);
             this.comboBoxRockTyp.TabIndex = 80;
             // 
             // ArcheologCatalogDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 1025);
+            this.ClientSize = new System.Drawing.Size(593, 533);
             this.Controls.Add(this.comboBoxRockTyp);
             this.Controls.Add(this.buttonExportToWord);
             this.Controls.Add(this.labelStatus);
@@ -367,7 +339,7 @@ namespace ArcheologicCatalogClassicV3
             this.Controls.Add(this.labelCode);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ArcheologCatalogDetail";
             this.Text = "Archäologischer Katalog - Objekt Detail";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ArcheologCatalogDetail_FormClosing);
@@ -380,12 +352,18 @@ namespace ArcheologicCatalogClassicV3
 
         private void textBoxWidth_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void comboBoxTypeOfBuild_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            string code = this.comboBoxTypeOfBuild.SelectedItem.ToString();
+            string[] splitCode = new string[2];
+            splitCode = code.Split('|');
+            if (this.textBoxCode.Text == null || this.textBoxCode.Text == "" || this.textBoxCode.Text.Contains(" Zahl"))
+            {
+                this.textBoxCode.Text = splitCode[1].Trim() + " Zahl";
+            }
         }
 
         #endregion

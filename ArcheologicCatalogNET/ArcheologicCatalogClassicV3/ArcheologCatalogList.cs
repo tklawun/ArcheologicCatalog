@@ -22,7 +22,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-
+            //TODO: es die Combobox muss neu gefüllt werden. 
             archeoObjectViewCtl.CreateArcheoObjectDetailView(null);
         }
 

@@ -38,10 +38,6 @@ namespace ArcheologicCatalogClassicV3
             this.archeologCatalogDetail.Visible = false;
         }
 
-        internal void NewConfigEntry(string ConfigTyp)
-        {
-            ArcheoCatalogNewEntryAddListEntry archeoCatalogNewEntryAddListEntry = new ArcheoCatalogNewEntryAddListEntry(ConfigTyp);
-        }
 
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
         {

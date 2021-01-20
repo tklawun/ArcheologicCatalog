@@ -51,21 +51,6 @@ namespace ArcheologicCatalogClassicV3
             }
         }
 
-        private void buttonNewRockTyp_Click(object sender, EventArgs e)
-        {
-            archeoObjectViewCtl.NewConfigEntry("RockTyp");
-        }
-
-        private void buttonNewTypeOfBuild_Click(object sender, EventArgs e)
-        {
-            archeoObjectViewCtl.NewConfigEntry("TypeOfBuild");
-        }
-
-        private void dataGridViewTypeOfBuild_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ArcheologCatalogConfig_Load(object sender, EventArgs e)
         {
 
@@ -73,7 +58,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonOk_Click(object sender, EventArgs e)
         {
-            List<string> typeOfBuild = new List<string>();
+             List<string> typeOfBuild = new List<string>();
             int j = dataGridViewTypeOfBuild.Rows.Count - 1;
             int i;
 

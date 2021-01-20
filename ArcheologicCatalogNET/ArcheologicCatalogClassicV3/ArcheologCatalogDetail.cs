@@ -108,5 +108,10 @@ namespace ArcheologicCatalogClassicV3
         {
             this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
         }
+
+        private void textBoxCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

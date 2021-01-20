@@ -74,7 +74,7 @@ namespace ArcheologicCatalogClassicV3
             this.dataGridViewTypeOfBuild.RowHeadersWidth = 82;
             this.dataGridViewTypeOfBuild.Size = new System.Drawing.Size(331, 375);
             this.dataGridViewTypeOfBuild.TabIndex = 7;
-            this.dataGridViewTypeOfBuild.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTypeOfBuild_CellContentClick);
+            
             // 
             // TypeOfBuild
             // 
