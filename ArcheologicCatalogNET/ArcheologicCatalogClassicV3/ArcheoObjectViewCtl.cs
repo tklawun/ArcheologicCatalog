@@ -42,6 +42,7 @@ namespace ArcheologicCatalogClassicV3
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
         {
             if (this.archeologCatalogDetail.IsDisposed) { this.archeologCatalogDetail = new ArcheologCatalogDetail(this); }
+            this.archeologCatalogDetail.fillComboFields();
             if (archeoObjectCode != null)
             {
                 ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectCode);

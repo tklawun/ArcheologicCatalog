@@ -17,6 +17,13 @@ namespace ArcheologicCatalogClassicV3
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
             InitializeComponent();
+            //fillComboFields();
+        }
+
+        internal void fillComboFields()
+        {
+            this.comboBoxRockTyp.Items.Clear();
+            this.comboBoxTypeOfBuild.Items.Clear();
             this.comboBoxTypeOfBuild.Items.AddRange(this.archeoObjectViewCtl.GetItemsTypeOfBuild());
             this.comboBoxRockTyp.Items.AddRange(this.archeoObjectViewCtl.GetItemsRockType());
         }
