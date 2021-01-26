@@ -13,14 +13,14 @@ namespace ArcheologicCatalogClassicV3
     public partial class ArcheologCatalogDetail : Form
     {
         private ArcheoObjectViewCtl archeoObjectViewCtl;
+        private Boolean IsChanged;
         internal ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
             InitializeComponent();
-            //fillComboFields();
         }
 
-        internal void fillComboFields()
+        internal void FillComboFields()
         {
             this.comboBoxRockTyp.Items.Clear();
             this.comboBoxTypeOfBuild.Items.Clear();
@@ -65,10 +65,15 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            SaveDialog();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveArcheoObject();
+        }
+
+        private void SaveArcheoObject()
         {
             ArcheoObject archeoObject = new ArcheoObject
             {
@@ -103,22 +108,145 @@ namespace ArcheologicCatalogClassicV3
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-
+            this.IsChanged = true;
         }
 
         private void ArcheologCatalogDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveDialog();
+        }
 
+        private int SaveDialog()
+        {
+            int NoCancel = 0;
+            if (this.IsChanged)
+            {
+                string message = "Die Daten wurden nicht gespeichert, jetzt speichern?";
+                string caption = "Daten nicht gespeichert!";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.SaveArcheoObject();
+                    this.Visible = false;
+                    NoCancel = 1;
+                }
+                else if (result == System.Windows.Forms.DialogResult.Cancel)
+                {
+                    this.Visible = true;
+                    NoCancel = 2;
+                }
+                else if (result == System.Windows.Forms.DialogResult.No)
+                {
+                    this.Visible = false;
+                    NoCancel = 3;
+                }
+
+            }
+            return NoCancel;
         }
 
         private void buttonExportToWord_Click(object sender, EventArgs e)
         {
-            this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
+            int ResultSave = SaveDialog();
+            if (ResultSave == 1)
+            {
+                this.SaveArcheoObject();
+                this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
+            }
+            else if( ResultSave == 3)
+            {
+                this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
+            }
+            else if (ResultSave == 2)
+            {
+                
+            }
         }
 
         private void textBoxCode_TextChanged(object sender, EventArgs e)
         {
+            this.IsChanged = true;
+        }
 
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            int ResultSave = SaveDialog();
+            if (ResultSave == 1)
+            {
+                this.SaveArcheoObject();
+                this.archeoObjectViewCtl.GetBeforArcheoObject(this.textBoxCode.Text);
+            }
+            else if (ResultSave == 3)
+            {
+                this.archeoObjectViewCtl.GetBeforArcheoObject(this.textBoxCode.Text);
+            }
+            else if (ResultSave == 2)
+            {
+
+            }
+          
+        }
+
+        private void buttonNext_Click(object sender, EventArgs e)
+        {
+            int ResultSave = SaveDialog();
+            if (ResultSave == 1)
+            {
+                this.SaveArcheoObject();
+                this.archeoObjectViewCtl.GetNextArcheoObject(this.textBoxCode.Text);
+            }
+            else if (ResultSave == 3)
+            {
+                this.archeoObjectViewCtl.GetNextArcheoObject(this.textBoxCode.Text);
+            }
+            else if (ResultSave == 2)
+            {
+
+            }
+        }
+
+        private void textBoxCoordinate_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void textBoxHeight_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void textBoxDepth_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void comboBoxRockTyp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void textBoxSpecialFeatures_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxWidth_TextChanged(object sender, EventArgs e)
+        {
+            this.IsChanged = true;
         }
     }
 }

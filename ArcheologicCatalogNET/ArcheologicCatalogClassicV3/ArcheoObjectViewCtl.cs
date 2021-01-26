@@ -42,7 +42,7 @@ namespace ArcheologicCatalogClassicV3
         internal void CreateArcheoObjectDetailView(string archeoObjectCode)
         {
             if (this.archeologCatalogDetail.IsDisposed) { this.archeologCatalogDetail = new ArcheologCatalogDetail(this); }
-            this.archeologCatalogDetail.fillComboFields();
+            this.archeologCatalogDetail.FillComboFields();
             if (archeoObjectCode != null)
             {
                 ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectCode);
@@ -111,6 +111,48 @@ namespace ArcheologicCatalogClassicV3
             this.archeologCatalogConfig.Activate();
             this.archeologCatalogConfig.Visible = true;
             this.archeologCatalogConfig.Show();
+        }
+
+        internal void GetBeforArcheoObject(string code)
+        {
+            string beforeCode = "";
+            string[] archeoObjectList = archeoObjectCtl.GetArcheoObjectsCode();
+            int sum = archeoObjectList.Count();
+            int i = 0;
+            foreach (string item in archeoObjectList)
+            {
+                if (item.Equals(code))
+                {
+                    if (i <= 0)
+                    {
+                        i = sum;
+                    }
+                    beforeCode = archeoObjectList.ElementAt(i - 1);
+                }
+                i++;
+            }
+            CreateArcheoObjectDetailView(beforeCode);
+        }
+
+        internal void GetNextArcheoObject(string code)
+        {
+            string nextCode = "";
+            string[] archeoObjectList = archeoObjectCtl.GetArcheoObjectsCode();
+            int sum = archeoObjectList.Count();
+            int i = 0;
+            foreach (string item in archeoObjectList)
+            {
+                if (item.Equals(code))
+                {
+                    if (i >= sum)
+                    {
+                        i = 0;
+                    }
+                    nextCode = archeoObjectList.ElementAt(i + 1);
+                }
+                i++;
+            }
+            CreateArcheoObjectDetailView(nextCode);
         }
 
         internal void CloseApplication()
