@@ -21,11 +21,11 @@ namespace ArcheologicCatalogClassicV3
             return archeoObjects;
         }
         
-        internal ArcheoObject GetArcheoObject(string code)
+        internal ArcheoObject GetArcheoObject(string Id)
         {
             ArcheoObject archeoObject;
             //Todo: Gebe das Object zurück.
-            bool existObject = archeoObjects.TryGetValue(code, out archeoObject);
+            bool existObject = archeoObjects.TryGetValue(Id, out archeoObject);
             if (existObject)
             {
                 return archeoObject;
@@ -46,22 +46,24 @@ namespace ArcheologicCatalogClassicV3
 
         internal void AddArcheoObject(ArcheoObject archeoObject)
         {
-            archeoObjects.Add(archeoObject.CodeOut, archeoObject);
+            archeoObjects.Add(archeoObject.IdOut, archeoObject);
         }
         
-        internal void SetArcheoObject(string code, ArcheoObject archeoObject)
+        internal void SetArcheoObject(string Id, ArcheoObject archeoObject)
         {
             //TODO: Suche das richtige ArcheoObject, wenn keins da, dann mach neuen Eintrag. 
-            ArcheoObject archeo = GetArcheoObject(code);
+            
+            ArcheoObject archeo = GetArcheoObject(Id);
+            
             archeo = archeoObject;
-            this.RemoveArcheoObject(code);
+            this.RemoveArcheoObject(Id);
             this.AddArcheoObject(archeoObject);
             this.SaveArcheoObjects();
         }
         
-        internal bool RemoveArcheoObject(string Code)
+        internal bool RemoveArcheoObject(string Id)
         {
-            bool removed = archeoObjects.Remove(Code);
+            bool removed = archeoObjects.Remove(Id);
             return removed;
         }
 
@@ -77,11 +79,19 @@ namespace ArcheologicCatalogClassicV3
            xmlData.SaveXMLDocumentAsFile(xmlData.GenerateXMLDocumentFromArcheoObjectList(this.archeoObjects), new FilePaths().GetXmlDataFilePath());
         }
 
-        internal void ExportToWord(string archeoObjectCode)
+        internal void ExportToWord(string archeoObjectId)
         {
             Export exportCtl = new Export();
-            exportCtl.ExportToWord(this.GetArcheoObject(archeoObjectCode), new FilePaths().GetWordExportPath());
+            exportCtl.ExportToWord(this.GetArcheoObject(archeoObjectId), new FilePaths().GetWordExportPath());
 
+        }
+
+        internal string GetRandomId()
+        {
+            //TODO generate RandomID (Vielleicht aus dem Zeitstempel... )
+           
+            string randomId = DateTime.UtcNow.ToString();
+            return randomId;
         }
     }
 }

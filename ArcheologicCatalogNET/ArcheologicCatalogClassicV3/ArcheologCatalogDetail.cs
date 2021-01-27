@@ -65,7 +65,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            SaveDialog();
+            this.CloseForm();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace ArcheologicCatalogClassicV3
             };
 
             this.archeoObjectViewCtl.SaveArcheoObjectInList(archeoObject);
-
+            this.IsChanged = false;
             archeoObjectViewCtl.SetStatus(archeoObject.CodeOut + " gespeichert.", false);
         }
 
@@ -113,7 +113,16 @@ namespace ArcheologicCatalogClassicV3
 
         private void ArcheologCatalogDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveDialog();
+            CloseForm();
+        }
+
+        private void CloseForm()
+        {
+            int close = SaveDialog();
+            if (close == 2)
+            {
+                this.Visible = false;
+            }
         }
 
         private int SaveDialog()
@@ -157,13 +166,13 @@ namespace ArcheologicCatalogClassicV3
                 this.SaveArcheoObject();
                 this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
             }
-            else if( ResultSave == 3)
+            else if (ResultSave == 3)
             {
                 this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
             }
             else if (ResultSave == 2)
             {
-                
+
             }
         }
 
@@ -188,7 +197,7 @@ namespace ArcheologicCatalogClassicV3
             {
 
             }
-          
+
         }
 
         private void buttonNext_Click(object sender, EventArgs e)

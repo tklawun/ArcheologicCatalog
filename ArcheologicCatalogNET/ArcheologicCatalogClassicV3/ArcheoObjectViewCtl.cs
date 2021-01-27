@@ -75,7 +75,7 @@ namespace ArcheologicCatalogClassicV3
 
         internal void SaveArcheoObjectInList(ArcheoObject archeoObject)
         {
-            this.archeoObjectCtl.SetArcheoObject(archeoObject.CodeOut, archeoObject);
+            this.archeoObjectCtl.SetArcheoObject(archeoObject.IdOut, archeoObject);
             this.RefreshListInListView();
         }
 
