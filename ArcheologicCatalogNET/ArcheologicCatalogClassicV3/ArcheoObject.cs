@@ -39,7 +39,7 @@ namespace ArcheologicCatalogClassicV3
         /// <returns>verfügbare Properties</returns>
         internal string[] GetObjectProperties()
         {
-            String[] ObjectProperties = new string[] { "ID", "Code", "Coordinates", "TypOfBuild", "Height", "Width", "Depth", "Description", "SpecialFeatures", "PictureLink", "RockType" };
+            String[] ObjectProperties = new string[] { "Id", "Code", "Coordinates", "TypOfBuild", "Height", "Width", "Depth", "Description", "SpecialFeatures", "PictureLink", "RockType" };
             return ObjectProperties;
         }
 

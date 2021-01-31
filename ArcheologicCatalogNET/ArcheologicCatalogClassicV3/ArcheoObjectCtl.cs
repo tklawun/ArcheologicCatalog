@@ -14,6 +14,7 @@ namespace ArcheologicCatalogClassicV3
         {
             this.xmlData = new ArcheoObjectXmlData();
             this.archeoObjects = this.xmlData.GetArcheoObjColFromXMLDoc();
+                        
         }
 
         internal Dictionary<string, ArcheoObject> GetArcheoObjects()
@@ -89,8 +90,16 @@ namespace ArcheologicCatalogClassicV3
         internal string GetRandomId()
         {
             //TODO generate RandomID (Vielleicht aus dem Zeitstempel... )
-           
-            string randomId = DateTime.UtcNow.ToString();
+            long i = 1;
+
+            foreach (byte b in Guid.NewGuid().ToByteArray())
+            {
+                i *= ((int)b + 1);
+            }
+
+            string randomId = String.Format("{0:d9}", (DateTime.Now.Ticks / 10) % 1000000000);
+
+            //string randomId = DateTime.UtcNow.ToString();
             return randomId;
         }
     }

@@ -39,7 +39,7 @@
             // labelStatus
             // 
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(244, 289);
+            this.labelStatus.Location = new System.Drawing.Point(110, 287);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(82, 13);
@@ -50,7 +50,7 @@
             // buttonNew
             // 
             this.buttonNew.Location = new System.Drawing.Point(8, 282);
-            this.buttonNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNew.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(50, 20);
             this.buttonNew.TabIndex = 4;
@@ -63,7 +63,7 @@
             this.listViewArcheoObjects.GridLines = true;
             this.listViewArcheoObjects.HideSelection = false;
             this.listViewArcheoObjects.Location = new System.Drawing.Point(9, 8);
-            this.listViewArcheoObjects.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewArcheoObjects.Margin = new System.Windows.Forms.Padding(2);
             this.listViewArcheoObjects.MultiSelect = false;
             this.listViewArcheoObjects.Name = "listViewArcheoObjects";
             this.listViewArcheoObjects.Size = new System.Drawing.Size(518, 265);
@@ -104,7 +104,7 @@
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.listViewArcheoObjects);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ArcheologCatalogList";
             this.Text = "Archäologischer Katalog - Objekt Liste";
             this.ResumeLayout(false);

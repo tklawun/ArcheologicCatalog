@@ -14,6 +14,7 @@ namespace ArcheologicCatalogClassicV3
     {
         private ArcheoObjectViewCtl archeoObjectViewCtl;
         private Boolean IsChanged;
+
         internal ArcheologCatalogDetail(ArcheoObjectViewCtl archeoObjectViewCtl)
         {
             this.archeoObjectViewCtl = archeoObjectViewCtl;
@@ -30,6 +31,7 @@ namespace ArcheologicCatalogClassicV3
 
         internal void SetArcheoObjectInForm(ArcheoObject archeoObject)
         {
+            this.labelId.Text = archeoObject.IdOut;
             this.textBoxCode.Text = archeoObject.CodeOut;
             this.textBoxCoordinate.Text = archeoObject.CoordinatesOut;
             this.comboBoxTypeOfBuild.Text = archeoObject.TypOfBuildOut;
@@ -43,8 +45,9 @@ namespace ArcheologicCatalogClassicV3
             this.pictureBox1.ImageLocation = archeoObject.PictureLinkOut;
         }
 
-        internal void ClearArcheoObjectInForm()
+        internal void ClearArcheoObjectInForm(string Id)
         {
+            this.labelId.Text = Id;
             this.textBoxCode.Text = "";
             this.textBoxCoordinate.Text = "";
             this.comboBoxTypeOfBuild.Text = "";
@@ -77,6 +80,7 @@ namespace ArcheologicCatalogClassicV3
         {
             ArcheoObject archeoObject = new ArcheoObject
             {
+                IdOut = this.labelId.Text,
                 CodeOut = this.textBoxCode.Text,
                 CoordinatesOut = this.textBoxCoordinate.Text,
                 TypOfBuildOut = this.comboBoxTypeOfBuild.Text,
@@ -133,7 +137,7 @@ namespace ArcheologicCatalogClassicV3
                 string message = "Die Daten wurden nicht gespeichert, jetzt speichern?";
                 string caption = "Daten nicht gespeichert!";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
-                DialogResult result;
+                DialogResult result = 0;
 
                 // Displays the MessageBox.
                 result = MessageBox.Show(message, caption, buttons);
@@ -178,6 +182,16 @@ namespace ArcheologicCatalogClassicV3
 
         private void textBoxCode_TextChanged(object sender, EventArgs e)
         {
+            bool stayInText = textBoxCode.Text.Contains("Zahl");
+            if (stayInText)
+            {
+                string message = "Bitte ersetzen Sie das Wort Zahl durch einen fortlaufenden Wert. ";
+                string caption = "Zahl durch Wert ersetzen!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+                // Displays the MessageBox.
+                _ = MessageBox.Show(message, caption, buttons);
+            }
             this.IsChanged = true;
         }
 

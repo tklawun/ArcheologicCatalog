@@ -39,13 +39,13 @@ namespace ArcheologicCatalogClassicV3
         }
 
 
-        internal void CreateArcheoObjectDetailView(string archeoObjectCode)
+        internal void CreateArcheoObjectDetailView(string archeoObjectId)
         {
             if (this.archeologCatalogDetail.IsDisposed) { this.archeologCatalogDetail = new ArcheologCatalogDetail(this); }
             this.archeologCatalogDetail.FillComboFields();
-            if (archeoObjectCode != null)
+            if (archeoObjectId != null)
             {
-                ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectCode);
+                ArcheoObject archeoObject = this.archeoObjectCtl.GetArcheoObject(archeoObjectId);
                 this.archeologCatalogDetail.SetArcheoObjectInForm(archeoObject);
                 this.archeologCatalogDetail.Activate();
                 this.archeologCatalogDetail.Visible = true;
@@ -53,7 +53,7 @@ namespace ArcheologicCatalogClassicV3
             }
             else
             {
-                this.archeologCatalogDetail.ClearArcheoObjectInForm();
+                this.archeologCatalogDetail.ClearArcheoObjectInForm(this.archeoObjectCtl.GetRandomId());
                 this.archeologCatalogDetail.Show();
             }
         }
@@ -70,7 +70,7 @@ namespace ArcheologicCatalogClassicV3
 
         internal void SetArcheoObjectListInView()
         {
-            archeologCatalogList.SetListView(archeoObjectCtl.GetArcheoObjects().Keys);
+            archeologCatalogList.SetListView(archeoObjectCtl.GetArcheoObjects());
         }
 
         internal void SaveArcheoObjectInList(ArcheoObject archeoObject)
@@ -177,6 +177,7 @@ namespace ArcheologicCatalogClassicV3
         {
             archeoObjectCtl.ExportToWord(archeoObjectCode);
         }
+
 
     }
 }

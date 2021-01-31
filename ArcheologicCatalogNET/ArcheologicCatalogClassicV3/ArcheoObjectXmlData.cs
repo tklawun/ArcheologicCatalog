@@ -48,7 +48,6 @@ namespace ArcheologicCatalogClassicV3
                 throw;
             }
         }
-
         public XmlDocument ReadXMLDocumentFromFile(string xmlFilePath)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -96,7 +95,6 @@ namespace ArcheologicCatalogClassicV3
             xmlDoc.AppendChild(rootNode);
             return xmlDoc;
         }
-
         /// <summary>
         /// Gibt ein Liste von ArcheoObjects zurück
         /// </summary>
@@ -112,18 +110,16 @@ namespace ArcheologicCatalogClassicV3
                 ArcheoObject archeoObject = new ArcheoObject();
                 string[] PropertyList = archeoObject.GetObjectProperties();
                 Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
-                string code = node.SelectSingleNode("Code").InnerText;
+                string id = node.SelectSingleNode("Id").InnerText;
                 foreach (string property in PropertyList)
                 {
                     keyValuePairs.Add(property, node.SelectSingleNode(property).InnerText);
                     
                 }
                 archeoObject.SetArcheoObject(keyValuePairs);
-                archeoObjects.Add(code, archeoObject);
+                archeoObjects.Add(id, archeoObject);
             }
             return archeoObjects;
         }
-
-
     }
 }
