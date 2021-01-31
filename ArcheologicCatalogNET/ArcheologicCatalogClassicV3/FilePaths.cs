@@ -1,13 +1,19 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
 namespace ArcheologicCatalogClassicV3
 {
     class FilePaths
     {
+        private string appPath;
+        internal FilePaths()
+        {
+            this.appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        }
         internal string GetXmlDataFilePath()
         {
-            String xmlDataFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogData.xml";
+            String xmlDataFilePath = appPath + "\\Data\\ArcheoCatalogData.xml";
             if (!File.Exists(xmlDataFilePath)){ 
                 ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();
                 xmld.InitializeXMLFile(xmlDataFilePath);
@@ -16,7 +22,7 @@ namespace ArcheologicCatalogClassicV3
         }
         internal string GetTemplatePath()
         {
-            String templatePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogTemplate.dotx";
+            String templatePath = appPath + "\\Data\\ArcheoCatalogTemplate.dotx";
             if (!File.Exists(templatePath))
             {
                 templatePath = null;
@@ -25,7 +31,7 @@ namespace ArcheologicCatalogClassicV3
         }
         internal string GetWordExportPath()
         {
-            String WordExportPath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\WordExport\\";
+            String WordExportPath = appPath + "\\Data\\WordExport\\";
             if (!Directory.Exists(WordExportPath))
             {
                 Directory.CreateDirectory(WordExportPath);
@@ -34,7 +40,7 @@ namespace ArcheologicCatalogClassicV3
         }
         internal string GetSelectPicturePath()
         {
-            String templatePath = Environment.GetEnvironmentVariable("OneDrive");
+            String templatePath = appPath + "\\Data";
 
             if (!Directory.Exists(templatePath))
             {
@@ -45,7 +51,7 @@ namespace ArcheologicCatalogClassicV3
 
         internal String GetXmlConfigFilePath(string ConfigType)
         {
-            String xmlFilePath = Environment.GetEnvironmentVariable("OneDrive") + "\\ArcheoCatalog\\ArcheoCatalogConfig" + ConfigType + ".xml";
+            String xmlFilePath = appPath + "\\Data\\ArcheoCatalogConfig" + ConfigType + ".xml";
             if (!File.Exists(xmlFilePath))
             {
                 ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();
@@ -53,6 +59,9 @@ namespace ArcheologicCatalogClassicV3
             }
             return xmlFilePath;
         }
-
+        internal Boolean IsFileExists(string path)
+        {
+            return File.Exists(path);
+        }
     }
 }

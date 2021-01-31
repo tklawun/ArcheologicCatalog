@@ -31,7 +31,7 @@ namespace ArcheologicCatalogClassicV3
         internal void SetListView(Dictionary<string, ArcheoObject> archeoObjects)
         {
             this.listViewArcheoObjects.Items.Clear();
-            
+
             this.listViewArcheoObjects.GridLines = true;
             ImageList imageListSmall = new ImageList
             {
@@ -44,11 +44,14 @@ namespace ArcheologicCatalogClassicV3
             {
                 ListViewItem item = new ListViewItem(key.CodeOut);
                 item.SubItems.Add(key.IdOut);
-                imageListSmall.Images.Add(Bitmap.FromFile(key.PictureLinkOut));
+                if (new FilePaths().IsFileExists(key.PictureLinkOut))
+                {
+                    imageListSmall.Images.Add(Bitmap.FromFile(key.PictureLinkOut));
+                }
                 this.listViewArcheoObjects.Items.Add(item);
                 item.ImageIndex = listViewArcheoObjects.Items.IndexOf(item);
             }
-            
+
             listViewArcheoObjects.EndUpdate();
             this.Controls.Add(listViewArcheoObjects);
             this.Refresh();
@@ -63,17 +66,17 @@ namespace ArcheologicCatalogClassicV3
             this.labelStatus.Visible = false;
             this.labelStatus.ForeColor = Color.Black;
             ListView.SelectedListViewItemCollection archeoObjectCodeList = this.listViewArcheoObjects.SelectedItems;
-           try
-           {
+            try
+            {
                 string archeObjectCode = archeoObjectCodeList[0].Text;
                 string archeObjectId = archeoObjectCodeList[0].SubItems[1].Text;
                 archeoObjectViewCtl.CreateArcheoObjectDetailView(archeObjectId);
-           }
-           catch (Exception)
+            }
+            catch (Exception)
             {
-               this.labelStatus.Text = "Element not found!";
-               this.labelStatus.Visible = true;
-               this.labelStatus.ForeColor = Color.Red;
+                this.labelStatus.Text = "Element not found!";
+                this.labelStatus.Visible = true;
+                this.labelStatus.ForeColor = Color.Red;
             }
         }
 

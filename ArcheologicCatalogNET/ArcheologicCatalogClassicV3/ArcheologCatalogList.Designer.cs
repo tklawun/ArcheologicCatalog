@@ -38,21 +38,21 @@
             // 
             // labelStatus
             // 
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(110, 287);
-            this.labelStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStatus.Location = new System.Drawing.Point(165, 442);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(82, 13);
+            this.labelStatus.Size = new System.Drawing.Size(120, 20);
             this.labelStatus.TabIndex = 5;
             this.labelStatus.Text = "Dies ist ein Text";
             this.labelStatus.Visible = false;
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(8, 282);
-            this.buttonNew.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonNew.Location = new System.Drawing.Point(12, 434);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(50, 20);
+            this.buttonNew.Size = new System.Drawing.Size(75, 31);
             this.buttonNew.TabIndex = 4;
             this.buttonNew.Text = "New";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -60,13 +60,15 @@
             // 
             // listViewArcheoObjects
             // 
+            this.listViewArcheoObjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewArcheoObjects.GridLines = true;
             this.listViewArcheoObjects.HideSelection = false;
-            this.listViewArcheoObjects.Location = new System.Drawing.Point(9, 8);
-            this.listViewArcheoObjects.Margin = new System.Windows.Forms.Padding(2);
+            this.listViewArcheoObjects.Location = new System.Drawing.Point(14, 12);
             this.listViewArcheoObjects.MultiSelect = false;
             this.listViewArcheoObjects.Name = "listViewArcheoObjects";
-            this.listViewArcheoObjects.Size = new System.Drawing.Size(518, 265);
+            this.listViewArcheoObjects.Size = new System.Drawing.Size(775, 406);
             this.listViewArcheoObjects.TabIndex = 3;
             this.listViewArcheoObjects.UseCompatibleStateImageBehavior = false;
             this.listViewArcheoObjects.View = System.Windows.Forms.View.List;
@@ -75,9 +77,11 @@
             // 
             // buttonConfig
             // 
-            this.buttonConfig.Location = new System.Drawing.Point(389, 281);
+            this.buttonConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonConfig.Location = new System.Drawing.Point(584, 432);
+            this.buttonConfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonConfig.Name = "buttonConfig";
-            this.buttonConfig.Size = new System.Drawing.Size(51, 23);
+            this.buttonConfig.Size = new System.Drawing.Size(76, 35);
             this.buttonConfig.TabIndex = 6;
             this.buttonConfig.Text = "Konfig";
             this.buttonConfig.UseVisualStyleBackColor = true;
@@ -85,9 +89,11 @@
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(452, 281);
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.Location = new System.Drawing.Point(678, 432);
+            this.buttonClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.Size = new System.Drawing.Size(112, 35);
             this.buttonClose.TabIndex = 7;
             this.buttonClose.Text = "Beenden";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -95,16 +101,15 @@
             // 
             // ArcheologCatalogList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 316);
+            this.ClientSize = new System.Drawing.Size(800, 486);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonConfig);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.listViewArcheoObjects);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ArcheologCatalogList";
             this.Text = "Archäologischer Katalog - Objekt Liste";
             this.ResumeLayout(false);

@@ -43,6 +43,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxDepth.Text = archeoObject.DepthOut;
             this.comboBoxRockTyp.Text = archeoObject.RockTypeOut;
             this.pictureBox1.ImageLocation = archeoObject.PictureLinkOut;
+            this.IsChanged = false;
         }
 
         internal void ClearArcheoObjectInForm(string Id)
@@ -145,7 +146,7 @@ namespace ArcheologicCatalogClassicV3
                 {
                     this.SaveArcheoObject();
                     this.Visible = false;
-                    NoCancel = 1;
+                    NoCancel = 2;
                 }
                 else if (result == System.Windows.Forms.DialogResult.Cancel)
                 {
@@ -158,6 +159,10 @@ namespace ArcheologicCatalogClassicV3
                     NoCancel = 3;
                 }
 
+            }
+            else
+            {
+                NoCancel = 2;
             }
             return NoCancel;
         }
@@ -182,15 +187,24 @@ namespace ArcheologicCatalogClassicV3
 
         private void textBoxCode_TextChanged(object sender, EventArgs e)
         {
-            bool stayInText = textBoxCode.Text.Contains("Zahl");
-            if (stayInText)
+            if (textBoxCode.Text.Contains("Zahl"))
             {
                 string message = "Bitte ersetzen Sie das Wort Zahl durch einen fortlaufenden Wert. ";
-                string caption = "Zahl durch Wert ersetzen!";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                //string caption = "Zahl durch Wert ersetzen!";
+                this.labelCodeAttention.Text = message;
+                this.labelCodeAttention.Visible = true;
+                this.labelCodeAttention.ForeColor = Color.Red;
+                this.Refresh();
+
+                //MessageBoxButtons buttons = MessageBoxButtons.OK;
 
                 // Displays the MessageBox.
-                _ = MessageBox.Show(message, caption, buttons);
+                //_ = MessageBox.Show(message, caption, buttons);
+            }else
+            {
+                this.labelCodeAttention.Text = "";
+                this.labelCodeAttention.Visible = false;
+                this.labelCodeAttention.ForeColor = Color.Black;
             }
             this.IsChanged = true;
         }
