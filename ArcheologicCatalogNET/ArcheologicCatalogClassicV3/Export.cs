@@ -5,7 +5,6 @@ namespace ArcheologicCatalogClassicV3
 {
     class Export
     {
-
         public void ExportToWord(ArcheoObject archeoObject, string FullDirectory)
         {
             object documentTyp = 0;
@@ -31,7 +30,8 @@ namespace ArcheologicCatalogClassicV3
             {
                 textmarke = property;
                 bool archeoObjectParam = archeoObjectAsDict.TryGetValue(property, out string value);
-                if (archeoObjectParam)
+                bool textMarkeExists = oWordDoc.Bookmarks.Exists(property);
+                if (archeoObjectParam && textMarkeExists)
                 {
                     oWordDoc.Bookmarks.get_Item(ref textmarke).Range.Text = value;
                 }
