@@ -146,7 +146,7 @@ namespace ArcheologicCatalogClassicV3
                 {
                     this.SaveArcheoObject();
                     this.Visible = false;
-                    NoCancel = 2;
+                    NoCancel = 1;
                 }
                 else if (result == System.Windows.Forms.DialogResult.Cancel)
                 {
@@ -162,29 +162,17 @@ namespace ArcheologicCatalogClassicV3
             }
             else
             {
-                NoCancel = 2;
+                NoCancel = 1;
             }
             return NoCancel;
         }
-
         private void buttonExportToWord_Click(object sender, EventArgs e)
         {
+            this.IsChanged = true;
             int ResultSave = SaveDialog();
-            if (ResultSave == 1)
-            {
-                this.SaveArcheoObject();
-                this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
-            }
-            else if (ResultSave == 3)
-            {
-                this.archeoObjectViewCtl.exportToWord(this.textBoxCode.Text);
-            }
-            else if (ResultSave == 2)
-            {
-
-            }
+            this.SaveArcheoObject();
+            this.archeoObjectViewCtl.exportToWord(this.labelId.Text);
         }
-
         private void textBoxCode_TextChanged(object sender, EventArgs e)
         {
             if (textBoxCode.Text.Contains("Zahl"))
@@ -200,7 +188,8 @@ namespace ArcheologicCatalogClassicV3
 
                 // Displays the MessageBox.
                 //_ = MessageBox.Show(message, caption, buttons);
-            }else
+            }
+            else
             {
                 this.labelCodeAttention.Text = "";
                 this.labelCodeAttention.Visible = false;
