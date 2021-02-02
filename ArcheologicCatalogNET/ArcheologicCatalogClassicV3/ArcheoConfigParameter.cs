@@ -7,7 +7,6 @@ namespace ArcheologicCatalogClassicV3
     {
         private List <string> parameters;
         private string parameterType;
-
         
         internal ArcheoConfigParameter(string parameterType)
         {
@@ -21,7 +20,6 @@ namespace ArcheologicCatalogClassicV3
 
         internal void AddNewParameter(string parameter)
         {
-            
             this.parameters.Add(parameter);
         }
 

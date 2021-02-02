@@ -91,7 +91,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArcheoCatalogTypOfBuild.cs" />
     <Compile Include="ArcheoConfigParameter.cs" />
     <Compile Include="ArcheoConfigXmlData.cs" />
     <Compile Include="ArcheologCatalogConfig.cs">
