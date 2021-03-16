@@ -274,5 +274,17 @@ namespace ArcheologicCatalogClassicV3
         {
             this.IsChanged = true;
         }
+
+        private void buttonTextBigger_Click(object sender, EventArgs e)
+        {
+            this.textBoxDescription.Font = new Font(this.textBoxDescription.Font.FontFamily, this.textBoxDescription.Font.Size * 1.1f);
+            this.textBoxSpecialFeatures.Font = new Font(this.textBoxSpecialFeatures.Font.FontFamily, this.textBoxSpecialFeatures.Font.Size * 1.1f);
+        }
+
+        private void buttonTextSmaller_Click(object sender, EventArgs e)
+        {
+            this.textBoxDescription.Font = new Font(this.textBoxDescription.Font.FontFamily, this.textBoxDescription.Font.Size / 1.1f);
+            this.textBoxSpecialFeatures.Font = new Font(this.textBoxSpecialFeatures.Font.FontFamily, this.textBoxSpecialFeatures.Font.Size / 1.1f);
+        }
     }
 }

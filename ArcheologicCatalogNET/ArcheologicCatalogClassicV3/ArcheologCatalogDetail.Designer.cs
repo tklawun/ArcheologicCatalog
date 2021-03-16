@@ -62,6 +62,9 @@ namespace ArcheologicCatalogClassicV3
             this.labelId = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelCodeAttention = new System.Windows.Forms.Label();
+            this.buttonTextBigger = new System.Windows.Forms.Button();
+            this.labelTextSize = new System.Windows.Forms.Label();
+            this.buttonTextSmaller = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +76,7 @@ namespace ArcheologicCatalogClassicV3
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(216, 468);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(644, 248);
+            this.pictureBox1.Size = new System.Drawing.Size(832, 247);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -96,7 +99,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxSpecialFeatures.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxSpecialFeatures.Multiline = true;
             this.textBoxSpecialFeatures.Name = "textBoxSpecialFeatures";
-            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(643, 101);
+            this.textBoxSpecialFeatures.Size = new System.Drawing.Size(831, 101);
             this.textBoxSpecialFeatures.TabIndex = 69;
             this.textBoxSpecialFeatures.TextChanged += new System.EventHandler(this.textBoxSpecialFeatures_TextChanged);
             // 
@@ -108,7 +111,7 @@ namespace ArcheologicCatalogClassicV3
             this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(643, 126);
+            this.textBoxDescription.Size = new System.Drawing.Size(831, 126);
             this.textBoxDescription.TabIndex = 68;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -240,7 +243,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonSave.Location = new System.Drawing.Point(45, 729);
+            this.buttonSave.Location = new System.Drawing.Point(45, 728);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(114, 35);
             this.buttonSave.TabIndex = 72;
@@ -251,7 +254,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.Location = new System.Drawing.Point(759, 729);
+            this.buttonClose.Location = new System.Drawing.Point(947, 728);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(99, 35);
             this.buttonClose.TabIndex = 73;
@@ -271,7 +274,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonChoisePicture
             // 
             this.buttonChoisePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonChoisePicture.Location = new System.Drawing.Point(45, 582);
+            this.buttonChoisePicture.Location = new System.Drawing.Point(45, 581);
             this.buttonChoisePicture.Name = "buttonChoisePicture";
             this.buttonChoisePicture.Size = new System.Drawing.Size(134, 35);
             this.buttonChoisePicture.TabIndex = 76;
@@ -288,7 +291,7 @@ namespace ArcheologicCatalogClassicV3
             // 
             this.labelPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelPicture.AutoSize = true;
-            this.labelPicture.Location = new System.Drawing.Point(40, 531);
+            this.labelPicture.Location = new System.Drawing.Point(40, 530);
             this.labelPicture.Name = "labelPicture";
             this.labelPicture.Size = new System.Drawing.Size(80, 20);
             this.labelPicture.TabIndex = 77;
@@ -296,9 +299,9 @@ namespace ArcheologicCatalogClassicV3
             // 
             // labelStatus
             // 
-            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(976, 783);
+            this.labelStatus.Location = new System.Drawing.Point(931, 785);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(120, 20);
             this.labelStatus.TabIndex = 78;
@@ -308,7 +311,7 @@ namespace ArcheologicCatalogClassicV3
             // buttonExportToWord
             // 
             this.buttonExportToWord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExportToWord.Location = new System.Drawing.Point(536, 729);
+            this.buttonExportToWord.Location = new System.Drawing.Point(536, 728);
             this.buttonExportToWord.Name = "buttonExportToWord";
             this.buttonExportToWord.Size = new System.Drawing.Size(188, 35);
             this.buttonExportToWord.TabIndex = 79;
@@ -327,6 +330,7 @@ namespace ArcheologicCatalogClassicV3
             // 
             // buttonBack
             // 
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonBack.Location = new System.Drawing.Point(216, 729);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(38, 35);
@@ -338,6 +342,7 @@ namespace ArcheologicCatalogClassicV3
             // 
             // buttonNext
             // 
+            this.buttonNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonNext.Location = new System.Drawing.Point(260, 729);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(38, 35);
@@ -349,8 +354,9 @@ namespace ArcheologicCatalogClassicV3
             // 
             // labelId
             // 
+            this.labelId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelId.AutoSize = true;
-            this.labelId.Location = new System.Drawing.Point(212, 786);
+            this.labelId.Location = new System.Drawing.Point(212, 785);
             this.labelId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelId.Name = "labelId";
             this.labelId.Size = new System.Drawing.Size(72, 20);
@@ -359,8 +365,9 @@ namespace ArcheologicCatalogClassicV3
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 786);
+            this.label1.Location = new System.Drawing.Point(40, 785);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 20);
@@ -378,11 +385,46 @@ namespace ArcheologicCatalogClassicV3
             this.labelCodeAttention.Text = "label2";
             this.labelCodeAttention.Visible = false;
             // 
+            // buttonTextBigger
+            // 
+            this.buttonTextBigger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonTextBigger.Location = new System.Drawing.Point(947, 32);
+            this.buttonTextBigger.Name = "buttonTextBigger";
+            this.buttonTextBigger.Size = new System.Drawing.Size(29, 30);
+            this.buttonTextBigger.TabIndex = 86;
+            this.buttonTextBigger.Text = "+";
+            this.buttonTextBigger.UseVisualStyleBackColor = true;
+            this.buttonTextBigger.Click += new System.EventHandler(this.buttonTextBigger_Click);
+            // 
+            // labelTextSize
+            // 
+            this.labelTextSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTextSize.AutoSize = true;
+            this.labelTextSize.Location = new System.Drawing.Point(896, 9);
+            this.labelTextSize.Name = "labelTextSize";
+            this.labelTextSize.Size = new System.Drawing.Size(155, 20);
+            this.labelTextSize.TabIndex = 87;
+            this.labelTextSize.Text = "Textgröße anpassen";
+            // 
+            // buttonTextSmaller
+            // 
+            this.buttonTextSmaller.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonTextSmaller.Location = new System.Drawing.Point(982, 32);
+            this.buttonTextSmaller.Name = "buttonTextSmaller";
+            this.buttonTextSmaller.Size = new System.Drawing.Size(34, 30);
+            this.buttonTextSmaller.TabIndex = 88;
+            this.buttonTextSmaller.Text = "-";
+            this.buttonTextSmaller.UseVisualStyleBackColor = true;
+            this.buttonTextSmaller.Click += new System.EventHandler(this.buttonTextSmaller_Click);
+            // 
             // ArcheologCatalogDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 820);
+            this.ClientSize = new System.Drawing.Size(1078, 819);
+            this.Controls.Add(this.buttonTextSmaller);
+            this.Controls.Add(this.labelTextSize);
+            this.Controls.Add(this.buttonTextBigger);
             this.Controls.Add(this.labelCodeAttention);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelId);
@@ -468,5 +510,8 @@ namespace ArcheologicCatalogClassicV3
         private System.Windows.Forms.Label labelId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelCodeAttention;
+        private System.Windows.Forms.Button buttonTextBigger;
+        private System.Windows.Forms.Label labelTextSize;
+        private System.Windows.Forms.Button buttonTextSmaller;
     }
 }
