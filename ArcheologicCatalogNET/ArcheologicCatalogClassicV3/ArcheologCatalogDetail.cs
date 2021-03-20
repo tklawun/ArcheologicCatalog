@@ -124,7 +124,7 @@ namespace ArcheologicCatalogClassicV3
         private void CloseForm()
         {
             int close = SaveDialog();
-            if (close == 2)
+            if (close == 2 || close == 1)
             {
                 this.Visible = false;
             }
