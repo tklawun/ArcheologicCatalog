@@ -41,7 +41,7 @@ namespace ArcheologicCatalogClassicV3
 
         // TODO: Speichern des geladenen Objekts anfordern, oder automatisch speichern.
         internal void CreateArcheoObjectDetailView(string archeoObjectId)
-        {
+        { 
             if (this.archeologCatalogDetail.IsDisposed) { 
                 this.archeologCatalogDetail = new ArcheologCatalogDetail(this);
             }

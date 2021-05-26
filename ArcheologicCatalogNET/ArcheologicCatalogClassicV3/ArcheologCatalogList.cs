@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ArcheologicCatalogClassicV3.Tests;
 namespace ArcheologicCatalogClassicV3
 {
     public partial class ArcheologCatalogList : Form
@@ -15,6 +15,10 @@ namespace ArcheologicCatalogClassicV3
         private ArcheoObjectViewCtl archeoObjectViewCtl;
         public ArcheologCatalogList()
         {
+            //Test Verknüpfung mit Azure Storage Tables
+            //TestAzureTables testAzureTables = new TestAzureTables();
+            //testAzureTables.RunSamples().Wait();
+
             archeoObjectViewCtl = new ArcheoObjectViewCtl(this);
             InitializeComponent();
             listViewArcheoObjects.View = View.SmallIcon;
