@@ -29,7 +29,7 @@ namespace ArcheologicCatalogClassicV3
             this.comboBoxRockTyp.Items.AddRange(this.archeoObjectViewCtl.GetItemsRockType());
         }
 
-        internal void SetArcheoObjectInForm(ArcheoObject archeoObject)
+        internal void SetArcheoObjectInForm(ArcheoObject archeoObject )
         {
             this.labelId.Text = archeoObject.IdOut;
             this.textBoxCode.Text = archeoObject.CodeOut;
@@ -113,6 +113,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
@@ -237,31 +238,37 @@ namespace ArcheologicCatalogClassicV3
 
         private void textBoxCoordinate_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
         private void textBoxHeight_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
         private void textBoxDepth_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
         private void textBoxDescription_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
         private void comboBoxRockTyp_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
         private void textBoxSpecialFeatures_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
@@ -272,6 +279,7 @@ namespace ArcheologicCatalogClassicV3
 
         private void textBoxWidth_TextChanged(object sender, EventArgs e)
         {
+            this.SaveArcheoObject();
             this.IsChanged = true;
         }
 
