@@ -473,7 +473,15 @@ namespace ArcheologicCatalogClassicV3
             splitCode = code.Split('|');
             if (this.textBoxCode.Text == null || this.textBoxCode.Text == "" || this.textBoxCode.Text.Contains(" Zahl"))
             {
-                this.textBoxCode.Text = splitCode[1].Trim() + " Zahl";
+                //Todo: Failure If SplitCode not complete
+                if (splitCode.Length > 1)
+                { 
+                    this.textBoxCode.Text = splitCode[1].Trim() + " Zahl";
+                }
+                else
+                {
+                    this.textBoxCode.Text = " Zahl";
+                }
             }
         }
 

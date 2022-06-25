@@ -14,7 +14,12 @@ namespace ArcheologicCatalogClassicV3
         internal string GetXmlDataFilePath()
         {
             String xmlDataFilePath = appPath + "\\Data\\ArcheoCatalogData.xml";
-            if (!File.Exists(xmlDataFilePath)){ 
+            String xmlDataFileDirectory = appPath + "\\Data";
+            if (!File.Exists(xmlDataFilePath)){
+                if (!Directory.Exists(xmlDataFileDirectory))
+                {   
+                    Directory.CreateDirectory(xmlDataFileDirectory);
+                }
                 ArcheoObjectXmlData xmld = new ArcheoObjectXmlData();
                 xmld.InitializeXMLFile(xmlDataFilePath);
             }

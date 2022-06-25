@@ -65,16 +65,16 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>ArcheologicCatalogClassicV3.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>ArcheologicCatalogClassicV3_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>tfaresarchivecatalog.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -384,7 +384,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ArcheologicCatalogClassicV3_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ArcheoConfigParameter.datasource" />
     <None Include="Properties\Settings.settings">
@@ -397,6 +396,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Settings.json" />
+    <None Include="tfaresarchivecatalog.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
